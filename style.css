@@ -205,7 +205,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* ===== HERO IMAGE ===== */
 .hero-image img {
     width: 100%;
     max-width: 550px;
@@ -221,12 +220,8 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 /* ===== SERVICES ===== */
@@ -257,7 +252,6 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== SERVICE ICONS WITH IMAGES ===== */
 .service-card .icon {
     margin: 0 auto 20px;
     width: 80px;
@@ -295,6 +289,48 @@ body {
 
 .service-card p {
     color: var(--text-light);
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+    padding: 80px 0;
+    background: var(--light-blue);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card .stars {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    color: var(--primary-blue);
+    font-weight: 600;
 }
 
 /* ===== PRICING ===== */
@@ -427,7 +463,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* ===== ABOUT IMAGE ===== */
 .about-image img {
     width: 100%;
     border-radius: 20px;
@@ -649,6 +684,25 @@ body {
     opacity: 0.7;
 }
 
+/* ===== FLOATING CTA BUTTON ===== */
+.cta-float {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.cta-float .btn {
+    box-shadow: 0 4px 20px rgba(244, 123, 32, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
 /* ===== WHATSAPP FLOATING BUTTON ===== */
 .whatsapp-float {
     position: fixed;
@@ -752,6 +806,10 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
     .contact-form {
         padding: 25px;
     }
@@ -794,6 +852,15 @@ body {
         bottom: 20px;
         right: 20px;
     }
+
+    .cta-float {
+        bottom: 80px;
+    }
+
+    .cta-float .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -832,5 +899,14 @@ body {
         font-size: 1.3rem;
         bottom: 15px;
         right: 15px;
+    }
+
+    .cta-float {
+        bottom: 70px;
+    }
+
+    .cta-float .btn {
+        font-size: 0.8rem;
+        padding: 8px 16px;
     }
 }
