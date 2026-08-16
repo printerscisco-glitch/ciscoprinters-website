@@ -200,6 +200,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* ===== HERO IMAGE ===== */
 .hero-image {
     text-align: center;
     font-size: 12rem;
@@ -208,8 +209,7 @@ body {
 }
 
 @keyframes float {
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
     50% {
@@ -254,6 +254,13 @@ body {
     line-height: 80px;
     border-radius: 50%;
     margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.service-card:hover .icon {
+    background: var(--primary-orange);
+    color: var(--white);
+    transform: rotate(10deg) scale(1.1);
 }
 
 .service-card h3 {
@@ -403,6 +410,12 @@ body {
     background: var(--light-blue);
     padding: 60px 20px;
     border-radius: 20px;
+    transition: var(--transition);
+}
+
+.about-image:hover {
+    transform: scale(1.02);
+    background: var(--orange-light);
 }
 
 /* ===== CONTACT ===== */
@@ -429,7 +442,8 @@ body {
 }
 
 .contact-info .info-item:hover {
-    transform: translateX(5px);
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .contact-info .info-item i {
@@ -437,15 +451,22 @@ body {
     color: var(--primary-orange);
     min-width: 50px;
     text-align: center;
+    margin-top: 5px;
 }
 
 .contact-info .info-item h4 {
     color: var(--primary-blue);
+    margin-bottom: 5px;
 }
 
 .contact-info .info-item p {
     color: var(--text-light);
     font-size: 0.95rem;
+}
+
+.contact-info .info-item small {
+    color: var(--primary-orange);
+    font-weight: 600;
 }
 
 .contact-form {
@@ -489,12 +510,14 @@ body {
     display: block;
     background: #d4edda;
     color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 .form-message.error {
     display: block;
     background: #f8d7da;
     color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 /* ===== FOOTER ===== */
@@ -541,7 +564,7 @@ body {
 
 .social-links a:hover {
     background: var(--primary-orange);
-    transform: translateY(-3px);
+    transform: translateY(-3px) rotate(8deg);
 }
 
 .footer-links h4 {
@@ -559,7 +582,7 @@ body {
 
 .footer-links a:hover {
     color: var(--primary-orange);
-    padding-left: 5px;
+    padding-left: 8px;
 }
 
 .footer-newsletter p {
@@ -579,6 +602,10 @@ body {
     font-family: inherit;
 }
 
+.newsletter-form input:focus {
+    outline: 2px solid var(--primary-orange);
+}
+
 .newsletter-form button {
     background: var(--primary-orange);
     color: var(--white);
@@ -591,6 +618,7 @@ body {
 
 .newsletter-form button:hover {
     background: #d96a1a;
+    transform: scale(1.05);
 }
 
 .footer-bottom {
@@ -618,6 +646,15 @@ body {
 
     .footer-content {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-image {
+        font-size: 8rem;
+    }
+
+    .about-image {
+        font-size: 6rem;
+        padding: 40px 20px;
     }
 }
 
@@ -647,8 +684,8 @@ body {
         font-size: 2rem;
     }
 
-    .hero-image {
-        font-size: 6rem;
+    .hero {
+        padding: 120px 0 60px;
     }
 
     .section-title {
@@ -658,11 +695,6 @@ body {
     .about-stats {
         flex-direction: column;
         gap: 15px;
-    }
-
-    .about-image {
-        font-size: 5rem;
-        padding: 40px 20px;
     }
 
     .footer-content {
@@ -688,11 +720,40 @@ body {
     .hero-buttons .btn {
         text-align: center;
     }
+
+    .hero-image {
+        font-size: 5rem;
+    }
+
+    .about-image {
+        font-size: 4rem;
+        padding: 30px 20px;
+    }
+
+    .service-card .icon {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 2rem;
+    }
+
+    .pricing-card .price {
+        font-size: 2.5rem;
+    }
+
+    .contact-info .info-item {
+        padding: 15px;
+    }
+
+    .contact-info .info-item i {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .container {
@@ -702,4 +763,101 @@ body {
     .pricing-card {
         padding: 25px 15px;
     }
+
+    .hero-image {
+        font-size: 4rem;
+    }
+
+    .about-image {
+        font-size: 3rem;
+        padding: 20px 15px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== SCROLL ANIMATION HELPER ===== */
+.service-card,
+.pricing-card,
+.about-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card.visible,
+.pricing-card.visible,
+.about-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== WHATSAPP FLOATING BUTTON ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    z-index: 999;
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--primary-orange);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(244, 123, 32, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    border: none;
+}
+
+.scroll-top.show {
+    display: flex;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(244, 123, 32, 0.6);
 }
