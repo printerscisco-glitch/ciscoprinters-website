@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Printers Math Clock - Full Screen</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #0d0e12;
+      font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+    }
+
+    .board {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #0d0e12;
+      overflow: hidden;
+    }
+
+    #artCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 2px solid #facc15;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: Tahoma, sans-serif;
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-btn:hover {
+      background: #facc15;
+      color: #0d0e12;
+      transform: scale(1.05);
+    }
+
+    .brand-container {
+      position: absolute;
+      top: 58vh;
+      left: 28vw;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 52vw;
+      z-index: 2;
+    }
+
+    .brand-title {
+      font-family: Tahoma, sans-serif;
+      font-size: clamp(34px, 4.6vw, 72px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .brand-title .cisco {
+      color: #2563eb;
+    }
+
+    .brand-title .printers {
+      color: #facc15;
+      margin-left: 10px;
+    }
+
+    .brand-tagline {
+      font-family: Tahoma, sans-serif;
+      color: #ffffff;
+      font-size: clamp(16px, 2vw, 30px);
+      font-style: italic;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-location {
+      font-family: Tahoma, sans-serif;
+      color: #facc15;
+      font-size: clamp(13px, 1.4vw, 22px);
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .ticker-container {
+      position: absolute;
+      bottom: 2.5vh;
+      left: 3vw;
+      width: calc(94vw - 120px);
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      font-family: Tahoma, sans-serif;
+      font-size: clamp(16px, 1.8vw, 26px);
+      font-weight: 700;
+      color: #ef4444;
+      text-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+      animation: marquee 65s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 2vh;
+      right: 3vw;
+      z-index: 2;
+      color: #a1a1aa;
+      text-align: center;
+      font-family: Tahoma, sans-serif;
+    }
+
+    .watermark .nk-logo {
+      font-size: clamp(20px, 2vw, 32px);
+      font-weight: 900;
+      line-height: 1;
+      border-bottom: 2px solid #a1a1aa;
+      padding-bottom: 2px;
+    }
+
+    .watermark .nk-text {
+      font-size: clamp(8px, 0.7vw, 12px);
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .brand-container {
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+      }
+
+      .brand-title {
+        font-size: clamp(24px, 6vw, 40px);
+      }
+
+      .brand-tagline {
+        font-size: clamp(12px, 2.5vw, 18px);
+      }
+
+      .brand-location {
+        font-size: clamp(10px, 2vw, 14px);
+      }
+
+      .ticker-container {
+        width: 90vw;
+        left: 5vw;
+        bottom: 8vh;
+      }
+
+      .ticker-text {
+        font-size: clamp(12px, 2vw, 16px);
+      }
+
+      .watermark {
+        bottom: 1vh;
+        right: 5vw;
+      }
+
+      .back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="board">
+    <canvas id="artCanvas"></canvas>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Website
+    </a>
+
+    <div class="brand-container">
+      <div class="brand-title">
+        <span class="cisco">Cisco</span>
+        <span class="printers">Printers</span>
+      </div>
+      <div class="brand-tagline">Your designing and printing partner</div>
+      <div class="brand-location">Located at Baraton Center opposite Royal Pool</div>
+    </div>
+
+    <div class="ticker-container">
+      <div class="ticker-text">
+        ✦ PRICING LIST: Printing B&W: Ksh 5 | Colored: Ksh 10 | Photos (4x6): Ksh 20 | A4 Photo Paper: Ksh 100 | A4 Glossy: Ksh 20 | A4 Sticker: Ksh 30 | Executive Paper: Ksh 100 | HELB Application: Ksh 250 | Admission Letter: Ksh 150 | KRA Application: Ksh 150 ✦ ALL ONLINE SERVICES & GRAPHIC DESIGNS AVAILABLE!
+      </div>
+    </div>
+
+    <div class="watermark">
+      <div class="nk-logo">NK</div>
+      <div class="nk-text">CREATIVES</div>
+    </div>
+  </div>
+
+  <!-- Font Awesome for Back Button Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    const canvas = document.getElementById('artCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const BLUE_COLOR = '#2563eb';
+    const ORANGE_COLOR = '#f97316';
+    const YELLOW_COLOR = '#facc15';
+
+    function drawStringArt(curveA, curveB, steps, color, opacity = 0.85, lineWidth = 1) {
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = opacity;
+      ctx.lineWidth = lineWidth;
+
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const pA = curveA(t);
+        const pB = curveB(t);
+
+        ctx.beginPath();
+        ctx.moveTo(pA.x, pA.y);
+        ctx.lineTo(pB.x, pB.y);
+        ctx.stroke();
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(pA.x - 1, pA.y - 1, 2, 2);
+        ctx.fillRect(pB.x - 1, pB.y - 1, 2, 2);
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    function drawCorners() {
+      const W = canvas.width;
+      const H = canvas.height;
+      const scale = Math.min(W, H) / 650;
+
+      drawStringArt(
+        (t) => ({ x: 0, y: H - t * (110 * scale) }),
+        (t) => ({ x: t * (110 * scale), y: H }),
+        35,
+        BLUE_COLOR,
+        0.9,
+        1.5 * scale
+      );
+      drawStringArt(
+        (t) => ({ x: 0, y: H - t * (75 * scale) }),
+        (t) => ({ x: t * (75 * scale), y: H }),
+        25,
+        YELLOW_COLOR,
+        0.9,
+        1.5 * scale
+      );
+
+      drawStringArt(
+        (t) => ({ x: W - t * (180 * scale), y: 0 }),
+        (t) => ({ x: W, y: t * (180 * scale) }),
+        45,
+        YELLOW_COLOR,
+        0.95,
+        2.2 * scale
+      );
+      drawStringArt(
+        (t) => ({ x: W - t * (100 * scale), y: 0 }),
+        (t) => ({ x: W, y: t * (100 * scale) }),
+        25,
+        BLUE_COLOR,
+        1.0,
+        2.5 * scale
+      );
+    }
+
+    function drawOuterCrescents(centerX, centerY, scale) {
+      const radius = 160 * scale;
+      const lines = 90;
+
+      drawStringArt(
+        (t) => {
+          const angle = Math.PI * 0.55 + t * (Math.PI * 0.95);
+          return { x: centerX + radius * Math.cos(angle), y: centerY + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = Math.PI * 0.75 + t * (Math.PI * 0.55);
+          return { x: centerX + (radius * 0.5) * Math.cos(angle) - (15 * scale), y: centerY + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        BLUE_COLOR,
+        0.85,
+        1.2 * scale
+      );
+
+      drawStringArt(
+        (t) => {
+          const angle = -Math.PI * 0.45 + t * (Math.PI * 0.95);
+          return { x: centerX + radius * Math.cos(angle), y: centerY + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = -Math.PI * 0.25 + t * (Math.PI * 0.55);
+          return { x: centerX + (radius * 0.5) * Math.cos(angle) + (15 * scale), y: centerY + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        ORANGE_COLOR,
+        0.85,
+        1.2 * scale
+      );
+    }
+
+    function drawCP(centerX, centerY, scale) {
+      ctx.save();
+      const fontSize = 125 * scale;
+      ctx.font = `bold ${fontSize}px Tahoma, sans-serif`;
+      ctx.textBaseline = 'middle';
+
+      const cWidth = ctx.measureText('C').width;
+      const pWidth = ctx.measureText('P').width;
+      const gap = 4 * scale;
+      const totalWidth = cWidth + pWidth + gap;
+
+      const startX = centerX - (totalWidth / 2);
+      const startY = centerY + (10 * scale);
+
+      ctx.fillStyle = BLUE_COLOR;
+      ctx.fillText('C', startX, startY);
+
+      ctx.fillStyle = ORANGE_COLOR;
+      ctx.fillText('P', startX + cWidth + gap, startY);
+
+      ctx.restore();
+    }
+
+    function drawClockWovenBorder(cx, cy, innerR, outerR, scale) {
+      const pins = 180;
+      const skip = 42;
+      ctx.strokeStyle = YELLOW_COLOR;
+      ctx.globalAlpha = 0.45;
+      ctx.lineWidth = 1.0 * scale;
+
+      for (let i = 0; i < pins; i++) {
+        const a1 = (i / pins) * Math.PI * 2;
+        const a2 = ((i + skip) / pins) * Math.PI * 2;
+
+        const x1 = cx + innerR * Math.cos(a1);
+        const y1 = cy + innerR * Math.sin(a1);
+        const x2 = cx + outerR * Math.cos(a2);
+        const y2 = cy + outerR * Math.sin(a2);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    function drawClock(cx, cy, radius, scale) {
+      ctx.save();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 5 * scale;
+      ctx.stroke();
+
+      const labels = [
+        { angle: -Math.PI / 3, num: 'π', den: '3' },
+        { angle: -Math.PI / 6, num: 'π', den: '6' },
+        { angle: 0, text: '2π' },
+        { angle: Math.PI / 6, num: '11π', den: '6' },
+        { angle: Math.PI / 3, num: '5π', den: '3' },
+        { angle: Math.PI / 2, num: '3π', den: '2' },
+        { angle: (2 * Math.PI) / 3, num: '4π', den: '3' },
+        { angle: (5 * Math.PI) / 6, num: '7π', den: '6' },
+        { angle: Math.PI, text: 'π' },
+        { angle: (-5 * Math.PI) / 6, num: '5π', den: '6' },
+        { angle: (-2 * Math.PI) / 3, num: '2π', den: '3' },
+        { angle: -Math.PI / 2, num: 'π', den: '2' }
+      ];
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      labels.forEach(item => {
+        const tickInner = radius - (25 * scale);
+        const tickOuter = radius - (12 * scale);
+        const tx1 = cx + tickInner * Math.cos(item.angle);
+        const ty1 = cy + tickInner * Math.sin(item.angle);
+        const tx2 = cx + tickOuter * Math.cos(item.angle);
+        const ty2 = cy + tickOuter * Math.sin(item.angle);
+
+        ctx.beginPath();
+        ctx.moveTo(tx1, ty1);
+        ctx.lineTo(tx2, ty2);
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2.5 * scale;
+        ctx.stroke();
+
+        const labelR = radius - (55 * scale);
+        const lx = cx + labelR * Math.cos(item.angle);
+        const ly = cy + labelR * Math.sin(item.angle);
+
+        if (item.text) {
+          ctx.font = `bold ${22 * scale}px "Times New Roman", Georgia, serif`;
+          ctx.fillText(item.text, lx, ly);
+        } else {
+          ctx.font = `bold ${16 * scale}px "Times New Roman", Georgia, serif`;
+          ctx.fillText(item.num, lx, ly - (8 * scale));
+
+          const barWidth = Math.max(ctx.measureText(item.num).width, ctx.measureText(item.den).width) + (4 * scale);
+          ctx.beginPath();
+          ctx.moveTo(lx - barWidth / 2, ly);
+          ctx.lineTo(lx + barWidth / 2, ly);
+          ctx.lineWidth = 1.5 * scale;
+          ctx.stroke();
+
+          ctx.fillText(item.den, lx, ly + (10 * scale));
+        }
+      });
+
+      ctx.font = `bold ${52 * scale}px "Times New Roman", Georgia, serif`;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('π', cx, cy + (45 * scale));
+
+      const now = new Date();
+      const hrs = now.getHours() % 12;
+      const mins = now.getMinutes();
+      const secs = now.getSeconds();
+
+      const hAngle = ((hrs + mins / 60) * 30 - 90) * (Math.PI / 180);
+      const mAngle = ((mins + secs / 60) * 6 - 90) * (Math.PI / 180);
+      const sAngle = ((secs) * 6 - 90) * (Math.PI / 180);
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(hAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-10 * scale, -4 * scale);
+      ctx.lineTo(radius * 0.45, -2 * scale);
+      ctx.lineTo(radius * 0.55, 0);
+      ctx.lineTo(radius * 0.45, 2 * scale);
+      ctx.lineTo(-10 * scale, 4 * scale);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(mAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-15 * scale, -3 * scale);
+      ctx.lineTo(radius * 0.7, -1.5 * scale);
+      ctx.lineTo(radius * 0.8, 0);
+      ctx.lineTo(radius * 0.7, 1.5 * scale);
+      ctx.lineTo(-15 * scale, 3 * scale);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(sAngle);
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2.5 * scale;
+      ctx.beginPath();
+      ctx.moveTo(-20 * scale, 0);
+      ctx.lineTo(radius * 0.82, 0);
+      ctx.stroke();
+
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(0, 0, 6 * scale, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const W = canvas.width;
+      const H = canvas.height;
+      const baseScale = Math.min(W / 1000, H / 650);
+
+      drawCorners();
+
+      const logoCX = W * 0.28;
+      const logoCY = H * 0.28;
+      drawOuterCrescents(logoCX, logoCY, baseScale);
+      drawCP(logoCX, logoCY, baseScale);
+
+      const clockCX = W * 0.73;
+      const clockCY = H * 0.43;
+      const clockRadius = 195 * baseScale;
+
+      drawClockWovenBorder(clockCX, clockCY, clockRadius, clockRadius + (50 * baseScale), baseScale);
+      drawClock(clockCX, clockCY, clockRadius, baseScale);
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+  </script>
+</body>
+</html>

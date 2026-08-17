@@ -120,6 +120,7 @@ body {
     list-style: none;
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -149,6 +150,33 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary-orange);
+}
+
+/* ===== CLOCK LINK IN NAV ===== */
+.clock-link {
+    background: linear-gradient(135deg, #2563eb, #f97316) !important;
+    color: white !important;
+    padding: 8px 18px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.clock-link:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4) !important;
+    color: white !important;
+}
+
+.clock-link::after {
+    display: none !important;
+}
+
+.clock-link i {
+    font-size: 1rem;
 }
 
 .hamburger {
@@ -773,6 +801,12 @@ body {
 
     .hamburger {
         display: block;
+    }
+
+    .clock-link {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px !important;
     }
 
     .hero-content h1 {
