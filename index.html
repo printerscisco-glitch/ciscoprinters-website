@@ -19,7 +19,6 @@
     <meta property="og:type" content="website" />
 
     <!-- ===== GOOGLE ANALYTICS ===== -->
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXM02MZ560"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -97,6 +96,9 @@
                     </div>
                     <h3>High-Speed Internet</h3>
                     <p>Super-fast broadband internet for browsing, streaming, and research.</p>
+                    <a href="#booking" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
+                        <i class="fas fa-calendar-check"></i> Book Computer
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -105,6 +107,9 @@
                     </div>
                     <h3>Printing Services</h3>
                     <p>Professional color &amp; black/white printing, scanning, and photocopying.</p>
+                    <a href="#print-upload" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
+                        <i class="fas fa-upload"></i> Upload to Print
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -129,6 +134,9 @@
                     </div>
                     <h3>Computer Rental</h3>
                     <p>Clean, reliable computers for online exams, research, and projects.</p>
+                    <a href="#booking" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
+                        <i class="fas fa-calendar-check"></i> Book Now
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -158,7 +166,7 @@
                         <li><i class="fas fa-check"></i> Unlimited browsing</li>
                         <li><i class="fas fa-check"></i> Secure connection</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -171,7 +179,7 @@
                         <li><i class="fas fa-check"></i> Scanning: KES 20/page</li>
                         <li><i class="fas fa-check"></i> Photocopy: KES 5/page</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                    <a href="#print-upload" class="btn btn-primary">Upload & Print</a>
                 </div>
 
                 <div class="pricing-card">
@@ -183,7 +191,193 @@
                         <li><i class="fas fa-check"></i> All software installed</li>
                         <li><i class="fas fa-check"></i> 24/7 support</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Reserve</a>
+                    <a href="#booking" class="btn btn-primary">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 🖨️ PRINT UPLOAD SECTION ===== -->
+    <section id="print-upload" class="print-upload">
+        <div class="container">
+            <h2 class="section-title"><span class="highlight">Upload</span> to Print</h2>
+            <p class="section-subtitle">Upload your documents and we'll print them for you</p>
+
+            <div class="print-grid">
+                <div class="print-form-container">
+                    <form id="printForm" onsubmit="submitPrintJob(event)">
+                        <div class="upload-area" id="dropArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop files here or click to browse</p>
+                            <p class="file-types">Supports: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</p>
+                            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.png" hidden />
+                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+
+                        <div class="print-options">
+                            <div class="print-option-group">
+                                <label>Pages per copy:</label>
+                                <input type="number" id="pagesPerCopy" value="1" min="1" max="100" />
+                            </div>
+                            <div class="print-option-group">
+                                <label>Copies:</label>
+                                <input type="number" id="copies" value="1" min="1" max="20" />
+                            </div>
+                            <div class="print-option-group">
+                                <label>Color Mode:</label>
+                                <select id="printColor">
+                                    <option value="bw">Black & White (KES 10/page)</option>
+                                    <option value="color">Color (KES 30/page)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="print-summary" id="printSummary">
+                            <p><strong>Total Estimated Cost:</strong> <span id="estimatedCost">KES 0</span></p>
+                            <p><small>* Final price confirmed at checkout</small></p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="printSubmitBtn">
+                            <i class="fas fa-print"></i> Submit Print Job & Pay
+                        </button>
+                    </form>
+                    <div id="printMessage" class="form-message"></div>
+                </div>
+
+                <div class="print-info">
+                    <h3>📋 Printing Guidelines</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> B&W: KES 10 per page</li>
+                        <li><i class="fas fa-check-circle"></i> Color: KES 30 per page</li>
+                        <li><i class="fas fa-check-circle"></i> Max file size: 10MB</li>
+                        <li><i class="fas fa-check-circle"></i> Supported: PDF, Word, Images</li>
+                        <li><i class="fas fa-check-circle"></i> Pickup: Same day (within 2 hours)</li>
+                    </ul>
+                    <div class="loyalty-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Earn <strong>5 loyalty points</strong> for every print job!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 📅 BOOKING SECTION ===== -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book a <span class="highlight">Computer</span></h2>
+            <p class="section-subtitle">Reserve your computer in advance</p>
+
+            <div class="booking-grid">
+                <div class="booking-form-container">
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-desktop"></i> Computer</label>
+                                <select required id="bookingComputer">
+                                    <option value="">Select Computer</option>
+                                    <option value="1">Computer 1 (KES 50/hour)</option>
+                                    <option value="2">Computer 2 (KES 50/hour)</option>
+                                    <option value="3">Computer 3 (KES 50/hour)</option>
+                                    <option value="4">Computer 4 (KES 50/hour)</option>
+                                    <option value="gaming">Gaming PC (KES 100/hour)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Date & Time</label>
+                                <input type="datetime-local" required id="bookingDateTime" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-hourglass-half"></i> Hours</label>
+                                <input type="number" placeholder="1-8 hours" min="1" max="8" required id="bookingHours" />
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Your Name</label>
+                                <input type="text" placeholder="Full Name" required id="bookingName" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" placeholder="2547XXXXXXXX" required id="bookingPhone" />
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-envelope"></i> Email (Optional)</label>
+                                <input type="email" placeholder="your@email.com" id="bookingEmail" />
+                            </div>
+                        </div>
+                        <div class="booking-summary" id="bookingSummary">
+                            <p><strong>Estimated Cost:</strong> <span id="bookingCost">KES 0</span></p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i> Confirm Booking
+                        </button>
+                    </form>
+                    <div id="bookingMessage" class="form-message"></div>
+                </div>
+
+                <div class="booking-info">
+                    <h3>📋 Booking Guidelines</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Regular PC: KES 50/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Gaming PC: KES 100/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Minimum 1 hour booking</li>
+                        <li><i class="fas fa-check-circle"></i> Arrive 5 min before booking</li>
+                        <li><i class="fas fa-check-circle"></i> Cancel 2 hours in advance</li>
+                    </ul>
+                    <div class="loyalty-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Earn <strong>10 loyalty points</strong> for every booking!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ⭐ LOYALTY PROGRAM SECTION ===== -->
+    <section id="loyalty" class="loyalty">
+        <div class="container">
+            <h2 class="section-title">Our <span class="highlight">Loyalty</span> Program</h2>
+            <p class="section-subtitle">Earn points and get rewards!</p>
+
+            <div class="loyalty-grid">
+                <div class="loyalty-card">
+                    <div class="loyalty-icon"><i class="fas fa-gem"></i></div>
+                    <h3>How It Works</h3>
+                    <p>Earn points for every service you use:</p>
+                    <ul>
+                        <li><i class="fas fa-print"></i> Printing: 5 points</li>
+                        <li><i class="fas fa-desktop"></i> Computer Booking: 10 points</li>
+                        <li><i class="fas fa-passport"></i> Passport Photos: 5 points</li>
+                        <li><i class="fas fa-wifi"></i> Internet Browsing: 2 points/hour</li>
+                    </ul>
+                </div>
+                <div class="loyalty-card featured-loyalty">
+                    <div class="badge">Popular</div>
+                    <h3>🎁 Rewards</h3>
+                    <ul>
+                        <li><i class="fas fa-star"></i> <strong>50 points</strong> = Free 1 hour internet</li>
+                        <li><i class="fas fa-star"></i> <strong>100 points</strong> = Free 10 pages printing</li>
+                        <li><i class="fas fa-star"></i> <strong>200 points</strong> = Free 2 hours computer rental</li>
+                        <li><i class="fas fa-star"></i> <strong>500 points</strong> = Free passport photos</li>
+                    </ul>
+                </div>
+                <div class="loyalty-card">
+                    <div class="loyalty-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Check Your Points</h3>
+                    <p>Enter your phone number to check your points:</p>
+                    <div class="points-checker">
+                        <input type="tel" id="pointsPhone" placeholder="2547XXXXXXXX" />
+                        <button onclick="checkPoints()" class="btn btn-secondary">
+                            <i class="fas fa-search"></i> Check
+                        </button>
+                    </div>
+                    <div id="pointsResult" class="points-result"></div>
                 </div>
             </div>
         </div>
