@@ -2,24 +2,5 @@
   "name": "ciscoprinters-website",
   "version": "1.0.0",
   "description": "Cisco Printers Cybercafe - Baraton, Nandi",
-  "main": "index.html",
-  "scripts": {
-    "build": "echo 'Static site - no build needed' && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/printerscisco-glitch/ciscoprinters-website.git"
-  },
-  "keywords": [
-    "cybercafe",
-    "printing",
-    "kenya",
-    "baraton"
-  ],
-  "author": "Cisco Printers Cybercafe",
-  "license": "ISC",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.112.3",
-    "postgres": "^3.4.9"
-  }
+  "main": "index.html"
 }
