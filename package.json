@@ -1,26 +1,27 @@
 {
-  "dependencies": {
-    "@supabase/ssr": "^0.12.4",
-    "@supabase/supabase-js": "^2.112.3",
-    "postgres": "^3.4.9"
-  },
   "name": "ciscoprinters-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Cisco Printers Cybercafe - Baraton, Nandi",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo 'Static site - no build needed' && exit 0",
+    "dev": "python3 -m http.server 8080"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/printerscisco-glitch/ciscoprinters-website.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cybercafe",
+    "printing",
+    "kenya",
+    "baraton",
+    "cisco-printers"
+  ],
+  "author": "Cisco Printers Cybercafe",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/printerscisco-glitch/ciscoprinters-website/issues"
-  },
-  "homepage": "https://github.com/printerscisco-glitch/ciscoprinters-website#readme"
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.3",
+    "postgres": "^3.4.9"
+  }
 }

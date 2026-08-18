@@ -1,0 +1,8 @@
+name = "ciscoprinters-website"
+pages_build_output_dir = "."
+
+[env.production]
+routes = ["ciscoprinters.co.ke/*", "www.ciscoprinters.co.ke/*"]
+
+[env.preview]
+routes = ["ciscoprinters-website.pages.dev/*"]

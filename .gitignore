@@ -16,12 +16,16 @@ yarn-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
 
 # Vercel
+.vercel
+
+# Cloudflare
+.wrangler
 .vercel
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
