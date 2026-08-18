@@ -4,8 +4,7 @@
   "description": "Cisco Printers Cybercafe - Baraton, Nandi",
   "main": "index.html",
   "scripts": {
-    "build": "echo 'Static site - no build needed' && exit 0",
-    "dev": "python3 -m http.server 8080"
+    "build": "echo 'Static site - no build needed' && exit 0"
   },
   "repository": {
     "type": "git",
@@ -15,8 +14,7 @@
     "cybercafe",
     "printing",
     "kenya",
-    "baraton",
-    "cisco-printers"
+    "baraton"
   ],
   "author": "Cisco Printers Cybercafe",
   "license": "ISC",

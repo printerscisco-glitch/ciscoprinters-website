@@ -1,5 +1,9 @@
 name = "ciscoprinters-website"
-pages_build_output_dir = "."
+compatibility_date = "2026-08-18"
+
+[assets]
+directory = "."
+binding = "ASSETS"
 
 [env.production]
 routes = ["ciscoprinters.co.ke/*", "www.ciscoprinters.co.ke/*"]
