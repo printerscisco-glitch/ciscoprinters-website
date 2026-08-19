@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naomi Kioko Designs - Art & Design Partner</title>
+    <title>Naomi Kioko Designs - Art Portfolio</title>
 
     <!-- ===== SEO META TAGS ===== -->
-    <meta name="description" content="Naomi Kioko Designs - Professional art and design services in Baraton, Nandi. Graphic design, branding, digital art, and creative solutions." />
-    <meta name="keywords" content="Naomi Kioko, art designs, graphic design, branding, digital art, Baraton, Nandi, Kenya" />
+    <meta name="description" content="Naomi Kioko Designs - Professional string art, mixed media, and calligraphy artwork. Based in Baraton, Nandi, Kenya." />
+    <meta name="keywords" content="Naomi Kioko, string art, mixed media, calligraphy, artwork, Baraton, Nandi, Kenya" />
     <meta name="author" content="Naomi Kioko Designs" />
     <meta name="robots" content="index, follow" />
 
     <!-- ===== OPEN GRAPH ===== -->
-    <meta property="og:title" content="Naomi Kioko Designs - Art & Design Partner" />
-    <meta property="og:description" content="Professional art and design services in Baraton, Nandi. Creative solutions for your brand." />
+    <meta property="og:title" content="Naomi Kioko Designs - Art Portfolio" />
+    <meta property="og:description" content="Professional string art, mixed media, and calligraphy artwork by Naomi Kioko." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ciscoprinters.co.ke/naomi-kioko-designs.html" />
 
@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
-        /* ===== ADVERTISEMENT PAGE STYLES ===== */
-        .ad-page {
-            background: linear-gradient(135deg, #fdf6f0 0%, #fce4d6 100%);
+        /* ===== NAOMI PORTFOLIO PAGE STYLES ===== */
+        .portfolio-page {
+            background: #fdf6f0;
             min-height: 100vh;
             padding-top: 80px;
         }
 
-        .ad-hero {
+        .portfolio-hero {
             background: linear-gradient(135deg, #6a1b4d, #9b2d6e, #c4458a);
             padding: 80px 0;
             color: white;
@@ -37,18 +37,18 @@
             overflow: hidden;
         }
 
-        .ad-hero::before {
+        .portfolio-hero::before {
             content: '';
             position: absolute;
             top: -50%;
             right: -20%;
             width: 60%;
             height: 200%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             transform: rotate(-30deg);
         }
 
-        .ad-hero h1 {
+        .portfolio-hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 10px;
@@ -56,7 +56,7 @@
             z-index: 1;
         }
 
-        .ad-hero .subtitle {
+        .portfolio-hero .subtitle {
             font-size: 1.5rem;
             font-weight: 300;
             opacity: 0.9;
@@ -64,7 +64,7 @@
             z-index: 1;
         }
 
-        .ad-hero .tagline {
+        .portfolio-hero .tagline {
             font-size: 1.1rem;
             opacity: 0.8;
             margin-top: 15px;
@@ -72,416 +72,168 @@
             z-index: 1;
         }
 
-        .ad-hero .btn {
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .ad-hero .btn-primary {
-            background: #f9c74f;
-            color: #6a1b4d;
-            box-shadow: 0 4px 20px rgba(249, 199, 79, 0.4);
-        }
-
-        .ad-hero .btn-primary:hover {
-            background: #f8b82e;
-            transform: translateY(-3px);
-        }
-
-        /* ===== ABOUT NAOMI ===== */
-        .ad-about {
-            padding: 80px 0;
+        /* ===== ARTWORK GALLERY ===== */
+        .artwork-gallery {
+            padding: 60px 0;
             background: #ffffff;
         }
 
-        .ad-about-grid {
+        .artwork-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .ad-about-image {
-            background: linear-gradient(135deg, #6a1b4d, #c4458a);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            color: white;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .ad-about-image i {
-            font-size: 6rem;
-            margin-bottom: 20px;
-        }
-
-        .ad-about-image h3 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .ad-about-text h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #6a1b4d;
-        }
-
-        .ad-about-text h2 span {
-            color: #c4458a;
-        }
-
-        .ad-about-text p {
-            color: #555;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        /* ===== SERVICES ===== */
-        .ad-services {
-            padding: 80px 0;
-            background: #fdf6f0;
-        }
-
-        .ad-services .section-title {
-            color: #6a1b4d;
-        }
-
-        .ad-services .section-title span {
-            color: #c4458a;
-        }
-
-        .ad-services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
-        .ad-service-card {
-            background: white;
-            padding: 40px 25px;
+        .artwork-card {
+            background: #ffffff;
             border-radius: 15px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border-bottom: 4px solid transparent;
+            border: 1px solid #f0e8e0;
         }
 
-        .ad-service-card:hover {
+        .artwork-card:hover {
             transform: translateY(-10px);
-            border-bottom-color: #c4458a;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 60px rgba(106, 27, 77, 0.15);
         }
 
-        .ad-service-card .icon {
-            font-size: 3rem;
-            color: #c4458a;
-            background: #fce4d6;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            transition: all 0.3s ease;
-        }
-
-        .ad-service-card:hover .icon {
-            background: #6a1b4d;
-            color: white;
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .ad-service-card h3 {
-            font-size: 1.2rem;
-            color: #6a1b4d;
-            margin-bottom: 10px;
-        }
-
-        .ad-service-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* ===== PORTFOLIO ===== */
-        .ad-portfolio {
-            padding: 80px 0;
-            background: #ffffff;
-        }
-
-        .ad-portfolio .section-title {
-            color: #6a1b4d;
-        }
-
-        .ad-portfolio .section-title span {
-            color: #c4458a;
-        }
-
-        .ad-portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .ad-portfolio-item {
-            background: #fdf6f0;
-            border-radius: 15px;
-            padding: 40px 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .ad-portfolio-item:hover {
-            border-color: #c4458a;
-            transform: scale(1.03);
-        }
-
-        .ad-portfolio-item i {
-            font-size: 3.5rem;
-            color: #c4458a;
-            margin-bottom: 15px;
-        }
-
-        .ad-portfolio-item h4 {
-            color: #6a1b4d;
-            font-weight: 600;
-        }
-
-        .ad-portfolio-item p {
-            color: #888;
-            font-size: 0.85rem;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .ad-testimonials {
-            padding: 80px 0;
-            background: #6a1b4d;
-            color: white;
-        }
-
-        .ad-testimonials .section-title {
-            color: white;
-        }
-
-        .ad-testimonials .section-title span {
-            color: #f9c74f;
-        }
-
-        .ad-testimonials .section-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .ad-testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .ad-testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .ad-testimonial-card .stars {
-            font-size: 1.5rem;
-            color: #f9c74f;
-            margin-bottom: 15px;
-        }
-
-        .ad-testimonial-card p {
-            font-style: italic;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-
-        .ad-testimonial-card h4 {
-            font-weight: 600;
-            color: #f9c74f;
-        }
-
-        /* ===== CONTACT ===== */
-        .ad-contact {
-            padding: 80px 0;
-            background: #fdf6f0;
-        }
-
-        .ad-contact .section-title {
-            color: #6a1b4d;
-        }
-
-        .ad-contact .section-title span {
-            color: #c4458a;
-        }
-
-        .ad-contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 40px;
-        }
-
-        .ad-contact-info .info-item {
+        .artwork-image {
+            width: 100%;
+            height: 280px;
+            background: #f0e8e0;
             display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-
-        .ad-contact-info .info-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .ad-contact-info .info-item i {
-            font-size: 1.8rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
             color: #c4458a;
-            min-width: 50px;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .ad-contact-info .info-item h4 {
+        .artwork-image .placeholder-icon {
+            font-size: 4rem;
+            color: #c4458a;
+            opacity: 0.5;
+        }
+
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-info {
+            padding: 20px 25px 25px;
+        }
+
+        .artwork-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #6a1b4d;
             margin-bottom: 5px;
         }
 
-        .ad-contact-info .info-item p {
-            color: #555;
+        .artwork-info .art-medium {
+            font-size: 0.85rem;
+            color: #c4458a;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .artwork-info .art-year {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .artwork-info .art-description {
             font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
         }
 
-        .ad-contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        .artwork-info .art-tags {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .ad-contact-form input,
-        .ad-contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-family: inherit;
+        .artwork-info .art-tags span {
+            background: #fdf6f0;
+            color: #6a1b4d;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== FILTER BUTTONS ===== */
+        .filter-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 2px solid #6a1b4d;
+            color: #6a1b4d;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            margin: 5px;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .ad-contact-form input:focus,
-        .ad-contact-form textarea:focus {
-            border-color: #c4458a;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(196, 69, 138, 0.2);
-        }
-
-        .ad-contact-form .btn {
-            width: 100%;
+        .filter-btn:hover,
+        .filter-btn.active {
             background: #6a1b4d;
             color: white;
-        }
-
-        .ad-contact-form .btn:hover {
-            background: #4d1337;
-            transform: translateY(-3px);
         }
 
         /* ===== BACK BUTTON ===== */
-        .ad-back {
-            padding: 20px 0;
-            background: #fdf6f0;
+        .back-section {
+            padding: 40px 0;
             text-align: center;
+            background: #fdf6f0;
         }
 
-        .ad-back .btn {
+        .back-section .btn {
             background: #6a1b4d;
             color: white;
         }
 
-        .ad-back .btn:hover {
+        .back-section .btn:hover {
             background: #4d1337;
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .ad-about-grid,
-            .ad-contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ad-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .ad-hero .subtitle {
-                font-size: 1.2rem;
-            }
-        }
-
         @media (max-width: 768px) {
-            .ad-hero h1 {
-                font-size: 2rem;
+            .portfolio-hero h1 {
+                font-size: 2.2rem;
             }
-
-            .ad-hero .subtitle {
-                font-size: 1rem;
+            .portfolio-hero .subtitle {
+                font-size: 1.1rem;
             }
-
-            .ad-about-text h2 {
-                font-size: 2rem;
-            }
-
-            .ad-services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ad-portfolio-grid {
+            .artwork-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-
-            .ad-contact-form {
-                padding: 25px;
-            }
-
-            .ad-about-image {
-                padding: 40px 20px;
-                min-height: 200px;
-            }
-
-            .ad-about-image i {
-                font-size: 4rem;
             }
         }
 
         @media (max-width: 480px) {
-            .ad-portfolio-grid {
+            .artwork-grid {
                 grid-template-columns: 1fr;
             }
-
-            .ad-hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .ad-hero .subtitle {
-                font-size: 0.9rem;
-            }
-
-            .ad-contact-info .info-item {
-                padding: 15px;
+            .artwork-image {
+                height: 200px;
             }
         }
     </style>
@@ -492,8 +244,9 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-print"></i>
-                <span>Cisco<span class="highlight">Printers</span></span>
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Cisco Printers Cybercafe" class="logo-img" />
+                </a>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
@@ -509,235 +262,462 @@
         </div>
     </nav>
 
-    <!-- ===== ADVERTISEMENT PAGE ===== -->
-    <div class="ad-page">
+    <!-- ===== PORTFOLIO PAGE ===== -->
+    <div class="portfolio-page">
 
         <!-- ===== HERO ===== -->
-        <section class="ad-hero">
+        <section class="portfolio-hero">
             <div class="container">
-                <h1>🎨 Naomi Kioko <span style="color:#f9c74f;">Designs</span></h1>
-                <p class="subtitle">Art &amp; Design Partner</p>
+                <h1>🎨 Naomi Kioko <span style="color:#f9c74f;">Artworks</span></h1>
+                <p class="subtitle">String Art • Mixed Media • Calligraphy</p>
                 <p class="tagline">
                     <i class="fas fa-quote-left"></i>
                     Where creativity meets precision
                     <i class="fas fa-quote-right"></i>
                 </p>
-                <a href="#ad-contact" class="btn btn-primary">
-                    <i class="fas fa-paint-brush"></i> Get a Design
-                </a>
             </div>
         </section>
 
-        <!-- ===== ABOUT NAOMI ===== -->
-        <section class="ad-about">
+        <!-- ===== GALLERY ===== -->
+        <section class="artwork-gallery">
             <div class="container">
-                <div class="ad-about-grid">
-                    <div class="ad-about-image">
-                        <i class="fas fa-palette"></i>
-                        <h3>Naomi Kioko</h3>
-                        <p style="opacity:0.8;">Creative Director &amp; Designer</p>
-                    </div>
-                    <div class="ad-about-text">
-                        <h2>About <span>Naomi Kioko</span></h2>
-                        <p>
-                            Naomi Kioko is a passionate artist and designer based in Baraton, Nandi.
-                            With a keen eye for detail and a love for creativity, she brings ideas to life
-                            through stunning visual designs.
-                        </p>
-                        <p>
-                            From branding and logos to digital art and illustrations,
-                            Naomi delivers high-quality design solutions that tell your story
-                            and captivate your audience.
-                        </p>
-                        <p>
-                            <strong><i class="fas fa-heart" style="color:#c4458a;"></i> Partnered with Cisco Printers Cybercafe</strong>
-                            — Bringing art and print together.
-                        </p>
-                    </div>
+                <h2 class="section-title">Featured <span class="highlight">Artworks</span></h2>
+                <p class="section-subtitle">A curated collection of Naomi's finest work</p>
+
+                <!-- Filter Buttons -->
+                <div class="filter-section">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="string-art">String Art</button>
+                    <button class="filter-btn" data-filter="mixed-media">Mixed Media</button>
+                    <button class="filter-btn" data-filter="calligraphy">Calligraphy</button>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===== SERVICES ===== -->
-        <section class="ad-services">
-            <div class="container">
-                <h2 class="section-title">Our <span>Design</span> Services</h2>
-                <p class="section-subtitle">Creative solutions for every need</p>
+                <div class="artwork-grid" id="artworkGrid">
 
-                <div class="ad-services-grid">
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-pen-fancy"></i></div>
-                        <h3>Logo &amp; Branding</h3>
-                        <p>Unique logos and brand identity that make your business stand out.</p>
-                    </div>
-
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-vector-square"></i></div>
-                        <h3>Graphic Design</h3>
-                        <p>Flyers, posters, banners, and all your graphic design needs.</p>
-                    </div>
-
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-paint-brush"></i></div>
-                        <h3>Digital Art</h3>
-                        <p>Stunning digital illustrations and artwork for any purpose.</p>
-                    </div>
-
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-file-image"></i></div>
-                        <h3>Photo Editing</h3>
-                        <p>Professional photo retouching, restoration, and enhancement.</p>
-                    </div>
-
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-print"></i></div>
-                        <h3>Print Ready Designs</h3>
-                        <p>Designs optimized for high-quality printing at Cisco Printers.</p>
-                    </div>
-
-                    <div class="ad-service-card">
-                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3>Social Media Graphics</h3>
-                        <p>Eye-catching graphics for Facebook, Instagram, and more.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== PORTFOLIO ===== -->
-        <section class="ad-portfolio">
-            <div class="container">
-                <h2 class="section-title">What We <span>Create</span></h2>
-                <p class="section-subtitle">Samples of our creative work</p>
-
-                <div class="ad-portfolio-grid">
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-crown"></i>
-                        <h4>Logo Design</h4>
-                        <p>Brand identities</p>
-                    </div>
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-newspaper"></i>
-                        <h4>Flyers &amp; Posters</h4>
-                        <p>Print &amp; digital</p>
-                    </div>
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-palette"></i>
-                        <h4>Digital Art</h4>
-                        <p>Illustrations</p>
-                    </div>
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-images"></i>
-                        <h4>Photo Editing</h4>
-                        <p>Retouching</p>
-                    </div>
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-hashtag"></i>
-                        <h4>Social Media</h4>
-                        <p>Content creation</p>
-                    </div>
-                    <div class="ad-portfolio-item">
-                        <i class="fas fa-box"></i>
-                        <h4>Packaging Design</h4>
-                        <p>Product branding</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== TESTIMONIALS ===== -->
-        <section class="ad-testimonials">
-            <div class="container">
-                <h2 class="section-title">What <span>Clients</span> Say</h2>
-                <p class="section-subtitle">Real feedback from real customers</p>
-
-                <div class="ad-testimonial-grid">
-                    <div class="ad-testimonial-card">
-                        <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                        <p>"Naomi designed an amazing logo for my business. Highly professional and creative!"</p>
-                        <h4>— James K.</h4>
-                    </div>
-                    <div class="ad-testimonial-card">
-                        <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                        <p>"Her digital art is incredible. She captured exactly what I wanted. 100% recommended!"</p>
-                        <h4>— Sarah W.</h4>
-                    </div>
-                    <div class="ad-testimonial-card">
-                        <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                        <p>"Great designs for our event. Fast turnaround and excellent quality."</p>
-                        <h4>— Michael O.</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CONTACT ===== -->
-        <section id="ad-contact" class="ad-contact">
-            <div class="container">
-                <h2 class="section-title">Get a <span>Design</span></h2>
-                <p class="section-subtitle">Let's bring your ideas to life</p>
-
-                <div class="ad-contact-grid">
-                    <div class="ad-contact-info">
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Call or WhatsApp</h4>
-                                <p>+254 769 357 320</p>
-                                <p><small>Ask for Naomi</small></p>
-                            </div>
+                    <!-- ===== ARTWORK 1 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/golden-hour-reflection.jpg" alt="Golden Hour Reflection" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>naomi@ciscoprinters.co.ke</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Baraton Centre, Nandi, Kenya</p>
-                                <p><small>Opposite Royal Pool</small></p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Mon–Sat: 8:00 AM – 6:00 PM</p>
-                                <p><small>By appointment</small></p>
+                        <div class="artwork-info">
+                            <h3>Golden Hour Reflection</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">Striking sunset rendered with textured golden string rays and a reflective, painted orb, beautifully contrasted against a minimalist black background.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Sunset</span>
+                                <span>Abstract</span>
                             </div>
                         </div>
                     </div>
 
-                    <form class="ad-contact-form" id="adContactForm">
-                        <input type="text" placeholder="Your Name" required />
-                        <input type="email" placeholder="Your Email" required />
-                        <input type="tel" placeholder="Phone Number" />
-                        <select required>
-                            <option value="">Select Service</option>
-                            <option value="logo">Logo &amp; Branding</option>
-                            <option value="graphic">Graphic Design</option>
-                            <option value="digital">Digital Art</option>
-                            <option value="photo">Photo Editing</option>
-                            <option value="print">Print Ready Designs</option>
-                            <option value="social">Social Media Graphics</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <textarea rows="4" placeholder="Tell us about your design needs..." required></textarea>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Request a Quote
-                        </button>
-                        <div id="adFormMessage" class="form-message"></div>
-                    </form>
+                    <!-- ===== ARTWORK 2 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/lady-with-wine-rose.jpg" alt="The Lady with the Wine Rose" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>The Lady with the Wine Rose</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A stylized female figure rendered in string art, holding a wine glass and subtly incorporating a vibrant red rose into her silhouette.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Portrait</span>
+                                <span>Figurative</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 3 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/thoughts-of-you.jpg" alt="Thoughts of You" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Thoughts of You</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A tender portrait of a couple rendered in string art, featuring their faces in close proximity and an embroidered heart, complemented by a romantic inscription.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Couple</span>
+                                <span>Romantic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 4 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/rhythm-of-africa.jpg" alt="The Rhythm of Africa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>The Rhythm of Africa</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A vibrant, tricolor map of the African continent interwoven with a large mandolin, symbolizing the continent's deep connection to music and cultural rhythm.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Africa</span>
+                                <span>Music</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 5 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/toast-to-love.jpg" alt="Toast to Love" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Toast to Love</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A playful depiction of two wine glasses clinking, with dark red wine splashing out and forming small hearts above, centered by a vibrant red string heart.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Love</span>
+                                <span>Wine</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 6 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/the-howl.jpg" alt="The Howl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>The Howl</h3>
+                            <div class="art-medium">String art and paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A dramatic silhouette of a wolf howling on an orange ridge, set against a bright, orange-ringed moon. The scene is completed with painted dark pine trees contrasting the minimalist string art foreground.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Wolf</span>
+                                <span>Nature</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 7 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/green-groceries.jpg" alt="Green Groceries" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Green Groceries</h3>
+                            <div class="art-medium">Mixed media (sculpted relief and paint) on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A charming, three-dimensional relief artwork featuring a bountiful basket of fresh, colorful vegetables under a clear blue sky, framed by a rustic border.</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Vegetables</span>
+                                <span>Relief</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 8 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/j-cole-silhouette.jpg" alt="J. Cole Silhouette" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>J. Cole Silhouette</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2023</div>
+                            <p class="art-description">A distinctive string art portrait capturing the iconic silhouette of J. Cole's face and signature hairstyle in stark black against a clean white background.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Portrait</span>
+                                <span>Music</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 9 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/heartbeat-melody.jpg" alt="Heartbeat Melody" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Heartbeat Melody</h3>
+                            <div class="art-medium">String art and NC paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">An expressive artwork featuring string art musical motifs and a hand-lettered message about hearts making the beat, against a background of drawn musical notes.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Music</span>
+                                <span>Heart</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 10 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/african-elegance.jpg" alt="African Elegance" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>African Elegance</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A striking string art profile of a woman, featuring a boldly colored, multi-patterned head wrap and intricate details in vibrant hues of green, red, orange, and blue.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>African</span>
+                                <span>Profile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 11 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/monarchs-flight.jpg" alt="Monarch's Flight" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Monarch's Flight</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A vibrant string art depiction of a butterfly with striking orange wings outlined in black, intricately crafted against a minimalist white background.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Butterfly</span>
+                                <span>Nature</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 12 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/christ-centered-home.jpg" alt="Christ Centered Home" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Christ Centered Home</h3>
+                            <div class="art-medium">Sculpted relief and paint on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A devotional piece with the phrase "Christ is the center of our home" in elegant, raised lettering and decorative borders.</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Inspirational</span>
+                                <span>Relief</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 13 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/kapsabet-boys-clock.jpg" alt="Kapsabet Boys Centennial Clock" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Kapsabet Boys Centennial Clock</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A custom string art clock commemorating Kapsabet Boys National School's 100-year anniversary, featuring the school crest and bold string-art lettering on a dark background.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Clock</span>
+                                <span>Commemorative</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 14 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/kncci-signage.jpg" alt="KNCCI Nandi Chapter Signage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>KNCCI Nandi Chapter Signage</h3>
+                            <div class="art-medium">String art and mixed media lettering on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A distinctive display piece for the KNCCI Nandi Chapter, combining bold string art lettering and a clear mission statement, "Growing your Business together."</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Signage</span>
+                                <span>Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 15 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/globaled-connects.jpg" alt="GlobalEd Connects Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>GlobalEd Connects Logo</h3>
+                            <div class="art-medium">String art and mixed media lettering on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A professional display featuring the GlobalEd Connects logo, illustrating a globe and open book with string art, accompanied by the tagline "BRIDGING MINDS, CROSSING BORDERS."</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Logo</span>
+                                <span>Education</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 16 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/skylink-geosystems.jpg" alt="Skylink Geosystems Ltd Branding" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Skylink Geosystems Ltd Branding</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A custom string art signage showcasing the "Skylink Geosystems Ltd" brand, featuring a bold "SG" initial logo, a stylized surveying instrument, and the company name in distinct, textured string.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Branding</span>
+                                <span>Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 17 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/be-still-sunflower.jpg" alt="Be Still Sunflower" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Be Still Sunflower (Psalm 46:10)</h3>
+                            <div class="art-medium">String art and lettering on board</div>
+                            <div class="art-year">2023</div>
+                            <p class="art-description">An inspirational artwork featuring a vibrant string art sunflower on the right, complementing the scripture "Be still, and know that I am God. Psalm 46:10" elegantly lettered on the left.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Inspirational</span>
+                                <span>Sunflower</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 18 ===== -->
+                    <div class="artwork-card" data-category="calligraphy">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/grateful-for-everything.jpg" alt="Grateful for Everything" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Grateful for Everything</h3>
+                            <div class="art-medium">Calligraphy on board (Triptych piece)</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A three-panel artwork expressing gratitude, with each panel featuring elegant black lettering that collectively reads: "grateful FOR THE SMALL THINGS for THE BIG THINGS & everything IN BETWEEN."</p>
+                            <div class="art-tags">
+                                <span>Calligraphy</span>
+                                <span>Inspirational</span>
+                                <span>Typography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 19 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/the-blues-clock.jpg" alt="The Blues: Loyalty in Time" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>The Blues: Loyalty in Time</h3>
+                            <div class="art-medium">String art, printed photo, and lettering on board</div>
+                            <div class="art-year">2025</div>
+                            <p class="art-description">A custom string art clock dedicated to "The Blues," featuring a central image of two football players in blue jerseys, framed by blue and white string art, with the motto "Value Loyalty Above All Else."</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Clock</span>
+                                <span>Sports</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 20 ===== -->
+                    <div class="artwork-card" data-category="string-art">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/midnight-foliage.jpg" alt="Midnight Foliage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Midnight Foliage</h3>
+                            <div class="art-medium">String art on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">An elegant string art piece depicting two flowing branches of white, fan-shaped leaves, intricately crafted against a stark, deep black background.</p>
+                            <div class="art-tags">
+                                <span>String Art</span>
+                                <span>Nature</span>
+                                <span>Botanical</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 21 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/circular-mirror.jpg" alt="Circular String Art Mirror" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Circular String Art Mirror</h3>
+                            <div class="art-medium">String art and mirror on board</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A custom-framed mirror art piece featuring a central oval mirror surrounded by bold string art rings in red, green, and gold, all set against a dark background.</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Mirror</span>
+                                <span>Abstract</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ARTWORK 22 ===== -->
+                    <div class="artwork-card" data-category="mixed-media">
+                        <div class="artwork-image">
+                            <img src="assets/images/artwork/abstract-wooden-clock.jpg" alt="Abstract Wooden Clock" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3>Abstract Wooden Clock</h3>
+                            <div class="art-medium">Wood, metal clock mechanism, and paint</div>
+                            <div class="art-year">2024</div>
+                            <p class="art-description">A unique, modern wall clock featuring a rectangular wooden face tilted playfully within an upright, rectangular wooden frame, with minimalist numbers and light blue hands.</p>
+                            <div class="art-tags">
+                                <span>Mixed Media</span>
+                                <span>Clock</span>
+                                <span>Wood</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- ===== BACK BUTTON ===== -->
-        <div class="ad-back">
+        <div class="back-section">
             <div class="container">
                 <a href="index.html" class="btn">
                     <i class="fas fa-arrow-left"></i> Back to Cisco Printers
@@ -762,21 +742,31 @@
             });
         });
 
-        // ===== CONTACT FORM =====
-        document.getElementById('adContactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const message = document.getElementById('adFormMessage');
-            message.textContent = '✅ Thank you! Naomi will get back to you within 24 hours.';
-            message.className = 'form-message success';
-            message.style.display = 'block';
-            this.reset();
-            setTimeout(() => {
-                message.style.display = 'none';
-            }, 6000);
+        // ===== FILTER SYSTEM =====
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const artworkCards = document.querySelectorAll('.artwork-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                artworkCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
 
-        console.log('🎨 Naomi Kioko Designs - Art & Design Partner');
-        console.log('📧 naomi@ciscoprinters.co.ke');
+        console.log('🎨 Naomi Kioko Portfolio loaded!');
+        console.log('📧 Contact: naomi@ciscoprinters.co.ke');
     </script>
 
 </body>
