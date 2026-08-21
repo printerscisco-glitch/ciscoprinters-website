@@ -1,4 +1,48 @@
-// ===== MOBILE HAMBURGER MENU =====
+// ============================================
+// 🗄️ SUPABASE CLIENT CONFIGURATION
+// ============================================
+
+// Supabase credentials (from Vercel environment variables)
+const supabaseUrl = 'https://db.bjvrfksdmloygkaadfsl.supabase.co';
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // REPLACE WITH YOUR ACTUAL KEY
+
+console.log('🗄️ Supabase URL:', supabaseUrl);
+console.log('🔑 Supabase Key:', supabaseKey ? '✅ Loaded' : '❌ Missing');
+
+// Helper function for Supabase REST API
+async function supabaseRequest(endpoint, method = 'GET', data = null) {
+    const options = {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json',
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`
+        }
+    };
+    
+    if (data) {
+        options.body = JSON.stringify(data);
+    }
+    
+    try {
+        const response = await fetch(`${supabaseUrl}${endpoint}`, options);
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Supabase error (${response.status}): ${errorText}`);
+        }
+        
+        return response.json();
+    } catch (error) {
+        console.error('Supabase request failed:', error);
+        throw error;
+    }
+}
+
+// ============================================
+// 📱 MOBILE HAMBURGER MENU
+// ============================================
+
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
@@ -9,37 +53,6 @@ hamburger.addEventListener('click', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-    });
-});
-
-// ===== SCROLL NAVBAR SHADOW =====
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// ===== ACTIVE NAV LINK ON SCROLL =====
-const sections = document.querySelectorAll('section');
-const navLinkItems = document.querySelectorAll('.nav-links a:not([href*=".html"])');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinkItems.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
     });
 });
 
@@ -112,7 +125,11 @@ document.getElementById('pagesPerCopy').addEventListener('change', updateCostEst
 document.getElementById('copies').addEventListener('change', updateCostEstimate);
 document.getElementById('printColor').addEventListener('change', updateCostEstimate);
 
-function submitPrintJob(event) {
+// ============================================
+// 📤 SUBMIT PRINT JOB TO SUPABASE
+// ============================================
+
+async function submitPrintJob(event) {
     event.preventDefault();
     const message = document.getElementById('printMessage');
 
@@ -130,22 +147,57 @@ function submitPrintJob(event) {
     const totalPages = selectedFiles.length * pages * copies;
     const total = totalPages * pricePerPage;
 
-    message.innerHTML = `
-        ✅ Print job submitted successfully!<br>
-        <strong>Files:</strong> ${selectedFiles.length}<br>
-        <strong>Total Pages:</strong> ${totalPages}<br>
-        <strong>Total Cost:</strong> KES ${total}<br>
-        <small>You will be notified when your documents are ready.</small>
-    `;
-    message.className = 'form-message success';
+    const name = document.getElementById('bookingName')?.value || 'Guest';
+    const phone = document.getElementById('bookingPhone')?.value || '+254769357320';
+
+    message.textContent = '⏳ Submitting your print job...';
+    message.className = 'form-message';
     message.style.display = 'block';
 
-    // Track in Google Analytics
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'print_job_submitted', {
-            'event_category': 'Printing',
-            'event_label': `${selectedFiles.length} files, KES ${total}`
-        });
+    try {
+        const printData = {
+            customer_name: name,
+            customer_phone: phone,
+            file_names: selectedFiles.map(f => f.name),
+            file_sizes: selectedFiles.map(f => `${(f.size / 1024).toFixed(1)}KB`),
+            pages_per_copy: pages,
+            copies: copies,
+            color_mode: colorMode,
+            total_pages: totalPages,
+            total_cost: total,
+            status: 'pending'
+        };
+
+        const data = await supabaseRequest('/rest/v1/print_orders', 'POST', printData);
+
+        message.innerHTML = `
+            ✅ Print job submitted successfully!<br>
+            <strong>Order ID:</strong> ${data[0]?.id || 'N/A'}<br>
+            <strong>Files:</strong> ${selectedFiles.length}<br>
+            <strong>Total Pages:</strong> ${totalPages}<br>
+            <strong>Total Cost:</strong> KES ${total}<br>
+            <small>We'll prepare your documents and contact you.</small>
+        `;
+        message.className = 'form-message success';
+        message.style.display = 'block';
+
+        await addLoyaltyPoints(phone, 5);
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'print_job_submitted', {
+                'event_category': 'Printing',
+                'event_label': `${selectedFiles.length} files, KES ${total}`
+            });
+        }
+
+    } catch (error) {
+        console.error('Submission error:', error);
+        message.innerHTML = `
+            ❌ Error submitting print job.<br>
+            Please contact us directly at <strong>+254 769 357 320</strong>
+        `;
+        message.className = 'form-message error';
+        message.style.display = 'block';
     }
 
     selectedFiles = [];
@@ -155,11 +207,11 @@ function submitPrintJob(event) {
 
     setTimeout(() => {
         message.style.display = 'none';
-    }, 8000);
+    }, 10000);
 }
 
 // ============================================
-// 📅 BOOKING SYSTEM
+// 📅 BOOKING SYSTEM WITH SUPABASE
 // ============================================
 
 document.getElementById('bookingComputer').addEventListener('change', updateBookingCost);
@@ -174,7 +226,7 @@ function updateBookingCost() {
     document.getElementById('bookingCost').textContent = `KES ${total}`;
 }
 
-function submitBooking(event) {
+async function submitBooking(event) {
     event.preventDefault();
     const message = document.getElementById('bookingMessage');
 
@@ -189,33 +241,62 @@ function submitBooking(event) {
     const rate = rates[computer] || 0;
     const total = rate * hours;
 
-    const formattedDate = new Date(dateTime).toLocaleString('en-KE', {
-        weekday: 'short',
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-
-    message.innerHTML = `
-        ✅ Booking confirmed!<br>
-        <strong>Computer:</strong> ${computer === 'gaming' ? 'Gaming PC' : 'Computer ' + computer}<br>
-        <strong>Date & Time:</strong> ${formattedDate}<br>
-        <strong>Hours:</strong> ${hours}<br>
-        <strong>Total Cost:</strong> KES ${total}<br>
-        <strong>Customer:</strong> ${name} (${phone})<br>
-        <small>Please arrive 5 minutes before your booking.</small>
-    `;
-    message.className = 'form-message success';
+    message.textContent = '⏳ Confirming your booking...';
+    message.className = 'form-message';
     message.style.display = 'block';
 
-    // Track in Google Analytics
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'computer_booking', {
-            'event_category': 'Booking',
-            'event_label': `Computer ${computer}, ${hours}h, KES ${total}`
+    try {
+        const bookingData = {
+            customer_name: name,
+            customer_phone: phone,
+            customer_email: email || null,
+            computer: computer === 'gaming' ? 'Gaming PC' : `Computer ${computer}`,
+            booking_date: dateTime,
+            hours: hours,
+            total_cost: total,
+            status: 'confirmed'
+        };
+
+        const data = await supabaseRequest('/rest/v1/bookings', 'POST', bookingData);
+
+        const formattedDate = new Date(dateTime).toLocaleString('en-KE', {
+            weekday: 'short',
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
         });
+
+        message.innerHTML = `
+            ✅ Booking confirmed!<br>
+            <strong>Booking ID:</strong> ${data[0]?.id || 'N/A'}<br>
+            <strong>Computer:</strong> ${computer === 'gaming' ? 'Gaming PC' : 'Computer ' + computer}<br>
+            <strong>Date & Time:</strong> ${formattedDate}<br>
+            <strong>Hours:</strong> ${hours}<br>
+            <strong>Total Cost:</strong> KES ${total}<br>
+            <small>Please arrive 5 minutes before your booking.</small>
+        `;
+        message.className = 'form-message success';
+        message.style.display = 'block';
+
+        await addLoyaltyPoints(phone, 10);
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'computer_booking', {
+                'event_category': 'Booking',
+                'event_label': `Computer ${computer}, ${hours}h, KES ${total}`
+            });
+        }
+
+    } catch (error) {
+        console.error('Booking error:', error);
+        message.innerHTML = `
+            ❌ Error confirming booking.<br>
+            Please call <strong>+254 769 357 320</strong> to book.
+        `;
+        message.className = 'form-message error';
+        message.style.display = 'block';
     }
 
     document.getElementById('bookingForm').reset();
@@ -227,20 +308,36 @@ function submitBooking(event) {
 }
 
 // ============================================
-// ⭐ LOYALTY PROGRAM
+// ⭐ LOYALTY PROGRAM WITH SUPABASE
 // ============================================
 
-const loyaltyDB = {};
+async function addLoyaltyPoints(phone, points) {
+    try {
+        // Check if user exists
+        const existing = await supabaseRequest(`/rest/v1/loyalty?phone=eq.${encodeURIComponent(phone)}`, 'GET');
 
-function addLoyaltyPoints(phone, points) {
-    if (!loyaltyDB[phone]) {
-        loyaltyDB[phone] = { points: 0, visits: 0 };
+        if (existing.length > 0) {
+            // Update existing
+            await supabaseRequest(`/rest/v1/loyalty?id=eq.${existing[0].id}`, 'PATCH', {
+                points: existing[0].points + points,
+                visits: existing[0].visits + 1,
+                last_visit: new Date().toISOString()
+            });
+        } else {
+            // Create new
+            await supabaseRequest('/rest/v1/loyalty', 'POST', {
+                phone: phone,
+                points: points,
+                visits: 1,
+                last_visit: new Date().toISOString()
+            });
+        }
+    } catch (error) {
+        console.error('Loyalty error:', error);
     }
-    loyaltyDB[phone].points += points;
-    loyaltyDB[phone].visits += 1;
 }
 
-function checkPoints() {
+async function checkPoints() {
     const phone = document.getElementById('pointsPhone').value.trim();
     const result = document.getElementById('pointsResult');
 
@@ -250,27 +347,42 @@ function checkPoints() {
         return;
     }
 
-    if (loyaltyDB[phone]) {
-        const data = loyaltyDB[phone];
+    try {
+        const data = await supabaseRequest(`/rest/v1/loyalty?phone=eq.${encodeURIComponent(phone)}`, 'GET');
+
+        if (data.length === 0) {
+            result.innerHTML = `
+                No points found for ${phone}.<br>
+                <small>Earn points by using our services!</small>
+            `;
+            result.className = 'points-result error show';
+            return;
+        }
+
+        const user = data[0];
+        const points = user.points;
+        const visits = user.visits;
+        const lastVisit = new Date(user.last_visit).toLocaleDateString();
+
         let rewardMessage = '';
-        if (data.points >= 500) rewardMessage = '🏆 Eligible for FREE Passport Photos!';
-        else if (data.points >= 200) rewardMessage = '🎁 Eligible for FREE 2 hours Computer Rental!';
-        else if (data.points >= 100) rewardMessage = '🎁 Eligible for FREE 10 pages Printing!';
-        else if (data.points >= 50) rewardMessage = '🎁 Eligible for FREE 1 hour Internet!';
-        else rewardMessage = `📈 ${50 - data.points} more points for first reward!`;
+        if (points >= 500) rewardMessage = '🏆 Eligible for FREE Passport Photos!';
+        else if (points >= 200) rewardMessage = '🎁 Eligible for FREE 2 hours Computer Rental!';
+        else if (points >= 100) rewardMessage = '🎁 Eligible for FREE 10 pages Printing!';
+        else if (points >= 50) rewardMessage = '🎁 Eligible for FREE 1 hour Internet!';
+        else rewardMessage = `📈 ${50 - points} more points for first reward!`;
 
         result.innerHTML = `
             <strong>📞 ${phone}</strong><br>
-            ⭐ Points: <strong>${data.points}</strong><br>
-            📊 Total Visits: ${data.visits}<br>
+            ⭐ Points: <strong>${points}</strong><br>
+            📊 Total Visits: ${visits}<br>
+            📅 Last Visit: ${lastVisit}<br>
             🎯 ${rewardMessage}
         `;
         result.className = 'points-result success show';
-    } else {
-        result.innerHTML = `
-            No points found for ${phone}.<br>
-            <small>Earn points by using our services!</small>
-        `;
+
+    } catch (error) {
+        console.error('Check points error:', error);
+        result.textContent = '❌ Error checking points. Please try again.';
         result.className = 'points-result error show';
     }
 }
@@ -284,13 +396,10 @@ const formMessage = document.getElementById('formMessage');
 
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-
     formMessage.textContent = '✅ Thank you! We will get back to you soon.';
     formMessage.className = 'form-message success';
     formMessage.style.display = 'block';
-
     this.reset();
-
     setTimeout(() => {
         formMessage.style.display = 'none';
     }, 5000);
@@ -333,5 +442,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 console.log('🚀 Cisco Printers Cybercafe - Baraton, Nandi');
+console.log('🗄️ Supabase connected!');
 console.log('📧 info@ciscoprinters.co.ke');
-console.log('🌟 Welcome to the future of cybercafe services!');
