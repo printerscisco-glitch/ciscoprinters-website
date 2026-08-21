@@ -19,19 +19,122 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
-        /* ===== NAOMI PORTFOLIO PAGE STYLES ===== */
-        .portfolio-page {
-            background: #fdf6f0;
-            min-height: 100vh;
-            padding-top: 80px;
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fef6f9;
+            color: #2d1b2a;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #6a1b4d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-text i {
+            color: #d63384;
+            font-size: 1.8rem;
+        }
+
+        .logo-text .highlight {
+            color: #d63384;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d1b2a;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background: #d63384;
+            color: #fff;
+        }
+
+        .nav-links a.clock-link {
+            background: linear-gradient(135deg, #6a1b4d, #d63384);
+            color: #fff !important;
+        }
+
+        .nav-links a.clock-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(214, 51, 132, 0.3);
+        }
+
+        .nav-links a.active {
+            background: #d63384;
+            color: #fff;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #6a1b4d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            color: #d63384;
+        }
+
+        /* ===== HERO ===== */
         .portfolio-hero {
-            background: linear-gradient(135deg, #6a1b4d, #9b2d6e, #c4458a);
-            padding: 80px 0;
-            color: white;
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -44,38 +147,75 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: rgba(255,255,255,0.05);
-            transform: rotate(-30deg);
+            background: radial-gradient(circle, rgba(214, 51, 132, 0.08), transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
         }
 
         .portfolio-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #4a1a3a;
             position: relative;
             z-index: 1;
         }
 
+        .portfolio-hero h1 .highlight {
+            color: #d63384;
+        }
+
         .portfolio-hero .subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            opacity: 0.9;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #6a1b4d;
+            margin: 8px 0 12px;
             position: relative;
             z-index: 1;
         }
 
         .portfolio-hero .tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            color: #6a1b4d;
             opacity: 0.8;
-            margin-top: 15px;
+            font-style: italic;
             position: relative;
             z-index: 1;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* ===== ARTWORK GALLERY ===== */
+        /* ===== GALLERY ===== */
         .artwork-gallery {
             padding: 60px 0;
-            background: #ffffff;
+            background: #fef6f9;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            color: #4a1a3a;
+            margin-bottom: 8px;
+        }
+
+        .section-title .highlight {
+            color: #d63384;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7a4a6a;
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
         }
 
         .artwork-grid {
@@ -87,41 +227,45 @@
 
         .artwork-card {
             background: #ffffff;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #f0e8e0;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(214, 51, 132, 0.08);
         }
 
         .artwork-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(106, 27, 77, 0.15);
+            box-shadow: 0 20px 60px rgba(214, 51, 132, 0.15);
+            border-color: rgba(214, 51, 132, 0.2);
         }
 
         .artwork-image {
             width: 100%;
             height: 280px;
-            background: #f0e8e0;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #c4458a;
             position: relative;
             overflow: hidden;
         }
 
         .artwork-image .placeholder-icon {
             font-size: 4rem;
-            color: #c4458a;
-            opacity: 0.5;
+            color: #d63384;
+            opacity: 0.4;
         }
 
         .artwork-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.03);
         }
 
         .artwork-info {
@@ -129,30 +273,32 @@
         }
 
         .artwork-info h3 {
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #6a1b4d;
-            margin-bottom: 5px;
+            color: #4a1a3a;
+            margin-bottom: 4px;
         }
 
         .artwork-info .art-medium {
             font-size: 0.85rem;
-            color: #c4458a;
+            color: #d63384;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .artwork-info .art-year {
             font-size: 0.8rem;
-            color: #999;
+            color: #b08a9a;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         .artwork-info .art-description {
             font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
+            color: #5a3a4a;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
         .artwork-info .art-tags {
@@ -163,7 +309,7 @@
         }
 
         .artwork-info .art-tags span {
-            background: #fdf6f0;
+            background: #fce4ec;
             color: #6a1b4d;
             padding: 4px 12px;
             border-radius: 50px;
@@ -173,7 +319,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* ===== FILTER BUTTONS ===== */
+        /* ===== FILTER ===== */
         .filter-section {
             text-align: center;
             margin-bottom: 30px;
@@ -181,50 +327,144 @@
 
         .filter-btn {
             background: none;
-            border: 2px solid #6a1b4d;
-            color: #6a1b4d;
-            padding: 8px 20px;
+            border: 2px solid #d63384;
+            color: #d63384;
+            padding: 8px 24px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 5px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: #6a1b4d;
+            background: #d63384;
             color: white;
+            box-shadow: 0 8px 30px rgba(214, 51, 132, 0.3);
         }
 
         /* ===== BACK BUTTON ===== */
         .back-section {
             padding: 40px 0;
             text-align: center;
-            background: #fdf6f0;
+            background: #fce4ec;
         }
 
         .back-section .btn {
-            background: #6a1b4d;
+            background: linear-gradient(135deg, #6a1b4d, #d63384);
             color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .back-section .btn:hover {
-            background: #4d1337;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(214, 51, 132, 0.3);
+        }
+
+        .back-section .btn i {
+            margin-right: 8px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #4a1a3a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #f48fb1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fce4ec;
+        }
+
+        .footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .footer .social-links a {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background: #d63384;
+            transform: translateY(-3px);
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .portfolio-hero h1 {
-                font-size: 2.2rem;
+                font-size: 3rem;
             }
             .portfolio-hero .subtitle {
-                font-size: 1.1rem;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+                gap: 8px;
+                border-top: 1px solid rgba(214, 51, 132, 0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .portfolio-hero h1 {
+                font-size: 2.4rem;
+            }
+            .portfolio-hero .subtitle {
+                font-size: 1.3rem;
             }
             .artwork-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            .section-title {
+                font-size: 2.2rem;
             }
         }
 
@@ -235,6 +475,19 @@
             .artwork-image {
                 height: 200px;
             }
+            .portfolio-hero h1 {
+                font-size: 1.8rem;
+            }
+            .portfolio-hero .subtitle {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .filter-btn {
+                padding: 6px 16px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -244,8 +497,9 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo.png" alt="Cisco Printers Cybercafe" class="logo-img" />
+                <a href="index.html" class="logo-text">
+                    <i class="fas fa-palette"></i>
+                    <span>Naomi <span class="highlight">Kioko</span></span>
                 </a>
             </div>
             <ul class="nav-links" id="navLinks">
@@ -268,11 +522,11 @@
         <!-- ===== HERO ===== -->
         <section class="portfolio-hero">
             <div class="container">
-                <h1>🎨 Naomi Kioko <span style="color:#f9c74f;">Artworks</span></h1>
-                <p class="subtitle">String Art • Mixed Media • Calligraphy</p>
+                <h1>🎨 Naomi <span class="highlight">Kioko</span> Artworks</h1>
+                <p class="subtitle">✨ Where creativity meets precision ✨</p>
                 <p class="tagline">
                     <i class="fas fa-quote-left"></i>
-                    Where creativity meets precision
+                    String Art • Mixed Media • Calligraphy
                     <i class="fas fa-quote-right"></i>
                 </p>
             </div>
@@ -725,6 +979,20 @@
             </div>
         </div>
 
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p>&copy; 2026 <a href="index.html">Naomi Kioko Designs</a>. All rights reserved.</p>
+                <p style="margin-top: 8px; opacity: 0.6; font-size: 0.85rem;">Crafted with <i class="fas fa-heart" style="color: #d63384;"></i> in Baraton, Nandi</p>
+            </div>
+        </footer>
+
     </div>
 
     <script>
@@ -748,7 +1016,6 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Update active button
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
@@ -767,6 +1034,7 @@
 
         console.log('🎨 Naomi Kioko Portfolio loaded!');
         console.log('📧 Contact: naomi@ciscoprinters.co.ke');
+        console.log('💖 Proudly pink!');
     </script>
 
 </body>
