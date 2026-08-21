@@ -579,8 +579,23 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ===== TIDIO LIVE CHAT ===== -->
+    <!-- ===== TIDIO LIVE CHAT (Left Side) ===== -->
     <script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script>
+    <style>
+        /* Force Tidio chat to left side */
+        #tidio-chat,
+        #tidio-chat iframe,
+        .tidio-chat-button,
+        .tidio-chat-iframe {
+            left: 20px !important;
+            right: auto !important;
+        }
+        /* Ensure WhatsApp stays on right */
+        .whatsapp-float {
+            right: 30px !important;
+            left: auto !important;
+        }
+    </style>
 
     <script src="script.js"></script>
 </body>

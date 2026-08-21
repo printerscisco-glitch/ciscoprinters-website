@@ -153,7 +153,6 @@ body {
     align-items: center;
 }
 
-/* ===== LOGO - SIMPLE TEXT ===== */
 .logo-text {
     text-decoration: none;
     font-size: 1.6rem;
@@ -178,7 +177,6 @@ body {
     transform: scale(1.03);
 }
 
-/* ===== NAVIGATION LINKS ===== */
 .nav-links {
     list-style: none;
     display: flex;
@@ -584,6 +582,378 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
+/* ===== PRINT UPLOAD ===== */
+.print-upload {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.print-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.print-form-container {
+    background: var(--light-blue);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.upload-area {
+    border: 3px dashed var(--primary-orange);
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.upload-area:hover {
+    background: var(--orange-light);
+    border-color: var(--primary-blue);
+}
+
+.upload-area i {
+    font-size: 4rem;
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+}
+
+.upload-area p {
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.upload-area .file-types {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.file-list {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    background: var(--light-blue);
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.file-item .remove-file {
+    color: #ef4444;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.print-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.print-option-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.print-option-group input,
+.print-option-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.print-summary {
+    background: var(--orange-light);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.print-summary #estimatedCost {
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.print-info {
+    background: var(--light-blue);
+    padding: 40px;
+    border-radius: var(--radius);
+}
+
+.print-info h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.print-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.print-info ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.print-info ul li i {
+    color: var(--primary-orange);
+    font-size: 1.2rem;
+}
+
+/* ===== BOOKING ===== */
+.booking {
+    padding: 100px 0;
+    background: var(--light-blue);
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.booking-form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.form-group label i {
+    color: var(--primary-orange);
+    margin-right: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-orange);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.1);
+}
+
+.booking-summary {
+    background: var(--orange-light);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.booking-summary #bookingCost {
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.booking-info {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.booking-info h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.booking-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-info ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.booking-info ul li i {
+    color: var(--primary-orange);
+    font-size: 1.2rem;
+}
+
+/* ===== LOYALTY ===== */
+.loyalty {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.loyalty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 30px;
+}
+
+.loyalty-card {
+    background: var(--light-blue);
+    padding: 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.loyalty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.loyalty-card.featured-loyalty {
+    background: var(--gradient-blue);
+    color: var(--white);
+    border: 3px solid var(--primary-orange);
+}
+
+.loyalty-card.featured-loyalty ul li {
+    color: rgba(255,255,255,0.9);
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.loyalty-card.featured-loyalty .badge {
+    background: var(--gradient-orange);
+    color: var(--white);
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.loyalty-icon {
+    font-size: 3rem;
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+}
+
+.loyalty-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.loyalty-card.featured-loyalty h3 {
+    color: var(--white);
+}
+
+.loyalty-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.loyalty-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loyalty-card ul li i {
+    color: var(--primary-orange);
+    width: 20px;
+}
+
+.points-checker {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.points-checker input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.points-result {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+}
+
+.points-result.show {
+    display: block;
+}
+
+.points-result.success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.points-result.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.loyalty-badge {
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    color: #0d0e12;
+    padding: 12px 20px;
+    border-radius: 50px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.loyalty-badge i {
+    margin-right: 8px;
+}
+
 /* ===== TESTIMONIALS ===== */
 .testimonials {
     padding: 100px 0;
@@ -621,13 +991,11 @@ body {
     font-style: italic;
     color: var(--text-light);
     margin-bottom: 12px;
-    font-size: 1rem;
 }
 
 .testimonial-card h4 {
     color: var(--primary-blue);
     font-weight: 600;
-    font-size: 1rem;
 }
 
 /* ===== ABOUT ===== */
@@ -643,7 +1011,7 @@ body {
     align-items: center;
 }
 
-.about-text h2 {
+.about-text .section-title {
     text-align: left;
 }
 
@@ -914,14 +1282,13 @@ body {
     opacity: 0.6;
 }
 
-/* ===== FLOATING CTA BUTTON ===== */
+/* ===== FLOATING BUTTONS ===== */
 .cta-float {
     position: fixed;
     bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
-    display: none;
 }
 
 .cta-float .btn {
@@ -934,7 +1301,6 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* ===== WHATSAPP FLOATING BUTTON ===== */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -963,13 +1329,19 @@ body {
 @media (max-width: 992px) {
     .hero .container,
     .about-content,
-    .contact-grid {
+    .contact-grid,
+    .print-grid,
+    .booking-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
     .hero-content h1 {
         font-size: 2.8rem;
+    }
+
+    .loyalty-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
     .pricing-card.featured {
@@ -1037,6 +1409,10 @@ body {
         gap: 16px;
     }
 
+    .loyalty-grid {
+        grid-template-columns: 1fr;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1064,6 +1440,24 @@ body {
 
     .hero-buttons .btn {
         text-align: center;
+    }
+
+    .print-options {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .print-form-container,
+    .booking-form-container {
+        padding: 20px;
+    }
+
+    .print-info,
+    .booking-info {
+        padding: 20px;
     }
 
     .whatsapp-float {
