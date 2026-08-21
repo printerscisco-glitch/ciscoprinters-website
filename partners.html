@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Partners - Cisco Printers Cybercafe</title>
+
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Our trusted partners at Cisco Printers Cybercafe: Ezra Kutto - Kahawa Man, and CTS WiFi. Supporting the Baraton community." />
+    <meta name="keywords" content="partners, Ezra Kutto, Kahawa Man, CTS WiFi, Baraton, Nandi, Cisco Printers" />
+    <meta name="author" content="Cisco Printers Cybercafe" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="Our Partners - Cisco Printers Cybercafe" />
+    <meta property="og:description" content="Meet our trusted partners in Baraton: Ezra Kutto and CTS WiFi." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ciscoprinters.co.ke/partners.html" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* ===== PARTNERS PAGE STYLES ===== */
+        .partners-page {
+            background: #ffffff;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .partners-hero {
+            background: linear-gradient(135deg, #1a3c6e, #0f2847);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .partners-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .partners-hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* ===== PARTNERS GRID ===== */
+        .partners-section {
+            padding: 60px 0;
+            background: #ffffff;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .partner-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-bottom-color: #f47b20;
+        }
+
+        .partner-card .icon {
+            font-size: 4rem;
+            color: #f47b20;
+            margin-bottom: 15px;
+        }
+
+        .partner-card .partner-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a3c6e, #f47b20);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover .partner-image {
+            transform: scale(1.05);
+        }
+
+        .partner-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a3c6e;
+            margin-bottom: 5px;
+        }
+
+        .partner-card .partner-title {
+            font-size: 1rem;
+            color: #f47b20;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .partner-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .partner-card .partner-tag {
+            display: inline-block;
+            background: #fde8d6;
+            color: #f47b20;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .partner-card .social-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1a3c6e;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card .social-link:hover {
+            color: #f47b20;
+            transform: scale(1.2);
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-section {
+            padding: 40px 0;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .back-section .btn {
+            background: #1a3c6e;
+            color: white;
+        }
+
+        .back-section .btn:hover {
+            background: #0f2847;
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .partners-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-card .partner-image {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-text">
+                    <i class="fas fa-print"></i>
+                    <span>Cisco <span class="highlight">Printers</span></span>
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="partners.html" class="active">🤝 Partners</a></li>
+                <li><a href="naomi-kioko-designs.html">🎨 Naomi Art</a></li>
+                <li><a href="clock.html" target="_blank" class="clock-link">
+                    <i class="fas fa-clock"></i> Clock
+                </a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PARTNERS PAGE ===== -->
+    <div class="partners-page">
+
+        <!-- ===== HERO ===== -->
+        <section class="partners-hero">
+            <div class="container">
+                <h1>🤝 Our <span style="color:#f47b20;">Partners</span></h1>
+                <p>We work with trusted partners to serve the Baraton community better.</p>
+            </div>
+        </section>
+
+        <!-- ===== PARTNERS ===== -->
+        <section class="partners-section">
+            <div class="container">
+                <div class="partners-grid">
+
+                    <!-- ===== PARTNER 1: EZRA KUTTO ===== -->
+                    <div class="partner-card">
+                        <div class="partner-image">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <h3>Ezra Kutto</h3>
+                        <div class="partner-title">☕ The Kahawa Man</div>
+                        <p>
+                            Ezra Kutto is the <strong>Kahawa Man</strong> who brings fresh, hot coffee
+                            to Cisco Printers Cybercafe every single day. His dedication and
+                            warm smile keep the team energized and ready to serve our customers.
+                        </p>
+                        <p style="margin-top:10px; font-style:italic;">
+                            "A day without Ezra's coffee is a day without sunshine."
+                        </p>
+                        <div class="partner-tag">☕ Daily Coffee Delivery</div>
+                    </div>
+
+                    <!-- ===== PARTNER 2: CTS WIFI ===== -->
+                    <div class="partner-card">
+                        <div class="partner-image">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>CTS WiFi</h3>
+                        <div class="partner-title">📶 High-Speed Internet Provider</div>
+                        <p>
+                            <strong>CTS WiFi</strong> powers our entire cybercafe with reliable,
+                            high-speed internet. Their cutting-edge technology ensures our
+                            customers enjoy seamless browsing, streaming, and online work
+                            without interruption.
+                        </p>
+                        <p style="margin-top:10px; font-style:italic;">
+                            "Fast, reliable, and always connected."
+                        </p>
+                        <div class="partner-tag">📶 100 Mbps+</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BACK BUTTON ===== -->
+        <div class="back-section">
+            <div class="container">
+                <a href="index.html" class="btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        console.log('🤝 Cisco Printers Cybercafe - Our Partners');
+        console.log('☕ Ezra Kutto - The Kahawa Man');
+        console.log('📶 CTS WiFi - High-Speed Internet');
+    </script>
+
+</body>
+</html>
