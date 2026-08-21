@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cisco Printers Cybercafe - Baraton, Nandi</title>
 
-    <!-- ===== SEO META TAGS ===== -->
-    <meta name="description" content="Cisco Printers Cybercafe in Baraton, Nandi offers high-speed internet, professional printing, passport photos, computer rental, and IT support services. Open 7AM-10PM daily." />
-    <meta name="keywords" content="cybercafe Baraton, internet cafe Nandi, printing services Baraton, passport photos Baraton, computer rental, IT support, Cisco Printers" />
+    <!-- ===== SEO ===== -->
+    <meta name="description" content="Cisco Printers Cybercafe in Baraton, Nandi offers high-speed internet, professional printing, passport photos, computer rental, and IT support." />
+    <meta name="keywords" content="cybercafe Baraton, internet cafe Nandi, printing services Baraton, passport photos Baraton" />
     <meta name="author" content="Cisco Printers Cybercafe" />
     <meta name="robots" content="index, follow" />
 
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Cisco Printers Cybercafe - Baraton, Nandi" />
-    <meta property="og:description" content="Your premier digital hub in Baraton. High-speed internet, printing, passport photos, and more." />
+    <meta property="og:description" content="Your premier digital hub in Baraton." />
     <meta property="og:image" content="https://ciscoprinters.co.ke/assets/images/cybercafe-hero.jpg" />
     <meta property="og:url" content="https://ciscoprinters.co.ke" />
     <meta property="og:type" content="website" />
@@ -28,7 +28,1059 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8faff;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f47b20, #f59e0b);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(244, 123, 32, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1a3c6e;
+            border: 2px solid #1a3c6e;
+        }
+
+        .btn-outline:hover {
+            background: #1a3c6e;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a3c6e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-text i {
+            color: #f47b20;
+            font-size: 1.8rem;
+        }
+
+        .logo-text .highlight {
+            color: #f47b20;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a2e;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #f47b20;
+            color: #fff;
+        }
+
+        .nav-links a.clock-link {
+            background: linear-gradient(135deg, #2563eb, #f97316);
+            color: #fff !important;
+        }
+
+        .nav-links a.clock-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-links a.partner-link {
+            background: linear-gradient(135deg, #0f2847, #1a3c6e);
+            color: #fff !important;
+        }
+
+        .nav-links a.partner-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(26, 60, 110, 0.3);
+        }
+
+        .nav-links a.naomi-link {
+            background: linear-gradient(135deg, #6a1b4d, #c4458a);
+            color: #fff !important;
+        }
+
+        .nav-links a.naomi-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(196, 69, 138, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #1a3c6e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            color: #f47b20;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, rgba(26, 60, 110, 0.9), rgba(15, 40, 71, 0.95)), url('assets/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(244, 123, 32, 0.15), transparent 60%);
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .highlight {
+            color: #f47b20;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fde8d6;
+            margin: 12px 0 16px;
+        }
+
+        .hero-content .description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            animation: float 5s ease-in-out infinite;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title .highlight {
+            color: #f47b20;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #f47b20, #f59e0b);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card .icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #fde8d6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card .icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .icon {
+            background: linear-gradient(135deg, #f47b20, #f59e0b);
+        }
+
+        .service-card:hover .icon img {
+            filter: brightness(0) invert(1);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a3c6e;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .service-card .btn-secondary {
+            margin-top: 16px;
+            padding: 8px 20px;
+            font-size: 0.8rem;
+            background: #e8f0fe;
+            color: #1a3c6e;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-card .btn-secondary:hover {
+            background: #1a3c6e;
+            color: #fff;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing {
+            background: linear-gradient(135deg, #0f2847, #1a3c6e);
+            color: #fff;
+            position: relative;
+        }
+
+        .pricing .section-title,
+        .pricing .section-subtitle {
+            color: #fff;
+        }
+
+        .pricing .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            color: #1a1a2e;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 3px solid #f47b20;
+            box-shadow: 0 20px 60px rgba(244, 123, 32, 0.25);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #f47b20, #f59e0b);
+            color: #fff;
+            padding: 4px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem;
+            color: #1a3c6e;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #f47b20;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 20px 0 24px;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .pricing-card ul li i {
+            color: #f47b20;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        .pricing-card:hover:not(.featured) {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== PARTNERS ===== */
+        .partners-section {
+            background: #fff;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .partner-card {
+            background: #f8faff;
+            padding: 30px 24px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-card .partner-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            overflow: hidden;
+            border: 4px solid #f47b20;
+        }
+
+        .partner-card .partner-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .partner-card h3 {
+            font-size: 1.3rem;
+            color: #1a3c6e;
+            margin-bottom: 4px;
+        }
+
+        .partner-card .partner-title {
+            font-size: 0.9rem;
+            color: #f47b20;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .partner-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .partner-card .partner-tag {
+            display: inline-block;
+            background: #fde8d6;
+            color: #f47b20;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: #f8faff;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-card .stars {
+            color: #f59e0b;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card h4 {
+            color: #1a3c6e;
+            font-weight: 600;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: #fff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text .section-title {
+            text-align: left;
+        }
+
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 28px;
+        }
+
+        .about-stats .stat {
+            text-align: center;
+        }
+
+        .about-stats .number {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #f47b20;
+        }
+
+        .about-stats .label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: #f8faff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info .info-item {
+            display: flex;
+            gap: 16px;
+            background: #fff;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info .info-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info .info-item i {
+            font-size: 1.6rem;
+            color: #f47b20;
+            min-width: 44px;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .contact-info .info-item h4 {
+            color: #1a3c6e;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-info .info-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 36px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #f47b20;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
+            background: #fff;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0f2847;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-brand .logo-text {
+            color: #fff;
+        }
+
+        .footer-brand .logo-text .highlight {
+            color: #f47b20;
+        }
+
+        .footer-brand p {
+            margin: 16px 0 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #f47b20;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f47b20;
+            padding-left: 6px;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .newsletter-form input:focus {
+            outline: 2px solid #f47b20;
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, #f47b20, #f59e0b);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .cta-float {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 998;
+        }
+
+        .cta-float .btn {
+            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero .container,
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+                gap: 8px;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+                background-attachment: scroll;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pricing-grid,
+            .services-grid,
+            .testimonial-grid,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .cta-float {
+                bottom: 80px;
+            }
+
+            .cta-float .btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+
+            .partner-card .partner-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .pricing-card {
+                padding: 24px 16px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .cta-float {
+                bottom: 70px;
+            }
+
+            .cta-float .btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -36,14 +1088,9 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html" class="logo-brand">
-                    <div class="logo-box">
-                        <i class="fas fa-print"></i>
-                        <div>
-                            <span class="brand-name">Cisco Printers</span>
-                            <span class="brand-tag">Cybercafe</span>
-                        </div>
-                    </div>
+                <a href="index.html" class="logo-text">
+                    <i class="fas fa-print"></i>
+                    <span>Cisco <span class="highlight">Printers</span></span>
                 </a>
             </div>
             <ul class="nav-links" id="navLinks">
@@ -53,10 +1100,9 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="naomi-kioko-designs.html">🎨 Designs</a></li>
-                <li><a href="clock.html" target="_blank" class="clock-link">
-                    <i class="fas fa-clock"></i> Clock
-                </a></li>
+                <li><a href="#partners" class="partner-link">Partners</a></li>
+                <li><a href="naomi-kioko-designs.html" class="naomi-link">Naomi Art</a></li>
+                <li><a href="clock.html" target="_blank" class="clock-link">Clock</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
@@ -64,7 +1110,7 @@
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -84,73 +1130,47 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe Baraton" loading="lazy" />
+                <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe" loading="lazy" />
             </div>
         </div>
     </section>
 
-    <!-- ===== SERVICES SECTION ===== -->
+    <!-- ===== SERVICES ===== -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Our <span class="highlight">Services</span></h2>
-            <p class="section-subtitle">
-                Quality cybercafe services tailored for Baraton community
-            </p>
-
+            <p class="section-subtitle">Quality cybercafe services tailored for the Baraton community</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/wifi-icon.jpg" alt="High-Speed Internet" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/wifi-icon.jpg" alt="WiFi" loading="lazy" /></div>
                     <h3>High-Speed Internet</h3>
                     <p>Super-fast broadband internet for browsing, streaming, and research.</p>
-                    <a href="#booking" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
-                        <i class="fas fa-calendar-check"></i> Book Computer
-                    </a>
+                    <a href="#booking" class="btn-secondary">Book Computer</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/printing-icon.jpg" alt="Printing Services" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/printing-icon.jpg" alt="Printing" loading="lazy" /></div>
                     <h3>Printing Services</h3>
                     <p>Professional color &amp; black/white printing, scanning, and photocopying.</p>
-                    <a href="#print-upload" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
-                        <i class="fas fa-upload"></i> Upload to Print
-                    </a>
+                    <a href="#print-upload" class="btn-secondary">Upload to Print</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/document-icon.jpg" alt="Document Processing" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/document-icon.jpg" alt="Documents" loading="lazy" /></div>
                     <h3>Document Processing</h3>
                     <p>Typing, formatting, CV writing, and document editing services.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/passport-icon.jpg" alt="Passport Photos" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/passport-icon.jpg" alt="Passport" loading="lazy" /></div>
                     <h3>Passport Photos</h3>
                     <p>Instant passport &amp; ID photos with professional editing and printing.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/laptop-icon.jpg" alt="Computer Rental" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/laptop-icon.jpg" alt="Computer Rental" loading="lazy" /></div>
                     <h3>Computer Rental</h3>
                     <p>Clean, reliable computers for online exams, research, and projects.</p>
-                    <a href="#booking" class="btn btn-secondary" style="margin-top:15px; padding:8px 20px; font-size:0.85rem;">
-                        <i class="fas fa-calendar-check"></i> Book Now
-                    </a>
+                    <a href="#booking" class="btn-secondary">Book Now</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">
-                        <img src="assets/images/support-icon.jpg" alt="IT Support" loading="lazy" />
-                    </div>
+                    <div class="icon"><img src="assets/images/support-icon.jpg" alt="IT Support" loading="lazy" /></div>
                     <h3>IT Support</h3>
                     <p>Computer repairs, software installation, and technical assistance.</p>
                 </div>
@@ -158,12 +1178,11 @@
         </div>
     </section>
 
-    <!-- ===== PRICING SECTION ===== -->
+    <!-- ===== PRICING ===== -->
     <section id="pricing" class="pricing">
         <div class="container">
             <h2 class="section-title">Our <span class="highlight">Pricing</span></h2>
             <p class="section-subtitle">Affordable rates for everyone</p>
-
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Internet Browsing</h3>
@@ -176,7 +1195,6 @@
                     </ul>
                     <a href="#booking" class="btn btn-primary">Book Now</a>
                 </div>
-
                 <div class="pricing-card featured">
                     <div class="badge">Popular</div>
                     <h3>Printing</h3>
@@ -187,9 +1205,8 @@
                         <li><i class="fas fa-check"></i> Scanning: KES 20/page</li>
                         <li><i class="fas fa-check"></i> Photocopy: KES 5/page</li>
                     </ul>
-                    <a href="#print-upload" class="btn btn-primary">Upload & Print</a>
+                    <a href="#print-upload" class="btn btn-primary">Upload &amp; Print</a>
                 </div>
-
                 <div class="pricing-card">
                     <h3>Computer Rental</h3>
                     <div class="price"><span>KES</span> 50</div>
@@ -205,187 +1222,29 @@
         </div>
     </section>
 
-    <!-- ===== PRINT UPLOAD ===== -->
-    <section id="print-upload" class="print-upload">
+    <!-- ===== PARTNERS ===== -->
+    <section id="partners" class="partners-section">
         <div class="container">
-            <h2 class="section-title"><span class="highlight">Upload</span> to Print</h2>
-            <p class="section-subtitle">Upload your documents and we'll print them for you</p>
-
-            <div class="print-grid">
-                <div class="print-form-container">
-                    <form id="printForm" onsubmit="submitPrintJob(event)">
-                        <div class="upload-area" id="dropArea">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & drop files here or click to browse</p>
-                            <p class="file-types">Supports: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</p>
-                            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.png" hidden />
-                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
-                                <i class="fas fa-folder-open"></i> Browse Files
-                            </button>
-                            <div id="fileList" class="file-list"></div>
-                        </div>
-
-                        <div class="print-options">
-                            <div class="print-option-group">
-                                <label>Pages per copy:</label>
-                                <input type="number" id="pagesPerCopy" value="1" min="1" max="100" />
-                            </div>
-                            <div class="print-option-group">
-                                <label>Copies:</label>
-                                <input type="number" id="copies" value="1" min="1" max="20" />
-                            </div>
-                            <div class="print-option-group">
-                                <label>Color Mode:</label>
-                                <select id="printColor">
-                                    <option value="bw">Black & White (KES 10/page)</option>
-                                    <option value="color">Color (KES 30/page)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="print-summary" id="printSummary">
-                            <p><strong>Total Estimated Cost:</strong> <span id="estimatedCost">KES 0</span></p>
-                            <p><small>* Final price confirmed at checkout</small></p>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" id="printSubmitBtn">
-                            <i class="fas fa-print"></i> Submit Print Job & Pay
-                        </button>
-                    </form>
-                    <div id="printMessage" class="form-message"></div>
-                </div>
-
-                <div class="print-info">
-                    <h3>📋 Printing Guidelines</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> B&W: KES 10 per page</li>
-                        <li><i class="fas fa-check-circle"></i> Color: KES 30 per page</li>
-                        <li><i class="fas fa-check-circle"></i> Max file size: 10MB</li>
-                        <li><i class="fas fa-check-circle"></i> Supported: PDF, Word, Images</li>
-                        <li><i class="fas fa-check-circle"></i> Pickup: Same day (within 2 hours)</li>
-                    </ul>
-                    <div class="loyalty-badge">
-                        <i class="fas fa-star"></i>
-                        <span>Earn <strong>5 loyalty points</strong> for every print job!</span>
+            <h2 class="section-title">Our <span class="highlight">Partners</span></h2>
+            <p class="section-subtitle">Trusted partners helping us serve the community</p>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-img">
+                        <img src="assets/images/kahawa-man.jpg" alt="Ezra Kutto - Kahawa Man" loading="lazy" />
                     </div>
+                    <h3>Ezra Kutto</h3>
+                    <div class="partner-title">☕ The Kahawa Man</div>
+                    <p>Ezra brings fresh, hot coffee to Cisco Printers every single day. His dedication and warm smile keep the team energized and ready to serve.</p>
+                    <div class="partner-tag">☕ Daily Coffee Delivery</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BOOKING ===== -->
-    <section id="booking" class="booking">
-        <div class="container">
-            <h2 class="section-title">Book a <span class="highlight">Computer</span></h2>
-            <p class="section-subtitle">Reserve your computer in advance</p>
-
-            <div class="booking-grid">
-                <div class="booking-form-container">
-                    <form id="bookingForm" onsubmit="submitBooking(event)">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label><i class="fas fa-desktop"></i> Computer</label>
-                                <select required id="bookingComputer">
-                                    <option value="">Select Computer</option>
-                                    <option value="1">Computer 1 (KES 50/hour)</option>
-                                    <option value="2">Computer 2 (KES 50/hour)</option>
-                                    <option value="3">Computer 3 (KES 50/hour)</option>
-                                    <option value="4">Computer 4 (KES 50/hour)</option>
-                                    <option value="gaming">Gaming PC (KES 100/hour)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-clock"></i> Date & Time</label>
-                                <input type="datetime-local" required id="bookingDateTime" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label><i class="fas fa-hourglass-half"></i> Hours</label>
-                                <input type="number" placeholder="1-8 hours" min="1" max="8" required id="bookingHours" />
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-user"></i> Your Name</label>
-                                <input type="text" placeholder="Full Name" required id="bookingName" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label><i class="fas fa-phone"></i> Phone Number</label>
-                                <input type="tel" placeholder="2547XXXXXXXX" required id="bookingPhone" />
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-envelope"></i> Email (Optional)</label>
-                                <input type="email" placeholder="your@email.com" id="bookingEmail" />
-                            </div>
-                        </div>
-                        <div class="booking-summary" id="bookingSummary">
-                            <p><strong>Estimated Cost:</strong> <span id="bookingCost">KES 0</span></p>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-calendar-check"></i> Confirm Booking
-                        </button>
-                    </form>
-                    <div id="bookingMessage" class="form-message"></div>
-                </div>
-
-                <div class="booking-info">
-                    <h3>📋 Booking Guidelines</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Regular PC: KES 50/hour</li>
-                        <li><i class="fas fa-check-circle"></i> Gaming PC: KES 100/hour</li>
-                        <li><i class="fas fa-check-circle"></i> Minimum 1 hour booking</li>
-                        <li><i class="fas fa-check-circle"></i> Arrive 5 min before booking</li>
-                        <li><i class="fas fa-check-circle"></i> Cancel 2 hours in advance</li>
-                    </ul>
-                    <div class="loyalty-badge">
-                        <i class="fas fa-star"></i>
-                        <span>Earn <strong>10 loyalty points</strong> for every booking!</span>
+                <div class="partner-card">
+                    <div class="partner-img">
+                        <img src="assets/images/cts-wifi.jpg" alt="CTS WiFi" loading="lazy" />
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== LOYALTY ===== -->
-    <section id="loyalty" class="loyalty">
-        <div class="container">
-            <h2 class="section-title">Our <span class="highlight">Loyalty</span> Program</h2>
-            <p class="section-subtitle">Earn points and get rewards!</p>
-
-            <div class="loyalty-grid">
-                <div class="loyalty-card">
-                    <div class="loyalty-icon"><i class="fas fa-gem"></i></div>
-                    <h3>How It Works</h3>
-                    <p>Earn points for every service you use:</p>
-                    <ul>
-                        <li><i class="fas fa-print"></i> Printing: 5 points</li>
-                        <li><i class="fas fa-desktop"></i> Computer Booking: 10 points</li>
-                        <li><i class="fas fa-passport"></i> Passport Photos: 5 points</li>
-                        <li><i class="fas fa-wifi"></i> Internet Browsing: 2 points/hour</li>
-                    </ul>
-                </div>
-                <div class="loyalty-card featured-loyalty">
-                    <div class="badge">Popular</div>
-                    <h3>🎁 Rewards</h3>
-                    <ul>
-                        <li><i class="fas fa-star"></i> <strong>50 points</strong> = Free 1 hour internet</li>
-                        <li><i class="fas fa-star"></i> <strong>100 points</strong> = Free 10 pages printing</li>
-                        <li><i class="fas fa-star"></i> <strong>200 points</strong> = Free 2 hours computer rental</li>
-                        <li><i class="fas fa-star"></i> <strong>500 points</strong> = Free passport photos</li>
-                    </ul>
-                </div>
-                <div class="loyalty-card">
-                    <div class="loyalty-icon"><i class="fas fa-trophy"></i></div>
-                    <h3>Check Your Points</h3>
-                    <p>Enter your phone number to check your points:</p>
-                    <div class="points-checker">
-                        <input type="tel" id="pointsPhone" placeholder="2547XXXXXXXX" />
-                        <button onclick="checkPoints()" class="btn btn-secondary">
-                            <i class="fas fa-search"></i> Check
-                        </button>
-                    </div>
-                    <div id="pointsResult" class="points-result"></div>
+                    <h3>CTS WiFi</h3>
+                    <div class="partner-title">📶 High-Speed Internet Provider</div>
+                    <p>CTS WiFi powers our entire cybercafe with reliable, high-speed internet. Their cutting-edge technology ensures seamless browsing and work.</p>
+                    <div class="partner-tag">📶 100 Mbps+</div>
                 </div>
             </div>
         </div>
@@ -396,23 +1255,20 @@
         <div class="container">
             <h2 class="section-title">What Our <span class="highlight">Customers Say</span></h2>
             <p class="section-subtitle">Real reviews from real customers</p>
-
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                    <p>"Best cybercafe in Baraton! Fast internet and friendly service. They helped me print my assignment within minutes."</p>
+                    <p>"Best cybercafe in Baraton! Fast internet and friendly service."</p>
                     <h4>— John M., Baraton University</h4>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                    <p>"I needed passport photos urgently and they delivered in 5 minutes. Professional and affordable. Highly recommend!"</p>
+                    <p>"Passport photos in 5 minutes! Professional and affordable."</p>
                     <h4>— Mary W., Local Resident</h4>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-                    <p>"Cisco Printers is my go-to place for all cyber services. Great customer service and very reliable."</p>
+                    <p>"My go-to place for all cyber services. Very reliable."</p>
                     <h4>— Peter K., Businessman</h4>
                 </div>
             </div>
@@ -424,36 +1280,17 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2 class="section-title">About <span class="highlight">Cisco Printers Cybercafe</span></h2>
-                    <p>
-                        Located in the heart of <strong>Baraton, Nandi County</strong>,
-                        Cisco Printers Cybercafe has been serving the community since 2023.
-                        We provide reliable, high-quality digital services to students
-                        from Baraton University, local businesses, and residents.
-                    </p>
-                    <p>
-                        Our mission is to bridge the digital divide by offering
-                        affordable, accessible, and professional cybercafe services.
-                        We pride ourselves on <strong>100% customer satisfaction</strong>
-                        and a friendly, welcoming environment.
-                    </p>
+                    <h2 class="section-title">About <span class="highlight">Cisco Printers</span></h2>
+                    <p>Located in the heart of <strong>Baraton, Nandi County</strong>, Cisco Printers Cybercafe has been serving the community since 2023.</p>
+                    <p>Our mission is to bridge the digital divide by offering affordable, accessible, and professional cybercafe services.</p>
                     <div class="about-stats">
-                        <div class="stat">
-                            <span class="number">500+</span>
-                            <span class="label">Happy Clients</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">4.9</span>
-                            <span class="label">Rating ★</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">24/7</span>
-                            <span class="label">Service</span>
-                        </div>
+                        <div class="stat"><span class="number">500+</span><span class="label">Happy Clients</span></div>
+                        <div class="stat"><span class="number">4.9</span><span class="label">Rating ★</span></div>
+                        <div class="stat"><span class="number">24/7</span><span class="label">Service</span></div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/about-cybercafe.jpg" alt="Cisco Printers Cybercafe Interior" loading="lazy" />
+                    <img src="assets/images/about-cybercafe.jpg" alt="About Us" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -464,50 +1301,31 @@
         <div class="container">
             <h2 class="section-title">Contact <span class="highlight">Us</span></h2>
             <p class="section-subtitle">Visit us in Baraton or reach out online</p>
-
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Baraton Centre, Nandi County, Kenya</p>
-                            <p><small>Opposite Royal Pool, Baraton Market Road</small></p>
-                        </div>
+                        <div><h4>Location</h4><p>Baraton Centre, Nandi County<br /><small>Opposite Royal Pool</small></p></div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+254 769 357 320</p>
-                            <p>+254 728 552 269</p>
-                        </div>
+                        <div><h4>Phone</h4><p>+254 769 357 320<br />+254 728 552 269</p></div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@ciscoprinters.co.ke</p>
-                        </div>
+                        <div><h4>Email</h4><p>info@ciscoprinters.co.ke</p></div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Hours</h4>
-                            <p>Mon–Sat: 7:00 AM – 10:00 PM</p>
-                            <p>Sunday: 9:00 AM – 8:00 PM</p>
-                        </div>
+                        <div><h4>Hours</h4><p>Mon–Sat: 7AM – 10PM<br />Sunday: 9AM – 8PM</p></div>
                     </div>
                 </div>
-
                 <form class="contact-form" id="contactForm">
                     <input type="text" placeholder="Your Name" required />
                     <input type="email" placeholder="Your Email" required />
                     <input type="text" placeholder="Subject" />
                     <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
                     <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
@@ -519,31 +1337,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <a href="index.html" class="logo-brand">
-                            <div class="logo-box" style="background:transparent; padding-left:0; border-left:none;">
-                                <i class="fas fa-print" style="color:#f47b20;"></i>
-                                <div>
-                                    <span class="brand-name" style="color:white;">Cisco Printers</span>
-                                    <span class="brand-tag" style="color:#f47b20;">Cybercafe</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <p style="margin-top:15px;">Your trusted cybercafe in Baraton, Nandi.</p>
+                    <a href="index.html" class="logo-text"><i class="fas fa-print"></i> Cisco <span class="highlight">Printers</span></a>
+                    <p>Your trusted cybercafe in Baraton, Nandi.</p>
                     <div class="social-links">
-                        <a href="https://facebook.com/CiscoPrintersCybercafe" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://twitter.com/CiscoPrintersKE" target="_blank" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://instagram.com/ciscoprinters.ke" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/254769357320" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -551,14 +1351,13 @@
                     <a href="#home">Home</a>
                     <a href="#services">Services</a>
                     <a href="#pricing">Pricing</a>
-                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-links">
-                    <h4>Services</h4>
-                    <a href="#services">Internet</a>
-                    <a href="#services">Printing</a>
-                    <a href="#services">Computer Rental</a>
-                    <a href="#services">Passport Photos</a>
+                    <h4>More</h4>
+                    <a href="partners.html">Partners</a>
+                    <a href="naomi-kioko-designs.html">Naomi Art</a>
+                    <a href="clock.html" target="_blank">Clock</a>
                 </div>
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
@@ -569,27 +1368,57 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Cisco Printers Cybercafe. All rights reserved. | Baraton, Nandi, Kenya</p>
-            </div>
+            <div class="footer-bottom">&copy; 2026 Cisco Printers Cybercafe. All rights reserved. | Baraton, Nandi, Kenya</div>
         </div>
     </footer>
 
-    <!-- ===== FLOATING CTA BUTTON ===== -->
-    <div class="cta-float">
-        <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-phone"></i> Book Now
-        </a>
-    </div>
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <div class="cta-float"><a href="#contact" class="btn btn-primary"><i class="fas fa-phone"></i> Book Now</a></div>
 
-    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-    <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- ===== TIDIO LIVE CHAT ===== -->
+    <!-- ===== TIDIO CHAT ===== -->
     <script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script>
+    <style>
+        #tidio-chat, #tidio-chat iframe, .tidio-chat-button { left: 30px !important; right: auto !important; }
+        @media (max-width: 768px) { #tidio-chat, #tidio-chat iframe { left: 20px !important; } }
+    </style>
 
-    <script src="script.js"></script>
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50));
+
+        // Active link on scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a:not([href*=".html"])');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => { const top = s.offsetTop - 150; if (scrollY >= top) current = s.id; });
+            navItems.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('formMessage');
+            msg.textContent = '✅ Thank you! We will get back to you soon.';
+            msg.className = 'form-message success';
+            msg.style.display = 'block';
+            this.reset();
+            setTimeout(() => msg.style.display = 'none', 5000);
+        });
+
+        console.log('🚀 Cisco Printers Cybercafe - Baraton, Nandi');
+        console.log('📧 info@ciscoprinters.co.ke');
+    </script>
+
 </body>
 </html>
