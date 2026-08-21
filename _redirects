@@ -1,0 +1,7 @@
+# Remove .html extensions 
+/clock           /clock.html 
+/naomi-kioko-designs   /naomi-kioko-designs.html 
+/partners        /partners.html 
+ 
+# 404 page 
+/* /index.html 404 
