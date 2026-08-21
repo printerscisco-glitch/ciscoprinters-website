@@ -342,6 +342,40 @@
         <script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script>
     </div>
 
+    <!-- ========================================== -->
+    <!-- ===== SITE PROTECTION ===== -->
+    <!-- ========================================== -->
+    <script>
+        // ===== PROTECT YOUR CODE =====
+        
+        // 1. Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Right-click is disabled on this site.');
+        });
+
+        // 2. Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                alert('This action is disabled for security.');
+            }
+        });
+
+        // 3. Detect Developer Tools
+        setInterval(function() {
+            if (window.outerHeight - window.innerHeight > 200) {
+                document.body.innerHTML = '<h1>🔒 Developer tools detected. Please close them.</h1>';
+                document.body.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;';
+            }
+        }, 1000);
+
+        console.log('🔒 Cisco Printers Cybercafe - Protected');
+    </script>
+
     <script>
         // ===== HAMBURGER MENU =====
         const hamburger = document.getElementById('hamburger');
