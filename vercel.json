@@ -1,0 +1,7 @@
+{ 
+  "rewrites": [ 
+    { "source": "/clock", "destination": "/clock.html" }, 
+    { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" }, 
+    { "source": "/partners", "destination": "/partners.html" } 
+  ] 
+} 
