@@ -36,7 +36,6 @@
             border-top: 5px solid var(--primary-orange);
         }
 
-        /* Logo */
         .login-logo {
             text-align: center;
             margin-bottom: 32px;
@@ -65,7 +64,6 @@
             margin-top: 4px;
         }
 
-        /* Form */
         .login-form .form-group {
             margin-bottom: 20px;
         }
@@ -114,7 +112,6 @@
             box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
         }
 
-        /* Password Toggle */
         .password-toggle {
             position: absolute;
             right: 16px;
@@ -132,7 +129,6 @@
             color: var(--primary-orange);
         }
 
-        /* Options Row */
         .form-options {
             display: flex;
             justify-content: space-between;
@@ -169,7 +165,6 @@
             text-decoration: underline;
         }
 
-        /* Submit Button */
         .btn-login {
             width: 100%;
             padding: 16px;
@@ -197,7 +192,6 @@
             transform: translateY(0);
         }
 
-        /* Error Message */
         .login-error {
             display: none;
             background: #fee2e2;
@@ -214,7 +208,6 @@
             display: block;
         }
 
-        /* Success Message */
         .login-success {
             display: none;
             background: #d1fae5;
@@ -231,7 +224,6 @@
             display: block;
         }
 
-        /* Sign Up Link */
         .signup-link {
             text-align: center;
             margin-top: 24px;
@@ -251,7 +243,6 @@
             text-decoration: underline;
         }
 
-        /* Back to Home */
         .back-home {
             text-align: center;
             margin-top: 16px;
@@ -271,9 +262,41 @@
             color: var(--primary-orange);
         }
 
-        /* =============================================
-           RESPONSIVE LOGIN
-           ============================================= */
+        /* Demo Credentials Box */
+        .demo-box {
+            background: var(--light-blue);
+            border: 1px solid var(--primary-orange);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .demo-box p {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .demo-box .demo-cred {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .demo-box .demo-cred span {
+            background: var(--white);
+            padding: 2px 12px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            font-family: monospace;
+            font-size: 0.75rem;
+        }
+
         @media (max-width: 480px) {
             .login-container {
                 padding: 32px 24px;
@@ -297,6 +320,11 @@
                 padding: 12px 16px 12px 42px;
                 font-size: 0.95rem;
             }
+
+            .demo-box .demo-cred {
+                flex-direction: column;
+                gap: 4px;
+            }
         }
     </style>
 </head>
@@ -309,6 +337,15 @@
                 <span class="logo-icon"><i class="fas fa-print"></i></span>
                 <h1>Cisco <span class="highlight">Printers</span></h1>
                 <p>Member Login</p>
+            </div>
+
+            <!-- ===== DEMO CREDENTIALS ===== -->
+            <div class="demo-box">
+                <p>🔑 Demo Credentials</p>
+                <div class="demo-cred">
+                    <span>demo@ciscoprinters.co.ke</span>
+                    <span>password123</span>
+                </div>
             </div>
 
             <!-- ===== ERROR MESSAGE ===== -->
@@ -336,6 +373,7 @@
                             placeholder="Enter your email"
                             required
                             autocomplete="email"
+                            value="demo@ciscoprinters.co.ke"
                         />
                     </div>
                 </div>
@@ -351,6 +389,7 @@
                             placeholder="Enter your password"
                             required
                             autocomplete="current-password"
+                            value="password123"
                         />
                         <button
                             type="button"
@@ -381,7 +420,7 @@
 
             <!-- ===== SIGN UP LINK ===== -->
             <div class="signup-link">
-                Don't have an account? <a href="#">Sign Up</a>
+                Don't have an account? <a href="signup.html">Sign Up</a>
             </div>
 
             <!-- ===== BACK TO HOME ===== -->
@@ -414,20 +453,25 @@
         });
 
         // =============================================
+        // DEMO CREDENTIALS
+        // =============================================
+        const DEMO_USERS = [
+            { email: 'demo@ciscoprinters.co.ke', password: 'password123', role: 'member' },
+            { email: 'admin@ciscoprinters.co.ke', password: 'admin123', role: 'admin' },
+            { email: 'user@ciscoprinters.co.ke', password: 'user123', role: 'user' },
+            { email: 'info@ciscoprinters.co.ke', password: 'info123', role: 'staff' }
+        ];
+
+        // =============================================
         // LOGIN FORM SUBMISSION
         // =============================================
         const loginForm = document.getElementById('loginForm');
         const loginError = document.getElementById('loginError');
         const loginSuccess = document.getElementById('loginSuccess');
 
-        // Demo credentials (for testing)
-        const DEMO_EMAIL = 'demo@ciscoprinters.co.ke';
-        const DEMO_PASSWORD = 'password123';
-
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Hide previous messages
             loginError.classList.remove('show');
             loginSuccess.classList.remove('show');
 
@@ -435,35 +479,42 @@
             const password = document.getElementById('loginPassword').value.trim();
             const rememberMe = document.getElementById('rememberMe').checked;
 
-            // Validation
             if (!email || !password) {
                 loginError.textContent = '⚠️ Please fill in all fields.';
                 loginError.classList.add('show');
                 return;
             }
 
-            // Demo authentication (replace with real backend later)
-            if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
-                // Success
-                loginSuccess.textContent = '✅ Login successful! Redirecting...';
+            // Check against demo users
+            const user = DEMO_USERS.find(u => u.email === email && u.password === password);
+
+            // Also check localStorage for signup users
+            let localUser = null;
+            if (localStorage.getItem('ciscoUserEmail') === email) {
+                const userData = JSON.parse(localStorage.getItem('ciscoUserData') || '{}');
+                if (userData && userData.email === email) {
+                    localUser = { email: email, password: 'signup_user', role: userData.role || 'member' };
+                }
+            }
+
+            if (user || localUser) {
+                const userInfo = user || localUser;
+                loginSuccess.textContent = `✅ Welcome ${userInfo.role}! Redirecting...`;
                 loginSuccess.classList.add('show');
-                
-                // Store login state
+
                 if (rememberMe) {
                     localStorage.setItem('ciscoLoggedIn', 'true');
                     localStorage.setItem('ciscoUser', email);
+                    localStorage.setItem('ciscoRole', userInfo.role);
                 }
-                
-                // Redirect to dashboard or home after 1.5 seconds
+
                 setTimeout(function() {
                     window.location.href = 'index.html';
                 }, 1500);
             } else {
-                // Failed
                 loginError.textContent = '❌ Invalid email or password. Please try again.';
                 loginError.classList.add('show');
-                
-                // Shake animation
+
                 document.querySelector('.login-container').style.animation = 'shake 0.5s ease';
                 setTimeout(function() {
                     document.querySelector('.login-container').style.animation = '';
@@ -492,6 +543,8 @@
         if (localStorage.getItem('ciscoLoggedIn') === 'true') {
             console.log('👋 Welcome back, ' + localStorage.getItem('ciscoUser'));
         }
+
+        console.log('🔐 Login page ready!');
     </script>
 
 </body>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Cisco Printers Cybercafe</title>
+
+    <!-- ===== SEO ===== -->
+    <meta name="description" content="Create your Cisco Printers Cybercafe account. Sign up to access member services, online printing, and exclusive offers." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* =============================================
+           SIGNUP PAGE STYLES (Blue/Orange Theme)
+           ============================================= */
+        .signup-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        /* Logo */
+        .signup-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .signup-logo .logo-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .signup-logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+
+        .signup-logo h1 .highlight {
+            color: var(--primary-orange);
+        }
+
+        .signup-logo p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Form */
+        .signup-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .signup-form label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .signup-form .input-wrapper {
+            position: relative;
+        }
+
+        .signup-form .input-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .signup-form input,
+        .signup-form select {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fafafa;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .signup-form input::placeholder,
+        .signup-form select::placeholder {
+            color: var(--text-light);
+        }
+
+        .signup-form input:focus,
+        .signup-form select:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
+        }
+
+        .signup-form select {
+            appearance: none;
+            cursor: pointer;
+            padding-right: 40px;
+        }
+
+        .signup-form .select-wrapper {
+            position: relative;
+        }
+
+        .signup-form .select-wrapper::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            pointer-events: none;
+        }
+
+        /* Password Toggle */
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Terms */
+        .terms-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 16px 0 24px;
+        }
+
+        .terms-check input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            accent-color: var(--primary-orange);
+            cursor: pointer;
+            margin-top: 2px;
+        }
+
+        .terms-check label {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .terms-check a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .terms-check a:hover {
+            color: #d96a1a;
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .btn-signup {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: var(--primary-orange);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.35);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(244, 123, 32, 0.5);
+        }
+
+        .btn-signup:active {
+            transform: translateY(0);
+        }
+
+        /* Error Message */
+        .signup-error {
+            display: none;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .signup-error.show {
+            display: block;
+        }
+
+        /* Success Message */
+        .signup-success {
+            display: none;
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .signup-success.show {
+            display: block;
+        }
+
+        /* Login Link */
+        .login-link {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .login-link a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .login-link a:hover {
+            color: #d96a1a;
+            text-decoration: underline;
+        }
+
+        /* Back to Home */
+        .back-home {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .back-home a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-home a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Password Strength Indicator */
+        .password-strength {
+            margin-top: 6px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .password-strength .bar {
+            flex: 1;
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .password-strength .bar.active.weak {
+            background: #ef4444;
+        }
+
+        .password-strength .bar.active.medium {
+            background: #f59e0b;
+        }
+
+        .password-strength .bar.active.strong {
+            background: #22c55e;
+        }
+
+        .password-strength-text {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .password-strength-text.weak { color: #ef4444; }
+        .password-strength-text.medium { color: #f59e0b; }
+        .password-strength-text.strong { color: #22c55e; }
+
+        /* =============================================
+           RESPONSIVE SIGNUP
+           ============================================= */
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 32px 24px;
+            }
+
+            .signup-logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .signup-logo .logo-icon {
+                font-size: 2.5rem;
+            }
+
+            .signup-form input,
+            .signup-form select {
+                padding: 12px 16px 12px 42px;
+                font-size: 0.95rem;
+            }
+
+            .terms-check {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-page">
+        <div class="signup-container">
+            <!-- ===== LOGO ===== -->
+            <div class="signup-logo">
+                <span class="logo-icon"><i class="fas fa-print"></i></span>
+                <h1>Cisco <span class="highlight">Printers</span></h1>
+                <p>Create Your Account</p>
+            </div>
+
+            <!-- ===== ERROR MESSAGE ===== -->
+            <div class="signup-error" id="signupError">
+                <i class="fas fa-exclamation-circle"></i>
+                Please fix the errors above and try again.
+            </div>
+
+            <!-- ===== SUCCESS MESSAGE ===== -->
+            <div class="signup-success" id="signupSuccess">
+                <i class="fas fa-check-circle"></i>
+                Account created successfully! Redirecting to login...
+            </div>
+
+            <!-- ===== SIGNUP FORM ===== -->
+            <form class="signup-form" id="signupForm">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="Enter your full name"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="Enter your email"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="signupPhone">Phone Number</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input
+                            type="tel"
+                            id="signupPhone"
+                            placeholder="Enter your phone number"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a strong password"
+                            required
+                            autocomplete="new-password"
+                        />
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="Toggle password visibility"
+                        >
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="bar" data-index="0"></div>
+                        <div class="bar" data-index="1"></div>
+                        <div class="bar" data-index="2"></div>
+                        <div class="bar" data-index="3"></div>
+                    </div>
+                    <div class="password-strength-text" id="strengthText">Enter a password</div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-check-circle"></i>
+                        <input
+                            type="password"
+                            id="signupConfirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                            autocomplete="new-password"
+                        />
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+                <div class="form-group">
+                    <label for="signupRole">Account Type</label>
+                    <div class="select-wrapper">
+                        <select id="signupRole" required>
+                            <option value="member">Member</option>
+                            <option value="student">Student</option>
+                            <option value="business">Business</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="terms-check">
+                    <input type="checkbox" id="termsCheck" required />
+                    <label for="termsCheck">
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-signup">
+                    <i class="fas fa-user-plus"></i>
+                    Create Account
+                </button>
+            </form>
+
+            <!-- ===== LOGIN LINK ===== -->
+            <div class="login-link">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div class="back-home">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // PASSWORD TOGGLE
+        // =============================================
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('signupPassword');
+
+        passwordToggle.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // =============================================
+        // PASSWORD STRENGTH INDICATOR
+        // =============================================
+        const passwordField = document.getElementById('signupPassword');
+        const strengthBars = document.querySelectorAll('#passwordStrength .bar');
+        const strengthText = document.getElementById('strengthText');
+
+        passwordField.addEventListener('input', function() {
+            const password = this.value;
+            const strength = checkPasswordStrength(password);
+            
+            // Update bars
+            strengthBars.forEach((bar, index) => {
+                bar.classList.remove('active', 'weak', 'medium', 'strong');
+                if (index < strength.score) {
+                    bar.classList.add('active', strength.class);
+                }
+            });
+            
+            // Update text
+            strengthText.textContent = strength.label;
+            strengthText.className = 'password-strength-text ' + strength.class;
+        });
+
+        function checkPasswordStrength(password) {
+            let score = 0;
+            
+            if (password.length === 0) {
+                return { score: 0, label: 'Enter a password', class: '' };
+            }
+            
+            if (password.length >= 8) score++;
+            if (password.match(/[a-z]/)) score++;
+            if (password.match(/[A-Z]/)) score++;
+            if (password.match(/[0-9]/)) score++;
+            if (password.match(/[^a-zA-Z0-9]/)) score++;
+            
+            // Adjust scoring
+            if (password.length < 4) score = 0;
+            
+            const strengthMap = {
+                0: { label: 'Weak', class: 'weak' },
+                1: { label: 'Weak', class: 'weak' },
+                2: { label: 'Medium', class: 'medium' },
+                3: { label: 'Medium', class: 'medium' },
+                4: { label: 'Strong', class: 'strong' },
+                5: { label: 'Very Strong', class: 'strong' }
+            };
+            
+            return {
+                score: Math.min(score, 4),
+                label: strengthMap[Math.min(score, 4)].label,
+                class: strengthMap[Math.min(score, 4)].class
+            };
+        }
+
+        // =============================================
+        // SIGNUP FORM SUBMISSION
+        // =============================================
+        const signupForm = document.getElementById('signupForm');
+        const signupError = document.getElementById('signupError');
+        const signupSuccess = document.getElementById('signupSuccess');
+
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Hide previous messages
+            signupError.classList.remove('show');
+            signupSuccess.classList.remove('show');
+
+            // Get values
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const phone = document.getElementById('signupPhone').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const role = document.getElementById('signupRole').value;
+            const terms = document.getElementById('termsCheck').checked;
+
+            // Validation
+            if (!name || !email || !phone || !password || !confirmPassword) {
+                signupError.textContent = '⚠️ Please fill in all fields.';
+                signupError.classList.add('show');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                signupError.textContent = '⚠️ Passwords do not match.';
+                signupError.classList.add('show');
+                return;
+            }
+
+            if (password.length < 6) {
+                signupError.textContent = '⚠️ Password must be at least 6 characters.';
+                signupError.classList.add('show');
+                return;
+            }
+
+            if (!terms) {
+                signupError.textContent = '⚠️ You must agree to the Terms of Service.';
+                signupError.classList.add('show');
+                return;
+            }
+
+            // Success - store in localStorage (demo only)
+            const userData = {
+                name: name,
+                email: email,
+                phone: phone,
+                role: role,
+                createdAt: new Date().toISOString()
+            };
+
+            // Store in localStorage (for demo purposes)
+            localStorage.setItem('ciscoUserData', JSON.stringify(userData));
+            localStorage.setItem('ciscoUserEmail', email);
+
+            // Show success
+            signupSuccess.textContent = '✅ Account created successfully! Redirecting to login...';
+            signupSuccess.classList.add('show');
+
+            // Reset form
+            this.reset();
+            strengthBars.forEach(bar => bar.classList.remove('active', 'weak', 'medium', 'strong'));
+            strengthText.textContent = 'Enter a password';
+            strengthText.className = 'password-strength-text';
+
+            // Redirect to login after 2 seconds
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000);
+        });
+
+        // =============================================
+        // CHECK IF ALREADY LOGGED IN
+        // =============================================
+        if (localStorage.getItem('ciscoLoggedIn') === 'true') {
+            console.log('👋 You are already logged in as ' + localStorage.getItem('ciscoUser'));
+        }
+
+        console.log('📝 Signup page loaded successfully!');
+    </script>
+
+</body>
+</html>
