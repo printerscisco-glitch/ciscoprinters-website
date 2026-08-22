@@ -29,40 +29,43 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- ===== HEADER / HERO ===== -->
-    <header class="hero-header">
-        <!-- ===== NAVIGATION ===== -->
-        <nav class="navbar">
-            <a href="/" class="logo">
-                <span class="logo-icon"><i class="fas fa-print"></i></span>
-                <span class="logo-text">Cisco <span class="highlight">Printers</span></span>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/" class="logo" style="text-decoration:none;">
+                <i class="fas fa-print"></i>
+                <span>Cisco <span class="highlight">Printers</span></span>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#training">Training</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/partners" class="partner-link">Partners</a></li>
-                <li><a href="/nk-creatives" class="nk-link">NK Creatives</a></li>
-                <li><a href="/clock" target="_blank" class="clock-link" title="Analog Clock"><i class="fas fa-clock"></i></a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/partners" class="partner-link">Partners</a></li>
+            <li><a href="/naomi-kioko-designs" class="naomi-link">Naomi Art</a></li>
+            <li><a href="/clock" target="_blank" class="clock-link">
+                <i class="fas fa-clock"></i>
+            </a></li>
+            <li><a href="login.html" class="login-link"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-        <!-- ===== HERO BODY ===== -->
-        <section class="hero-body" id="home">
+    <!-- ===== HERO ===== -->
+    <header class="hero-header" id="home">
+        <div class="hero-body">
             <div class="hero-text">
-                <span class="hero-badge"><i class="fas fa-shield-alt"></i> Premier Digital & Cyber Center</span>
-                <h1>Your Digital Hub <br />in <span class="highlight-orange">Baraton, Kenya</span></h1>
-                <p>High-speed internet, professional printing, and quality computer services for students, professionals, and clients across Kenya.</p>
+                <h1>Your Digital Hub <br />in <span class="highlight">Baraton, Kenya</span></h1>
+                <p>High-speed internet, professional printing, and quality computer services for students, professionals, and the entire Kenya through online services.</p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">Explore Services</a>
                     <a href="#training" class="btn btn-secondary">Enroll Now</a>
@@ -78,23 +81,23 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">24/7</span>
-                        <span class="stat-label">Online Support</span>
+                        <span class="stat-label">Service</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-image-wrapper">
-                <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe" class="hero-img" loading="lazy" />
+            <div class="hero-image">
+                <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe" loading="lazy" />
                 <div class="floating-badge badge-1">
-                    <i class="fas fa-wifi"></i> <span>100 Mbps Fast Internet</span>
+                    <i class="fas fa-wifi"></i> 100 Mbps
                 </div>
                 <div class="floating-badge badge-2">
-                    <i class="fas fa-print"></i> <span>Instant Print & Copy</span>
+                    <i class="fas fa-print"></i> Instant Print
                 </div>
                 <div class="floating-badge badge-3">
-                    <i class="fas fa-graduation-cap"></i> <span>Certified Training</span>
+                    <i class="fas fa-graduation-cap"></i> Training
                 </div>
             </div>
-        </section>
+        </div>
     </header>
 
     <!-- ===== SERVICES ===== -->
@@ -103,188 +106,193 @@
             <div class="section-header">
                 <span class="section-tag">Our Services</span>
                 <h2 class="section-title">Everything You <span class="highlight">Need</span></h2>
-                <p class="section-subtitle">Comprehensive digital services for the Baraton community and nationwide</p>
+                <p class="section-subtitle">Comprehensive digital services for the Baraton community and beyond — serving <strong>Kenya nationwide</strong></p>
             </div>
 
             <div class="service-tabs">
                 <button class="tab-btn active" data-tab="all">All Services</button>
-                <button class="tab-btn" data-tab="cyber"><i class="fas fa-desktop"></i> Cyber</button>
-                <button class="tab-btn" data-tab="print"><i class="fas fa-print"></i> Printing</button>
-                <button class="tab-btn" data-tab="design"><i class="fas fa-palette"></i> Design</button>
-                <button class="tab-btn" data-tab="academic"><i class="fas fa-book"></i> Academic</button>
-                <button class="tab-btn" data-tab="training"><i class="fas fa-graduation-cap"></i> Training</button>
+                <button class="tab-btn" data-tab="cyber">💻 Cyber</button>
+                <button class="tab-btn" data-tab="print">🖨️ Printing</button>
+                <button class="tab-btn" data-tab="design">🎨 Design</button>
+                <button class="tab-btn" data-tab="academic">📚 Academic</button>
+                <button class="tab-btn" data-tab="training">🎓 Training</button>
             </div>
 
             <div class="services-grid" id="serviceGrid">
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-wifi"></i></div>
                     <h4>Internet Browsing</h4>
-                    <p>High-speed broadband internet connection.</p>
+                    <p>High-speed broadband internet</p>
                 </div>
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-desktop"></i></div>
                     <h4>Computer Access</h4>
-                    <p>Clean, modern, and reliable workstations.</p>
+                    <p>Clean, reliable computers</p>
                 </div>
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-file-signature"></i></div>
                     <h4>Online Applications</h4>
-                    <p>Expert support for KRA, HELB, and KUCCPS portals.</p>
+                    <p>KRA, HELB, KUCCPS services</p>
                 </div>
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-keyboard"></i></div>
                     <h4>Typing &amp; Editing</h4>
-                    <p>Fast, accurate, and professional document processing.</p>
+                    <p>Professional document processing</p>
                 </div>
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-envelope"></i></div>
                     <h4>Email Services</h4>
-                    <p>Secure document sending and account setup.</p>
+                    <p>Professional email assistance</p>
                 </div>
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h4>IT Support</h4>
-                    <p>Hardware and software troubleshooting.</p>
+                    <p>Computer-related assistance</p>
                 </div>
 
                 <div class="service-card" data-category="print">
                     <div class="service-icon"><i class="fas fa-print"></i></div>
                     <h4>Printing Services</h4>
-                    <p>Crisp Black & White and vibrant color prints.</p>
+                    <p>B&W and colour printing</p>
                 </div>
                 <div class="service-card" data-category="print">
                     <div class="service-icon"><i class="fas fa-copy"></i></div>
                     <h4>Photocopying</h4>
-                    <p>High-speed bulk and single copying options.</p>
+                    <p>High-quality copies</p>
                 </div>
                 <div class="service-card" data-category="print">
                     <div class="service-icon"><i class="fas fa-layer-group"></i></div>
                     <h4>Lamination</h4>
-                    <p>Durable protective coating for important papers.</p>
+                    <p>Protect your documents</p>
                 </div>
                 <div class="service-card" data-category="print">
-                    <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="service-icon"><i class="fas fa-book"></i></div>
                     <h4>Binding</h4>
-                    <p>Spiral and hardbound document finishing.</p>
+                    <p>Professional document binding</p>
                 </div>
                 <div class="service-card" data-category="print">
                     <div class="service-icon"><i class="fas fa-id-card"></i></div>
                     <h4>Passport Photos</h4>
-                    <p>Instant digital and printed passport photos.</p>
+                    <p>Instant passport photos</p>
                 </div>
                 <div class="service-card" data-category="print">
-                    <div class="service-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="service-icon"><i class="fas fa-poster"></i></div>
                     <h4>Poster &amp; Flyer Printing</h4>
-                    <p>High-impact promotional media printing.</p>
+                    <p>High-quality prints</p>
                 </div>
 
                 <div class="service-card" data-category="design">
                     <div class="service-icon"><i class="fas fa-palette"></i></div>
                     <h4>Graphic Design</h4>
-                    <p>Logos, flyers, banners, and brand assets.</p>
+                    <p>Logos, posters, flyers</p>
                 </div>
                 <div class="service-card" data-category="design">
                     <div class="service-icon"><i class="fas fa-crop-alt"></i></div>
                     <h4>Photo Editing</h4>
-                    <p>Professional touch-ups and background cleanup.</p>
+                    <p>Professional image enhancement</p>
                 </div>
                 <div class="service-card" data-category="design">
-                    <div class="service-icon"><i class="fas fa-tv"></i></div>
+                    <div class="service-icon"><i class="fas fa-ad"></i></div>
                     <h4>Digital Adverts</h4>
-                    <p>RGB displays and custom scrolling LED advertisements.</p>
+                    <p>RGB scrolling advertisements</p>
                 </div>
                 <div class="service-card" data-category="design">
                     <div class="service-icon"><i class="fas fa-trademark"></i></div>
                     <h4>Logo Design</h4>
-                    <p>Unique branding solutions for modern businesses.</p>
+                    <p>Brand identity creation</p>
                 </div>
 
                 <div class="service-card" data-category="academic">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h4>Research Formatting</h4>
-                    <p>Strict APA, MLA, and university-grade layouts.</p>
+                    <p>APA, thesis formatting</p>
                 </div>
                 <div class="service-card" data-category="academic">
                     <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
                     <h4>Data Analysis</h4>
-                    <p>SPSS analysis and data matrix entry.</p>
+                    <p>SPSS data analysis</p>
                 </div>
                 <div class="service-card" data-category="academic">
                     <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                     <h4>Questionnaire Prep</h4>
-                    <p>Digital survey creation and print-ready forms.</p>
+                    <p>Professional surveys</p>
                 </div>
                 <div class="service-card" data-category="academic">
                     <div class="service-icon"><i class="fas fa-book"></i></div>
                     <h4>Academic Projects</h4>
-                    <p>End-to-end thesis printing and binding.</p>
+                    <p>Printing and binding</p>
                 </div>
 
                 <div class="service-card featured-service" data-category="training">
-                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h4>Computer Training</h4>
-                    <p>Online & Physical classes — KES 3,500/mo</p>
-                    <a href="#training" class="btn btn-primary btn-sm">Learn More</a>
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>💻 Computer Training</h4>
+                    <p>Online &amp; Physical — KES 3,500/month</p>
+                    <div class="training-badge">🎓 Enroll Now</div>
+                    <a href="#training" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== TRAINING SECTION ===== -->
+    <!-- ===== TRAINING ===== -->
     <section id="training" class="training-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Computer Training</span>
-                <h2 class="section-title">Master <span class="highlight">Essential Skills</span></h2>
-                <p class="section-subtitle">Flexible Online &amp; In-Person Programs — Get Certified!</p>
+                <span class="section-tag">🎓 Computer Training</span>
+                <h2 class="section-title">Master <span class="highlight">Computer Skills</span></h2>
+                <p class="section-subtitle">Online &amp; Physical — Get Certified!</p>
             </div>
 
-            <div class="training-card">
+            <div class="training-card" onclick="toggleTraining()">
                 <div class="training-card-header">
                     <div class="training-card-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="training-card-info">
-                        <h3>Full Computer Packages & IT Skills</h3>
-                        <p>Online &amp; Physical — KES 3,500 / month</p>
+                        <h3>💻 Computer Training</h3>
+                        <p>Online &amp; Physical — KES 3,500/month</p>
+                    </div>
+                    <div class="training-card-toggle">
+                        <i class="fas fa-chevron-down" id="trainingArrow"></i>
                     </div>
                 </div>
-                <div class="training-card-body">
+                <div class="training-card-body" id="trainingDetails" style="display: none;">
                     <div class="training-features">
                         <div class="training-feature">
                             <i class="fas fa-laptop"></i>
                             <div>
-                                <h4>Online &amp; Physical Options</h4>
-                                <p>Learn remotely from anywhere in Kenya or at Baraton Center.</p>
+                                <h4>Online &amp; Physical</h4>
+                                <p>Learn from anywhere in Kenya or join us in Baraton</p>
                             </div>
                         </div>
                         <div class="training-feature">
                             <i class="fas fa-certificate"></i>
                             <div>
-                                <h4>Certified Completion</h4>
-                                <p>Earn a verified certificate to boost your resume.</p>
+                                <h4>Certificate Included</h4>
+                                <p>Receive a recognized certificate upon completion</p>
                             </div>
                         </div>
                         <div class="training-feature">
                             <i class="fas fa-users"></i>
                             <div>
-                                <h4>Expert Instructors</h4>
-                                <p>Practical hands-on training guided by industry professionals.</p>
+                                <h4>Expert Trainers</h4>
+                                <p>Learn from experienced professionals</p>
                             </div>
                         </div>
                         <div class="training-feature">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <h4>Flexible Timings</h4>
-                                <p>Morning, afternoon, and evening sessions available.</p>
+                                <h4>Flexible Schedule</h4>
+                                <p>Classes designed to fit your schedule</p>
                             </div>
                         </div>
                     </div>
-                    <div class="training-footer">
-                        <div class="training-price">
-                            <span class="price-amount">KES 3,500</span>
-                            <span class="price-period">/ month</span>
-                        </div>
+                    <div class="training-price">
+                        <span class="price-label">Investment</span>
+                        <span class="price-amount">KES 3,500</span>
+                        <span class="price-period">/ month</span>
+                    </div>
+                    <div class="training-actions">
                         <a href="#contact" class="btn btn-primary btn-large">
                             <i class="fas fa-paper-plane"></i> Enroll Now
                         </a>
@@ -298,66 +306,63 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Pricing Plan</span>
-                <h2 class="section-title">Transparent <span class="highlight">Rates</span></h2>
-                <p class="section-subtitle">Affordable, competitive pricing with zero hidden fees</p>
+                <span class="section-tag">Pricing</span>
+                <h2 class="section-title">Simple, <span class="highlight">Transparent</span> Pricing</h2>
+                <p class="section-subtitle">Affordable rates for everyone</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Black &amp; White Print</h3>
-                        <div class="price"><span class="currency">KES</span> 5</div>
+                        <h3>Black &amp; White</h3>
+                        <div class="price"><span>KES</span> 5</div>
                         <p>Per page</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> High-speed laser quality</li>
-                        <li><i class="fas fa-check"></i> Single or double-sided</li>
-                        <li><i class="fas fa-check"></i> Bulk discount options</li>
+                    <ul>
+                        <li><i class="fas fa-check"></i> High-quality print</li>
+                        <li><i class="fas fa-check"></i> Fast service</li>
+                        <li><i class="fas fa-check"></i> Multiple copies</li>
                     </ul>
-                    <a href="#contact" class="btn btn-secondary full-width">Order Print</a>
+                    <a href="#contact" class="btn btn-primary">Order Now</a>
                 </div>
-                
                 <div class="pricing-card featured">
-                    <div class="popular-badge">Most Popular</div>
+                    <div class="badge">Popular</div>
                     <div class="pricing-header">
                         <h3>Colour Printing</h3>
-                        <div class="price"><span class="currency">KES</span> 10</div>
+                        <div class="price"><span>KES</span> 10</div>
                         <p>Per page</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Vibrant color output</li>
-                        <li><i class="fas fa-check"></i> Premium paper compatibility</li>
-                        <li><i class="fas fa-check"></i> High resolution graphics</li>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Vibrant colours</li>
+                        <li><i class="fas fa-check"></i> Premium quality</li>
+                        <li><i class="fas fa-check"></i> Fast turnaround</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary full-width">Order Print</a>
+                    <a href="#contact" class="btn btn-primary">Order Now</a>
                 </div>
-
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Computer Training</h3>
-                        <div class="price"><span class="currency">KES</span> 3,500</div>
+                        <div class="price"><span>KES</span> 3,500</div>
                         <p>Per month</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Online &amp; Physical sessions</li>
-                        <li><i class="fas fa-check"></i> Recognized Certificate</li>
-                        <li><i class="fas fa-check"></i> Dedicated lab computer</li>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Online &amp; Physical</li>
+                        <li><i class="fas fa-check"></i> Certificate Included</li>
+                        <li><i class="fas fa-check"></i> Expert Trainers</li>
                     </ul>
-                    <a href="#training" class="btn btn-secondary full-width">Enroll Today</a>
+                    <a href="#training" class="btn btn-primary">Enroll Now</a>
                 </div>
             </div>
 
-            <!-- Paper Types Grid -->
             <div class="paper-section">
-                <h3 class="paper-title"><i class="fas fa-copy"></i> Available Media &amp; Paper Stock</h3>
+                <h3 class="paper-title"><i class="fas fa-copy"></i> Paper Types Available</h3>
                 <div class="paper-grid">
                     <span class="paper-chip">Ream Paper</span>
-                    <span class="paper-chip">Manila Board</span>
+                    <span class="paper-chip">Manila</span>
                     <span class="paper-chip">Ivory Paper</span>
-                    <span class="paper-chip">Embossed Stock</span>
-                    <span class="paper-chip">Executive Paper</span>
-                    <span class="paper-chip">Sticker Paper</span>
-                    <span class="paper-chip">Self-Adhesive Sheet</span>
+                    <span class="paper-chip">Embossed</span>
+                    <span class="paper-chip">Executive</span>
+                    <span class="paper-chip">Stickers</span>
+                    <span class="paper-chip">Self-Adhesive</span>
                     <span class="paper-chip">Glossy (One Side)</span>
                     <span class="paper-chip">Glossy (Both Sides)</span>
                     <span class="paper-chip">Envelopes A3</span>
@@ -380,19 +385,19 @@
             <div class="about-content">
                 <div class="about-text">
                     <span class="section-tag">About Us</span>
-                    <h2 class="section-title">Your Trusted <span class="highlight">Digital Partner</span></h2>
-                    <p>Located in <strong>Baraton Center, opposite Royal Pool</strong>, Cisco Printers Cybercafe is dedicated to delivering accessible, top-tier printing, graphic design, and IT solutions.</p>
-                    <p>We empower students, local businesses, and remote clients across Kenya through high-speed infrastructure and reliable digital services.</p>
+                    <h2 class="section-title">Your Trusted <span class="highlight">Cybercafe</span></h2>
+                    <p>Located in the heart of <strong>Baraton, Kenya</strong>, Cisco Printers Cybercafe has been serving the community since 2023.</p>
+                    <p>Our mission is to bridge the digital divide by offering affordable, accessible, and professional cybercafe services to <strong>all Kenyans</strong> through our online services.</p>
                     <div class="about-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Reliable High-Speed Connection</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Student &amp; Business Friendly Rates</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Professional Support Team</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Nationwide Remote Services</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Reliable Service</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Affordable Rates</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Expert Support</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Nationwide Services</div>
                     </div>
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#contact" class="btn btn-primary">Learn More</a>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/about-cybercafe.jpg" alt="Cisco Printers Facility" loading="lazy" />
+                    <img src="assets/images/about-cybercafe.jpg" alt="About Us" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -402,58 +407,58 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Contact Us</span>
-                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-                <p class="section-subtitle">Visit us in Baraton or send us a message online</p>
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
+                <p class="section-subtitle">Visit us in Baraton or reach out online — serving Kenya nationwide</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Location</h4>
                             <p>Baraton Centre, Kenya</p>
-                            <small class="text-muted">Opposite Royal Pool</small>
+                            <small>Opposite Royal Pool</small>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <i class="fas fa-phone"></i>
                         <div>
-                            <h4>Phone Numbers</h4>
+                            <h4>Phone</h4>
                             <p>+254 769 357 320</p>
                             <p>+254 728 552 269</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>Email Address</h4>
+                            <h4>Email</h4>
                             <p>info@ciscoprinters.co.ke</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <i class="fas fa-clock"></i>
                         <div>
-                            <h4>Working Hours</h4>
-                            <p>Mon–Sat: 7:00 AM – 10:00 PM</p>
-                            <p>Sunday: 9:00 AM – 8:00 PM</p>
+                            <h4>Hours</h4>
+                            <p>Mon–Sat: 7AM – 10PM</p>
+                            <p>Sunday: 9AM – 8PM</p>
                         </div>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Full Name" required />
+                        <input type="text" placeholder="Your Name" required />
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email Address" required />
+                        <input type="email" placeholder="Your Email" required />
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="Subject" />
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary full-width">
+                    <button type="submit" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
                     <div id="formMessage" class="form-message"></div>
@@ -467,16 +472,16 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <i class="fas fa-print logo-icon"></i>
-                        <span class="logo-text">Cisco <span class="highlight">Printers</span></span>
+                    <a href="/" class="logo" style="text-decoration:none; font-size:1.2rem;">
+                        <i class="fas fa-print"></i>
+                        <span>Cisco <span class="highlight">Printers</span></span>
                     </a>
-                    <p>Serving Baraton and clients nationwide with digital, printing, and design excellence.</p>
+                    <p>Serving the Baraton community and <strong>Kenya nationwide</strong> with premium digital services.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/254769357320" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -488,35 +493,31 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-links">
-                    <h4>Our Services</h4>
-                    <a href="#services">High-Speed Internet</a>
-                    <a href="#services">Print &amp; Copying</a>
-                    <a href="#services">Graphic Design</a>
-                    <a href="#services">Research &amp; Formatting</a>
-                    <a href="#training">IT Training</a>
+                    <h4>Services</h4>
+                    <a href="#services">Internet</a>
+                    <a href="#services">Printing</a>
+                    <a href="#services">Design</a>
+                    <a href="#services">Academic</a>
+                    <a href="#training">Training</a>
                 </div>
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
-                    <p>Subscribe for special student discounts and service updates.</p>
+                    <p>Get our latest offers and updates.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required />
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Your email" />
+                        <button><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Cisco Printers Cybercafe. All rights reserved. | Baraton Center, Kenya</p>
+                <p>&copy; 2026 Cisco Printers Cybercafe. All rights reserved. | Baraton, Kenya</p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== FLOATING ACTIONS ===== -->
-    <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <div id="tidio-chat-container">
-        <script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script>
-    </div>
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <div id="tidio-chat-container"><script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script></div>
 
     <script src="script.js"></script>
 </body>
