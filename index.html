@@ -33,20 +33,13 @@
 </head>
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar">
-        <div class="container">
+    <!-- ===== HEADER / HERO ===== -->
+    <header class="hero-header">
+        <!-- ===== NAVIGATION ===== -->
+        <nav class="navbar">
             <div class="logo">
-                <a href="/" class="logo-text">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                        <rect x="4" y="6" width="28" height="24" rx="2" stroke="#f47b20" stroke-width="2.5"/>
-                        <rect x="10" y="12" width="16" height="2" rx="1" fill="#f47b20"/>
-                        <rect x="10" y="17" width="12" height="2" rx="1" fill="#f47b20"/>
-                        <circle cx="25" cy="21" r="4" stroke="#f47b20" stroke-width="2"/>
-                        <circle cx="25" cy="21" r="1.5" fill="#f47b20"/>
-                    </svg>
-                    <span>Cisco <span class="highlight">Printers</span></span>
-                </a>
+                <span class="logo-icon"><i class="fas fa-print"></i></span>
+                <span class="logo-text">Cisco <span class="highlight">Printers</span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
@@ -64,36 +57,16 @@
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- ===== HERO ===== -->
-    <section id="home" class="hero">
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-print"></i> Your Digital Hub &amp; Cybercafe Services
-                </div>
-                <h1>Your Digital Hub <br /><span class="gradient-text">in Baraton, Kenya</span></h1>
-                <p class="description">
-                    High-speed internet, professional printing, and quality computer services
-                    for students, professionals, and the entire Kenya through <strong>online services</strong>.
-                </p>
+        <!-- ===== HERO BODY ===== -->
+        <section class="hero-body" id="home">
+            <div class="hero-text">
+                <h1>Your Digital Hub <br />in <span class="highlight-cyan">Baraton, Kenya</span></h1>
+                <p>High-speed internet, professional printing, and quality computer services for students, professionals, and the entire Kenya through online services.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-eye"></i> Explore Services
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="#training" class="btn btn-glass">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </a>
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#training" class="btn-secondary">Enroll Now</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -110,22 +83,20 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-wrapper">
-                    <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe" loading="lazy" />
-                    <div class="floating-badge badge-1">
-                        <i class="fas fa-wifi"></i> 100 Mbps
-                    </div>
-                    <div class="floating-badge badge-2">
-                        <i class="fas fa-print"></i> Instant Print
-                    </div>
-                    <div class="floating-badge badge-3">
-                        <i class="fas fa-graduation-cap"></i> Computer Training
-                    </div>
+            <div class="hero-image">
+                <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe" loading="lazy" />
+                <div class="floating-badge badge-1">
+                    <i class="fas fa-wifi"></i> 100 Mbps
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fas fa-print"></i> Instant Print
+                </div>
+                <div class="floating-badge badge-3">
+                    <i class="fas fa-graduation-cap"></i> Training
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </header>
 
     <!-- ===== SERVICES ===== -->
     <section id="services" class="services">
@@ -136,7 +107,6 @@
                 <p class="section-subtitle">Comprehensive digital services for the Baraton community and beyond — serving <strong>Kenya nationwide</strong></p>
             </div>
 
-            <!-- Service Categories -->
             <div class="service-tabs">
                 <button class="tab-btn active" data-tab="all">All Services</button>
                 <button class="tab-btn" data-tab="cyber">💻 Cyber</button>
@@ -147,7 +117,6 @@
             </div>
 
             <div class="services-grid" id="serviceGrid">
-                <!-- Cyber Services -->
                 <div class="service-card" data-category="cyber">
                     <div class="service-icon"><i class="fas fa-wifi"></i></div>
                     <h4>Internet Browsing</h4>
@@ -179,7 +148,6 @@
                     <p>Computer-related assistance</p>
                 </div>
 
-                <!-- Printing Services -->
                 <div class="service-card" data-category="print">
                     <div class="service-icon"><i class="fas fa-print"></i></div>
                     <h4>Printing Services</h4>
@@ -211,7 +179,6 @@
                     <p>High-quality prints</p>
                 </div>
 
-                <!-- Design Services -->
                 <div class="service-card" data-category="design">
                     <div class="service-icon"><i class="fas fa-palette"></i></div>
                     <h4>Graphic Design</h4>
@@ -233,7 +200,6 @@
                     <p>Brand identity creation</p>
                 </div>
 
-                <!-- Academic Services -->
                 <div class="service-card" data-category="academic">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h4>Research Formatting</h4>
@@ -255,12 +221,11 @@
                     <p>Printing and binding</p>
                 </div>
 
-                <!-- Training Services -->
                 <div class="service-card featured-service" data-category="training">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h4>💻 Computer Training</h4>
                     <p>Online &amp; Physical — KES 3,500/month</p>
-                    <div class="training-badge">Enroll Now</div>
+                    <div class="training-badge">🎓 Enroll Now</div>
                     <a href="#training" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
@@ -270,12 +235,26 @@
     <!-- ===== TRAINING SECTION ===== -->
     <section id="training" class="training-section">
         <div class="container">
-            <div class="training-wrapper">
-                <div class="training-content">
-                    <span class="section-tag">🎓 Computer Training</span>
-                    <h2 class="section-title">Master <span class="highlight">Computer Skills</span></h2>
-                    <p class="section-subtitle">Online &amp; Physical — Get Certified!</p>
+            <div class="section-header">
+                <span class="section-tag">🎓 Computer Training</span>
+                <h2 class="section-title">Master <span class="highlight">Computer Skills</span></h2>
+                <p class="section-subtitle">Online &amp; Physical — Get Certified!</p>
+            </div>
 
+            <div class="training-card" onclick="toggleTraining()">
+                <div class="training-card-header">
+                    <div class="training-card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="training-card-info">
+                        <h3>💻 Computer Training</h3>
+                        <p>Online &amp; Physical — KES 3,500/month</p>
+                    </div>
+                    <div class="training-card-toggle">
+                        <i class="fas fa-chevron-down" id="trainingArrow"></i>
+                    </div>
+                </div>
+                <div class="training-card-body" id="trainingDetails" style="display: none;">
                     <div class="training-features">
                         <div class="training-feature">
                             <i class="fas fa-laptop"></i>
@@ -306,24 +285,15 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="training-price">
                         <span class="price-label">Investment</span>
                         <span class="price-amount">KES 3,500</span>
                         <span class="price-period">/ month</span>
                     </div>
-
                     <div class="training-actions">
                         <a href="#contact" class="btn btn-primary btn-large">
                             <i class="fas fa-paper-plane"></i> Enroll Now
                         </a>
-                    </div>
-                </div>
-
-                <div class="training-image">
-                    <img src="assets/images/training.jpg" alt="Computer Training" loading="lazy" />
-                    <div class="training-badge-float">
-                        <i class="fas fa-certificate"></i> 100% Certified
                     </div>
                 </div>
             </div>
@@ -381,7 +351,6 @@
                 </div>
             </div>
 
-            <!-- Paper Types -->
             <div class="paper-section">
                 <h3 class="paper-title"><i class="fas fa-copy"></i> Paper Types Available</h3>
                 <div class="paper-grid">
@@ -502,13 +471,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="/" class="logo-text">
-                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-                            <rect x="4" y="6" width="28" height="24" rx="2" stroke="#f47b20" stroke-width="2.5"/>
-                            <rect x="10" y="12" width="16" height="2" rx="1" fill="#f47b20"/>
-                            <rect x="10" y="17" width="12" height="2" rx="1" fill="#f47b20"/>
-                            <circle cx="25" cy="21" r="4" stroke="#f47b20" stroke-width="2"/>
-                            <circle cx="25" cy="21" r="1.5" fill="#f47b20"/>
-                        </svg>
+                        <i class="fas fa-print"></i>
                         <span>Cisco <span class="highlight">Printers</span></span>
                     </a>
                     <p>Serving the Baraton community and <strong>Kenya nationwide</strong> with premium digital services.</p>
@@ -554,90 +517,6 @@
     <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <div id="tidio-chat-container"><script src="//code.tidio.co/lk6lbvolnyg5hh7vcvf3knzpvhjytg9w.js" async></script></div>
 
-    <script>
-        // ===== HAMBURGER MENU =====
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // ===== NAVBAR SCROLL EFFECT =====
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // ===== ACTIVE LINK ON SCROLL =====
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a:not([href*=".html"])');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const top = section.offsetTop - 150;
-                if (scrollY >= top) {
-                    current = section.id;
-                }
-            });
-
-            navItems.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // ===== SERVICE TABS =====
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const serviceCards = document.querySelectorAll('.service-card');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-
-                const filter = this.getAttribute('data-tab');
-
-                serviceCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // ===== CONTACT FORM =====
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const msg = document.getElementById('formMessage');
-            msg.textContent = '✅ Thank you! We will get back to you soon.';
-            msg.className = 'form-message success';
-            msg.style.display = 'block';
-            this.reset();
-            setTimeout(() => {
-                msg.style.display = 'none';
-            }, 5000);
-        });
-
-        console.log('🚀 Cisco Printers Cybercafe - Baraton, Kenya');
-        console.log('📧 info@ciscoprinters.co.ke');
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
