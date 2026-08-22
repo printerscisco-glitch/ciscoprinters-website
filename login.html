@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Login - Cisco Printers Cybercafe</title>
+
+    <!-- ===== SEO ===== -->
+    <meta name="description" content="Member login for Cisco Printers Cybercafe. Access your account, view orders, and manage services." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* =============================================
+           LOGIN PAGE STYLES (Blue/Orange Theme)
+           ============================================= */
+        .login-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        /* Logo */
+        .login-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-logo .logo-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .login-logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+
+        .login-logo h1 .highlight {
+            color: var(--primary-orange);
+        }
+
+        .login-logo p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Form */
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .login-form .input-wrapper {
+            position: relative;
+        }
+
+        .login-form .input-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fafafa;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .login-form input::placeholder {
+            color: var(--text-light);
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
+        }
+
+        /* Password Toggle */
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Options Row */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .form-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .form-options input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-orange);
+            cursor: pointer;
+        }
+
+        .form-options a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .form-options a:hover {
+            color: #d96a1a;
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: var(--primary-orange);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.35);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(244, 123, 32, 0.5);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        /* Error Message */
+        .login-error {
+            display: none;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .login-error.show {
+            display: block;
+        }
+
+        /* Success Message */
+        .login-success {
+            display: none;
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .login-success.show {
+            display: block;
+        }
+
+        /* Sign Up Link */
+        .signup-link {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .signup-link a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .signup-link a:hover {
+            color: #d96a1a;
+            text-decoration: underline;
+        }
+
+        /* Back to Home */
+        .back-home {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .back-home a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-home a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* =============================================
+           RESPONSIVE LOGIN
+           ============================================= */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 32px 24px;
+            }
+
+            .login-logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-logo .logo-icon {
+                font-size: 2.5rem;
+            }
+
+            .form-options {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .login-form input {
+                padding: 12px 16px 12px 42px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-page">
+        <div class="login-container">
+            <!-- ===== LOGO ===== -->
+            <div class="login-logo">
+                <span class="logo-icon"><i class="fas fa-print"></i></span>
+                <h1>Cisco <span class="highlight">Printers</span></h1>
+                <p>Member Login</p>
+            </div>
+
+            <!-- ===== ERROR MESSAGE ===== -->
+            <div class="login-error" id="loginError">
+                <i class="fas fa-exclamation-circle"></i>
+                Invalid email or password. Please try again.
+            </div>
+
+            <!-- ===== SUCCESS MESSAGE ===== -->
+            <div class="login-success" id="loginSuccess">
+                <i class="fas fa-check-circle"></i>
+                Login successful! Redirecting...
+            </div>
+
+            <!-- ===== LOGIN FORM ===== -->
+            <form class="login-form" id="loginForm">
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        />
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="Toggle password visibility"
+                        >
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="rememberMe" />
+                        Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Sign In
+                </button>
+            </form>
+
+            <!-- ===== SIGN UP LINK ===== -->
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign Up</a>
+            </div>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div class="back-home">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // PASSWORD TOGGLE
+        // =============================================
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('loginPassword');
+
+        passwordToggle.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // =============================================
+        // LOGIN FORM SUBMISSION
+        // =============================================
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const loginSuccess = document.getElementById('loginSuccess');
+
+        // Demo credentials (for testing)
+        const DEMO_EMAIL = 'demo@ciscoprinters.co.ke';
+        const DEMO_PASSWORD = 'password123';
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Hide previous messages
+            loginError.classList.remove('show');
+            loginSuccess.classList.remove('show');
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            // Validation
+            if (!email || !password) {
+                loginError.textContent = '⚠️ Please fill in all fields.';
+                loginError.classList.add('show');
+                return;
+            }
+
+            // Demo authentication (replace with real backend later)
+            if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+                // Success
+                loginSuccess.textContent = '✅ Login successful! Redirecting...';
+                loginSuccess.classList.add('show');
+                
+                // Store login state
+                if (rememberMe) {
+                    localStorage.setItem('ciscoLoggedIn', 'true');
+                    localStorage.setItem('ciscoUser', email);
+                }
+                
+                // Redirect to dashboard or home after 1.5 seconds
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } else {
+                // Failed
+                loginError.textContent = '❌ Invalid email or password. Please try again.';
+                loginError.classList.add('show');
+                
+                // Shake animation
+                document.querySelector('.login-container').style.animation = 'shake 0.5s ease';
+                setTimeout(function() {
+                    document.querySelector('.login-container').style.animation = '';
+                }, 500);
+            }
+        });
+
+        // =============================================
+        // SHAKE ANIMATION
+        // =============================================
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20% { transform: translateX(-10px); }
+                40% { transform: translateX(10px); }
+                60% { transform: translateX(-10px); }
+                80% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // =============================================
+        // CHECK IF ALREADY LOGGED IN
+        // =============================================
+        if (localStorage.getItem('ciscoLoggedIn') === 'true') {
+            console.log('👋 Welcome back, ' + localStorage.getItem('ciscoUser'));
+        }
+    </script>
+
+</body>
+</html>
