@@ -1,732 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Cisco Printers Math Clock - Full Screen</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Printers Math Clock</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #0d0e12;
-            font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
-        }
+    body {
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+    }
 
-        .board {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            background: #0d0e12;
-            overflow: hidden;
-        }
+    /* Wooden Board Frame */
+    .board {
+      position: relative;
+      width: 1000px;
+      height: 650px;
+      background: #0d0e12;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(255, 255, 255, 0.03);
+      border: 4px solid #1a1c23;
+      overflow: hidden;
+    }
 
-        #artCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+    /* Canvas for String Art & Clock */
+    #artCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
 
-        /* ===== BACK BUTTON ===== */
-        .back-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 2px solid #facc15;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-family: Tahoma, sans-serif;
-            backdrop-filter: blur(10px);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+    /* Branding Text */
+    .brand-container {
+      position: absolute;
+      bottom: 50px;
+      left: 40px;
+      z-index: 2;
+    }
 
-        .back-btn:hover {
-            background: #facc15;
-            color: #0d0e12;
-            transform: scale(1.05);
-        }
+    .brand-title {
+      font-family: Tahoma, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-        .back-btn i {
-            font-size: 14px;
-        }
+    .brand-title .cisco {
+      color: #2563eb;
+    }
 
-        /* ===== BRAND CONTAINER ===== */
-        .brand-container {
-            position: absolute;
-            z-index: 2;
-            text-align: center;
-            width: 90vw;
-            max-width: 600px;
-            top: 58vh;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    .brand-title .printers {
+      color: #facc15;
+      margin-left: 15px;
+    }
 
-        .brand-title {
-            font-family: Tahoma, sans-serif;
-            font-size: clamp(28px, 4.6vw, 72px);
-            font-weight: 700;
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
+    .brand-tagline {
+      font-family: Tahoma, sans-serif;
+      color: #ffffff;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 500;
+      margin-top: 15px;
+      letter-spacing: 0.5px;
+    }
 
-        .brand-title .cisco {
-            color: #2563eb;
-        }
+    /* Watermark */
+    .watermark {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      z-index: 2;
+      color: #a1a1aa;
+      text-align: center;
+      font-family: Tahoma, sans-serif;
+    }
 
-        .brand-title .printers {
-            color: #facc15;
-            margin-left: 10px;
-        }
+    .watermark .nk-logo {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      border-bottom: 2px solid #a1a1aa;
+      padding-bottom: 2px;
+    }
 
-        .brand-tagline {
-            font-family: Tahoma, sans-serif;
-            color: #ffffff;
-            font-size: clamp(12px, 2vw, 30px);
-            font-style: italic;
-            font-weight: 600;
-            margin-top: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-location {
-            font-family: Tahoma, sans-serif;
-            color: #facc15;
-            font-size: clamp(10px, 1.4vw, 22px);
-            font-weight: 600;
-            margin-top: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        /* ===== TICKER ===== */
-        .ticker-container {
-            position: absolute;
-            bottom: 2.5vh;
-            left: 3vw;
-            width: calc(94vw - 120px);
-            overflow: hidden;
-            white-space: nowrap;
-            z-index: 2;
-        }
-
-        .ticker-text {
-            display: inline-block;
-            font-family: Tahoma, sans-serif;
-            font-size: clamp(12px, 1.8vw, 26px);
-            font-weight: 700;
-            color: #ef4444;
-            text-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
-            animation: marquee 65s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* ===== WATERMARK ===== */
-        .watermark {
-            position: absolute;
-            bottom: 2vh;
-            right: 3vw;
-            z-index: 2;
-            color: #a1a1aa;
-            text-align: center;
-            font-family: Tahoma, sans-serif;
-        }
-
-        .watermark .nk-logo {
-            font-size: clamp(16px, 2vw, 32px);
-            font-weight: 900;
-            line-height: 1;
-            border-bottom: 2px solid #a1a1aa;
-            padding-bottom: 2px;
-        }
-
-        .watermark .nk-text {
-            font-size: clamp(6px, 0.7vw, 12px);
-            letter-spacing: 2px;
-            margin-top: 2px;
-        }
-
-        /* =============================================
-           MOBILE OPTIMIZATIONS
-           ============================================= */
-        @media (max-width: 768px) {
-            .back-btn {
-                top: 12px;
-                left: 12px;
-                padding: 8px 16px;
-                font-size: 12px;
-                border-width: 1.5px;
-            }
-
-            .back-btn i {
-                font-size: 11px;
-            }
-
-            .brand-container {
-                top: 52vh;
-                width: 92vw;
-            }
-
-            .brand-title {
-                font-size: clamp(22px, 5vw, 36px);
-            }
-
-            .brand-title .printers {
-                margin-left: 6px;
-            }
-
-            .brand-tagline {
-                font-size: clamp(10px, 2.2vw, 16px);
-            }
-
-            .brand-location {
-                font-size: clamp(8px, 1.8vw, 13px);
-            }
-
-            .ticker-container {
-                width: 90vw;
-                left: 5vw;
-                bottom: 3vh;
-            }
-
-            .ticker-text {
-                font-size: clamp(10px, 2vw, 14px);
-                animation-duration: 45s;
-            }
-
-            .watermark {
-                bottom: 1.5vh;
-                right: 4vw;
-            }
-
-            .watermark .nk-logo {
-                font-size: clamp(14px, 2.5vw, 22px);
-            }
-
-            .watermark .nk-text {
-                font-size: clamp(5px, 0.9vw, 9px);
-                letter-spacing: 1.5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .back-btn {
-                top: 10px;
-                left: 10px;
-                padding: 6px 12px;
-                font-size: 10px;
-                border-width: 1px;
-            }
-
-            .back-btn i {
-                font-size: 9px;
-            }
-
-            .brand-container {
-                top: 50vh;
-                width: 94vw;
-            }
-
-            .brand-title {
-                font-size: clamp(18px, 4.5vw, 28px);
-            }
-
-            .brand-tagline {
-                font-size: clamp(8px, 2vw, 12px);
-                margin-top: 4px;
-            }
-
-            .brand-location {
-                font-size: clamp(7px, 1.6vw, 11px);
-                margin-top: 4px;
-            }
-
-            .ticker-container {
-                width: 92vw;
-                left: 4vw;
-                bottom: 2.5vh;
-            }
-
-            .ticker-text {
-                font-size: clamp(8px, 1.8vw, 11px);
-                animation-duration: 35s;
-            }
-
-            .watermark {
-                bottom: 1vh;
-                right: 3vw;
-            }
-
-            .watermark .nk-logo {
-                font-size: clamp(12px, 2.2vw, 18px);
-            }
-
-            .watermark .nk-text {
-                font-size: clamp(4px, 0.8vw, 7px);
-                letter-spacing: 1px;
-            }
-        }
-
-        /* =============================================
-           LANDSCAPE MODE ON MOBILE
-           ============================================= */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .brand-container {
-                top: 45vh;
-            }
-
-            .brand-title {
-                font-size: clamp(16px, 3.5vw, 24px);
-            }
-
-            .brand-tagline {
-                font-size: clamp(8px, 1.5vw, 12px);
-                margin-top: 2px;
-            }
-
-            .brand-location {
-                font-size: clamp(6px, 1.2vw, 10px);
-                margin-top: 2px;
-            }
-
-            .ticker-container {
-                bottom: 2vh;
-            }
-
-            .ticker-text {
-                font-size: clamp(8px, 1.4vw, 12px);
-                animation-duration: 30s;
-            }
-
-            .back-btn {
-                top: 8px;
-                left: 8px;
-                padding: 4px 10px;
-                font-size: 9px;
-            }
-        }
-    </style>
+    .watermark .nk-text {
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="board">
-        <canvas id="artCanvas"></canvas>
+  <div class="board">
+    <canvas id="artCanvas" width="1000" height="650"></canvas>
 
-        <!-- Back Button -->
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Back
-        </a>
-
-        <!-- Branding -->
-        <div class="brand-container">
-            <div class="brand-title">
-                <span class="cisco">Cisco</span>
-                <span class="printers">Printers</span>
-            </div>
-            <div class="brand-tagline">Your designing and printing partner</div>
-            <div class="brand-location">Located at Baraton Center opposite Royal Pool</div>
-        </div>
-
-        <!-- Ticker -->
-        <div class="ticker-container">
-            <div class="ticker-text">
-                ✦ PRICING LIST: Printing B&W: Ksh 5 | Colored: Ksh 10 | Photos (4x6): Ksh 20 | A4 Photo Paper: Ksh 100 | A4 Glossy: Ksh 20 | A4 Sticker: Ksh 30 | Executive Paper: Ksh 100 | HELB Application: Ksh 250 | Admission Letter: Ksh 150 | KRA Application: Ksh 150 ✦ ALL ONLINE SERVICES & GRAPHIC DESIGNS AVAILABLE!
-            </div>
-        </div>
-
-        <!-- Watermark -->
-        <div class="watermark">
-            <div class="nk-logo">NK</div>
-            <div class="nk-text">CREATIVES</div>
-        </div>
+    <div class="brand-container">
+      <div class="brand-title">
+        <span class="cisco">Cisco</span>
+        <span class="printers">Printers</span>
+      </div>
+      <div class="brand-tagline">Your designing and printing partner</div>
     </div>
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <div class="watermark">
+      <div class="nk-logo">NK</div>
+      <div class="nk-text">CREATIVES</div>
+    </div>
+  </div>
 
-    <script>
-        // =============================================
-        // CANVAS SETUP
-        // =============================================
-        const canvas = document.getElementById('artCanvas');
-        const ctx = canvas.getContext('2d');
+  <script>
+    const canvas = document.getElementById('artCanvas');
+    const ctx = canvas.getContext('2d');
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    const BLUE_COLOR = '#2563eb';
+    const ORANGE_COLOR = '#f97316';
+    const YELLOW_COLOR = '#facc15';
+
+    const CRESCENT_CENTER_X = 260;
+    const CRESCENT_CENTER_Y = 200;
+
+    // String Art Drawing Helper
+    function drawStringArt(curveA, curveB, steps, color, opacity = 0.85, lineWidth = 1) {
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = opacity;
+      ctx.lineWidth = lineWidth;
+
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const pA = curveA(t);
+        const pB = curveB(t);
+
+        ctx.beginPath();
+        ctx.moveTo(pA.x, pA.y);
+        ctx.lineTo(pB.x, pB.y);
+        ctx.stroke();
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(pA.x - 1, pA.y - 1, 2, 2);
+        ctx.fillRect(pB.x - 1, pB.y - 1, 2, 2);
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Corner String-Art Accents
+    function drawCorners() {
+      // Bottom-Left (Blue)
+      drawStringArt(
+        (t) => ({ x: 0, y: 650 - t * 80 }),
+        (t) => ({ x: t * 80, y: 650 }),
+        30,
+        BLUE_COLOR,
+        0.9,
+        1.2
+      );
+
+      // Top-Right (Yellow & Blue)
+      drawStringArt(
+        (t) => ({ x: 1000 - t * 110, y: 0 }),
+        (t) => ({ x: 1000, y: t * 110 }),
+        35,
+        YELLOW_COLOR,
+        0.9,
+        1.2
+      );
+      drawStringArt(
+        (t) => ({ x: 1000 - t * 60, y: 0 }),
+        (t) => ({ x: 1000, y: t * 60 }),
+        20,
+        BLUE_COLOR,
+        0.9,
+        1.2
+      );
+    }
+
+    // Outer Crescents
+    function drawOuterCrescents() {
+      const radius = 170;
+      const lines = 90;
+
+      // Left Crescent (Blue String Art)
+      drawStringArt(
+        (t) => {
+          const angle = Math.PI * 0.55 + t * (Math.PI * 0.95);
+          return { x: CRESCENT_CENTER_X + radius * Math.cos(angle), y: CRESCENT_CENTER_Y + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = Math.PI * 0.75 + t * (Math.PI * 0.55);
+          return { x: CRESCENT_CENTER_X + (radius * 0.5) * Math.cos(angle) - 15, y: CRESCENT_CENTER_Y + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        BLUE_COLOR
+      );
+
+      // Right Crescent (Orange String Art)
+      drawStringArt(
+        (t) => {
+          const angle = -Math.PI * 0.45 + t * (Math.PI * 0.95);
+          return { x: CRESCENT_CENTER_X + radius * Math.cos(angle), y: CRESCENT_CENTER_Y + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = -Math.PI * 0.25 + t * (Math.PI * 0.55);
+          return { x: CRESCENT_CENTER_X + (radius * 0.5) * Math.cos(angle) + 15, y: CRESCENT_CENTER_Y + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        ORANGE_COLOR
+      );
+    }
+
+    // Solid Plain Font "CP" Centered Inside Logo
+    function drawCP() {
+      ctx.save();
+      const fontSize = 135;
+      ctx.font = `bold ${fontSize}px Tahoma, sans-serif`;
+      ctx.textBaseline = 'middle';
+
+      // Width calculation for centering
+      const cWidth = ctx.measureText('C').width;
+      const pWidth = ctx.measureText('P').width;
+      const gap = 4;
+      const totalWidth = cWidth + pWidth + gap;
+
+      const startX = CRESCENT_CENTER_X - (totalWidth / 2);
+      const startY = CRESCENT_CENTER_Y + 10;
+
+      // Draw Solid Blue "C"
+      ctx.fillStyle = BLUE_COLOR;
+      ctx.fillText('C', startX, startY);
+
+      // Draw Solid Orange "P"
+      ctx.fillStyle = ORANGE_COLOR;
+      ctx.fillText('P', startX + cWidth + gap, startY);
+
+      ctx.restore();
+    }
+
+    // Woven Yellow Outer Border Around Clock
+    function drawClockWovenBorder(cx, cy, innerR, outerR) {
+      const pins = 180;
+      const skip = 42;
+      ctx.strokeStyle = YELLOW_COLOR;
+      ctx.globalAlpha = 0.45;
+      ctx.lineWidth = 0.8;
+
+      for (let i = 0; i < pins; i++) {
+        const a1 = (i / pins) * Math.PI * 2;
+        const a2 = ((i + skip) / pins) * Math.PI * 2;
+
+        const x1 = cx + innerR * Math.cos(a1);
+        const y1 = cy + innerR * Math.sin(a1);
+        const x2 = cx + outerR * Math.cos(a2);
+        const y2 = cy + outerR * Math.sin(a2);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Clock Face & Math Radian Labels
+    function drawClock(cx, cy, radius) {
+      ctx.save();
+
+      // Clock Background Face
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      // Radian Labels
+      const labels = [
+        { angle: -Math.PI / 3, num: 'π', den: '3' },
+        { angle: -Math.PI / 6, num: 'π', den: '6' },
+        { angle: 0, text: '2π' },
+        { angle: Math.PI / 6, num: '11π', den: '6' },
+        { angle: Math.PI / 3, num: '5π', den: '3' },
+        { angle: Math.PI / 2, num: '3π', den: '2' },
+        { angle: (2 * Math.PI) / 3, num: '4π', den: '3' },
+        { angle: (5 * Math.PI) / 6, num: '7π', den: '6' },
+        { angle: Math.PI, text: 'π' },
+        { angle: (-5 * Math.PI) / 6, num: '5π', den: '6' },
+        { angle: (-2 * Math.PI) / 3, num: '2π', den: '3' },
+        { angle: -Math.PI / 2, num: 'π', den: '2' }
+      ];
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      labels.forEach(item => {
+        const tickInner = radius - 25;
+        const tickOuter = radius - 12;
+        const tx1 = cx + tickInner * Math.cos(item.angle);
+        const ty1 = cy + tickInner * Math.sin(item.angle);
+        const tx2 = cx + tickOuter * Math.cos(item.angle);
+        const ty2 = cy + tickOuter * Math.sin(item.angle);
+
+        ctx.beginPath();
+        ctx.moveTo(tx1, ty1);
+        ctx.lineTo(tx2, ty2);
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const labelR = radius - 52;
+        const lx = cx + labelR * Math.cos(item.angle);
+        const ly = cy + labelR * Math.sin(item.angle);
+
+        if (item.text) {
+          ctx.font = 'bold 20px Tahoma, sans-serif';
+          ctx.fillText(item.text, lx, ly);
+        } else {
+          ctx.font = 'bold 15px Tahoma, sans-serif';
+          ctx.fillText(item.num, lx, ly - 8);
+
+          const barWidth = Math.max(ctx.measureText(item.num).width, ctx.measureText(item.den).width) + 4;
+          ctx.beginPath();
+          ctx.moveTo(lx - barWidth / 2, ly);
+          ctx.lineTo(lx + barWidth / 2, ly);
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          ctx.fillText(item.den, lx, ly + 10);
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+      });
 
-        // =============================================
-        // COLORS
-        // =============================================
-        const BLUE_COLOR = '#2563eb';
-        const ORANGE_COLOR = '#f97316';
-        const YELLOW_COLOR = '#facc15';
+      // Center Pi Symbol
+      ctx.font = 'bold 44px "Times New Roman", serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('π', cx, cy + 40);
 
-        // =============================================
-        // DRAWING FUNCTIONS
-        // =============================================
-        function drawStringArt(curveA, curveB, steps, color, opacity = 0.85, lineWidth = 1) {
-            ctx.strokeStyle = color;
-            ctx.globalAlpha = opacity;
-            ctx.lineWidth = lineWidth;
+      // Live Clock Hands
+      const now = new Date();
+      const hrs = now.getHours() % 12;
+      const mins = now.getMinutes();
+      const secs = now.getSeconds();
 
-            for (let i = 0; i <= steps; i++) {
-                const t = i / steps;
-                const pA = curveA(t);
-                const pB = curveB(t);
+      const hAngle = ((hrs + mins / 60) * 30 - 90) * (Math.PI / 180);
+      const mAngle = ((mins + secs / 60) * 6 - 90) * (Math.PI / 180);
+      const sAngle = ((secs) * 6 - 90) * (Math.PI / 180);
 
-                ctx.beginPath();
-                ctx.moveTo(pA.x, pA.y);
-                ctx.lineTo(pB.x, pB.y);
-                ctx.stroke();
+      // Hour Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(hAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-10, -4);
+      ctx.lineTo(radius * 0.45, -2);
+      ctx.lineTo(radius * 0.55, 0);
+      ctx.lineTo(radius * 0.45, 2);
+      ctx.lineTo(-10, 4);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
 
-                ctx.fillStyle = '#000000';
-                ctx.fillRect(pA.x - 1, pA.y - 1, 2, 2);
-                ctx.fillRect(pB.x - 1, pB.y - 1, 2, 2);
-            }
-            ctx.globalAlpha = 1.0;
-        }
+      // Minute Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(mAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-15, -3);
+      ctx.lineTo(radius * 0.7, -1.5);
+      ctx.lineTo(radius * 0.8, 0);
+      ctx.lineTo(radius * 0.7, 1.5);
+      ctx.lineTo(-15, 3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
 
-        function drawCorners() {
-            const W = canvas.width;
-            const H = canvas.height;
-            const scale = Math.min(W, H) / 650;
+      // Second Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(sAngle);
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-20, 0);
+      ctx.lineTo(radius * 0.82, 0);
+      ctx.stroke();
 
-            // Bottom-Left
-            drawStringArt(
-                (t) => ({ x: 0, y: H - t * (110 * scale) }),
-                (t) => ({ x: t * (110 * scale), y: H }),
-                35,
-                BLUE_COLOR,
-                0.9,
-                1.5 * scale
-            );
-            drawStringArt(
-                (t) => ({ x: 0, y: H - t * (75 * scale) }),
-                (t) => ({ x: t * (75 * scale), y: H }),
-                25,
-                YELLOW_COLOR,
-                0.9,
-                1.5 * scale
-            );
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(0, 0, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
 
-            // Top-Right
-            drawStringArt(
-                (t) => ({ x: W - t * (180 * scale), y: 0 }),
-                (t) => ({ x: W, y: t * (180 * scale) }),
-                45,
-                YELLOW_COLOR,
-                0.95,
-                2.2 * scale
-            );
-            drawStringArt(
-                (t) => ({ x: W - t * (100 * scale), y: 0 }),
-                (t) => ({ x: W, y: t * (100 * scale) }),
-                25,
-                BLUE_COLOR,
-                1.0,
-                2.5 * scale
-            );
-        }
+      ctx.restore();
+    }
 
-        function drawOuterCrescents(centerX, centerY, scale) {
-            const radius = 160 * scale;
-            const lines = 90;
+    // Main Render Loop
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            drawStringArt(
-                (t) => {
-                    const angle = Math.PI * 0.55 + t * (Math.PI * 0.95);
-                    return { x: centerX + radius * Math.cos(angle), y: centerY + radius * Math.sin(angle) };
-                },
-                (t) => {
-                    const angle = Math.PI * 0.75 + t * (Math.PI * 0.55);
-                    return { x: centerX + (radius * 0.5) * Math.cos(angle) - (15 * scale), y: centerY + (radius * 0.5) * Math.sin(angle) };
-                },
-                lines,
-                BLUE_COLOR,
-                0.85,
-                1.2 * scale
-            );
+      drawCorners();
+      drawOuterCrescents();
+      drawCP();
 
-            drawStringArt(
-                (t) => {
-                    const angle = -Math.PI * 0.45 + t * (Math.PI * 0.95);
-                    return { x: centerX + radius * Math.cos(angle), y: centerY + radius * Math.sin(angle) };
-                },
-                (t) => {
-                    const angle = -Math.PI * 0.25 + t * (Math.PI * 0.55);
-                    return { x: centerX + (radius * 0.5) * Math.cos(angle) + (15 * scale), y: centerY + (radius * 0.5) * Math.sin(angle) };
-                },
-                lines,
-                ORANGE_COLOR,
-                0.85,
-                1.2 * scale
-            );
-        }
+      const clockCX = 740;
+      const clockCY = 320;
+      const clockRadius = 180;
 
-        function drawCP(centerX, centerY, scale) {
-            ctx.save();
-            const fontSize = 125 * scale;
-            ctx.font = `bold ${fontSize}px Tahoma, sans-serif`;
-            ctx.textBaseline = 'middle';
+      drawClockWovenBorder(clockCX, clockCY, clockRadius, clockRadius + 45);
+      drawClock(clockCX, clockCY, clockRadius);
 
-            const cWidth = ctx.measureText('C').width;
-            const pWidth = ctx.measureText('P').width;
-            const gap = 4 * scale;
-            const totalWidth = cWidth + pWidth + gap;
+      requestAnimationFrame(render);
+    }
 
-            const startX = centerX - (totalWidth / 2);
-            const startY = centerY + (10 * scale);
+    render();
 
-            ctx.fillStyle = BLUE_COLOR;
-            ctx.fillText('C', startX, startY);
+    // =============================================
+    // ===== SITE PROTECTION =====
+    // =============================================
+    
+    // 1. Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('Right-click is disabled on this site.');
+    });
 
-            ctx.fillStyle = ORANGE_COLOR;
-            ctx.fillText('P', startX + cWidth + gap, startY);
-
-            ctx.restore();
-        }
-
-        function drawClockWovenBorder(cx, cy, innerR, outerR, scale) {
-            const pins = 180;
-            const skip = 42;
-            ctx.strokeStyle = YELLOW_COLOR;
-            ctx.globalAlpha = 0.45;
-            ctx.lineWidth = 1.0 * scale;
-
-            for (let i = 0; i < pins; i++) {
-                const a1 = (i / pins) * Math.PI * 2;
-                const a2 = ((i + skip) / pins) * Math.PI * 2;
-
-                const x1 = cx + innerR * Math.cos(a1);
-                const y1 = cy + innerR * Math.sin(a1);
-                const x2 = cx + outerR * Math.cos(a2);
-                const y2 = cy + outerR * Math.sin(a2);
-
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.lineTo(x2, y2);
-                ctx.stroke();
-            }
-            ctx.globalAlpha = 1.0;
-        }
-
-        function drawClock(cx, cy, radius, scale) {
-            ctx.save();
-
-            // Clock face
-            ctx.beginPath();
-            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#0a0a0c';
-            ctx.fill();
-            ctx.strokeStyle = '#222';
-            ctx.lineWidth = 5 * scale;
-            ctx.stroke();
-
-            // Labels
-            const labels = [
-                { angle: -Math.PI / 3, num: 'π', den: '3' },
-                { angle: -Math.PI / 6, num: 'π', den: '6' },
-                { angle: 0, text: '2π' },
-                { angle: Math.PI / 6, num: '11π', den: '6' },
-                { angle: Math.PI / 3, num: '5π', den: '3' },
-                { angle: Math.PI / 2, num: '3π', den: '2' },
-                { angle: (2 * Math.PI) / 3, num: '4π', den: '3' },
-                { angle: (5 * Math.PI) / 6, num: '7π', den: '6' },
-                { angle: Math.PI, text: 'π' },
-                { angle: (-5 * Math.PI) / 6, num: '5π', den: '6' },
-                { angle: (-2 * Math.PI) / 3, num: '2π', den: '3' },
-                { angle: -Math.PI / 2, num: 'π', den: '2' }
-            ];
-
-            ctx.fillStyle = '#ffffff';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-
-            labels.forEach(item => {
-                const tickInner = radius - (25 * scale);
-                const tickOuter = radius - (12 * scale);
-                const tx1 = cx + tickInner * Math.cos(item.angle);
-                const ty1 = cy + tickInner * Math.sin(item.angle);
-                const tx2 = cx + tickOuter * Math.cos(item.angle);
-                const ty2 = cy + tickOuter * Math.sin(item.angle);
-
-                ctx.beginPath();
-                ctx.moveTo(tx1, ty1);
-                ctx.lineTo(tx2, ty2);
-                ctx.strokeStyle = '#ffffff';
-                ctx.lineWidth = 2.5 * scale;
-                ctx.stroke();
-
-                const labelR = radius - (55 * scale);
-                const lx = cx + labelR * Math.cos(item.angle);
-                const ly = cy + labelR * Math.sin(item.angle);
-
-                if (item.text) {
-                    ctx.font = `bold ${22 * scale}px "Times New Roman", Georgia, serif`;
-                    ctx.fillText(item.text, lx, ly);
-                } else {
-                    ctx.font = `bold ${16 * scale}px "Times New Roman", Georgia, serif`;
-                    ctx.fillText(item.num, lx, ly - (8 * scale));
-
-                    const barWidth = Math.max(ctx.measureText(item.num).width, ctx.measureText(item.den).width) + (4 * scale);
-                    ctx.beginPath();
-                    ctx.moveTo(lx - barWidth / 2, ly);
-                    ctx.lineTo(lx + barWidth / 2, ly);
-                    ctx.lineWidth = 1.5 * scale;
-                    ctx.stroke();
-
-                    ctx.fillText(item.den, lx, ly + (10 * scale));
-                }
-            });
-
-            // Pi symbol
-            ctx.font = `bold ${52 * scale}px "Times New Roman", Georgia, serif`;
-            ctx.fillStyle = '#ffffff';
-            ctx.fillText('π', cx, cy + (45 * scale));
-
-            // Clock hands
-            const now = new Date();
-            const hrs = now.getHours() % 12;
-            const mins = now.getMinutes();
-            const secs = now.getSeconds();
-
-            const hAngle = ((hrs + mins / 60) * 30 - 90) * (Math.PI / 180);
-            const mAngle = ((mins + secs / 60) * 6 - 90) * (Math.PI / 180);
-            const sAngle = ((secs) * 6 - 90) * (Math.PI / 180);
-
-            // Hour hand
-            ctx.save();
-            ctx.translate(cx, cy);
-            ctx.rotate(hAngle);
-            ctx.fillStyle = YELLOW_COLOR;
-            ctx.beginPath();
-            ctx.moveTo(-10 * scale, -4 * scale);
-            ctx.lineTo(radius * 0.45, -2 * scale);
-            ctx.lineTo(radius * 0.55, 0);
-            ctx.lineTo(radius * 0.45, 2 * scale);
-            ctx.lineTo(-10 * scale, 4 * scale);
-            ctx.closePath();
-            ctx.fill();
-            ctx.restore();
-
-            // Minute hand
-            ctx.save();
-            ctx.translate(cx, cy);
-            ctx.rotate(mAngle);
-            ctx.fillStyle = YELLOW_COLOR;
-            ctx.beginPath();
-            ctx.moveTo(-15 * scale, -3 * scale);
-            ctx.lineTo(radius * 0.7, -1.5 * scale);
-            ctx.lineTo(radius * 0.8, 0);
-            ctx.lineTo(radius * 0.7, 1.5 * scale);
-            ctx.lineTo(-15 * scale, 3 * scale);
-            ctx.closePath();
-            ctx.fill();
-            ctx.restore();
-
-            // Second hand
-            ctx.save();
-            ctx.translate(cx, cy);
-            ctx.rotate(sAngle);
-            ctx.strokeStyle = '#ef4444';
-            ctx.lineWidth = 2.5 * scale;
-            ctx.beginPath();
-            ctx.moveTo(-20 * scale, 0);
-            ctx.lineTo(radius * 0.82, 0);
-            ctx.stroke();
-
-            ctx.fillStyle = '#ef4444';
-            ctx.beginPath();
-            ctx.arc(0, 0, 6 * scale, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-
-            ctx.restore();
-        }
-
-        // =============================================
-        // RENDER LOOP
-        // =============================================
-        function render() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const W = canvas.width;
-            const H = canvas.height;
-            const baseScale = Math.min(W / 1000, H / 650);
-
-            drawCorners();
-
-            // Left Logo
-            const logoCX = W * 0.28;
-            const logoCY = H * 0.28;
-            drawOuterCrescents(logoCX, logoCY, baseScale);
-            drawCP(logoCX, logoCY, baseScale);
-
-            // Right Clock
-            const clockCX = W * 0.73;
-            const clockCY = H * 0.43;
-            const clockRadius = 195 * baseScale;
-
-            drawClockWovenBorder(clockCX, clockCY, clockRadius, clockRadius + (50 * baseScale), baseScale);
-            drawClock(clockCX, clockCY, clockRadius, baseScale);
-
-            requestAnimationFrame(render);
-        }
-
-        render();
-
-        // =============================================
-        // SITE PROTECTION
-        // =============================================
-        document.addEventListener('contextmenu', function(e) {
+    // 2. Disable keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+            (e.ctrlKey && e.key === 'U')) {
             e.preventDefault();
-            alert('Right-click is disabled on this site.');
-        });
+            alert('This action is disabled for security.');
+        }
+    });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || 
-                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
-                (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
-                alert('This action is disabled for security.');
-            }
-        });
+    // 3. Detect Developer Tools
+    setInterval(function() {
+        if (window.outerHeight - window.innerHeight > 200) {
+            document.body.innerHTML = '<h1 style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;font-size:2rem;text-align:center;">🔒 Developer tools detected. Please close them.</h1>';
+            document.body.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;';
+        }
+    }, 1000);
 
-        setInterval(function() {
-            if (window.outerHeight - window.innerHeight > 200) {
-                document.body.innerHTML = '<h1 style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;font-size:2rem;text-align:center;">🔒 Developer tools detected. Please close them.</h1>';
-                document.body.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;';
-            }
-        }, 1000);
-
-        console.log('🔒 Cisco Printers Clock - Protected');
-    </script>
+    console.log('🔒 Cisco Printers Clock - Protected');
+  </script>
 
 </body>
 </html>
