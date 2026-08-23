@@ -1,9 +1,18 @@
-{  
-  "rewrites": [  
-    { "source": "/login", "destination": "/login.html" },  
-    { "source": "/signup", "destination": "/signup.html" },  
-    { "source": "/partners", "destination": "/partners.html" },  
-    { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" },  
-    { "source": "/clock", "destination": "/clock.html" }  
-  ]  
-}  
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/partners", "destination": "/partners.html" },
+    { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" },
+    { "source": "/clock", "destination": "/clock.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/signup", "destination": "/signup.html" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/partners.html", "destination": "/partners", "permanent": true },
+    { "source": "/naomi-kioko-designs.html", "destination": "/naomi-kioko-designs", "permanent": true },
+    { "source": "/clock.html", "destination": "/clock", "permanent": true },
+    { "source": "/login.html", "destination": "/login", "permanent": true },
+    { "source": "/signup.html", "destination": "/signup", "permanent": true }
+  ]
+}
