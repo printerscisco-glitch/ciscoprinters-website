@@ -1,7 +1,9 @@
-{ 
-  "rewrites": [ 
-    { "source": "/clock", "destination": "/clock.html" }, 
-    { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" }, 
-    { "source": "/partners", "destination": "/partners.html" } 
-  ] 
-} 
+{  
+  "rewrites": [  
+    { "source": "/login", "destination": "/login.html" },  
+    { "source": "/signup", "destination": "/signup.html" },  
+    { "source": "/partners", "destination": "/partners.html" },  
+    { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" },  
+    { "source": "/clock", "destination": "/clock.html" }  
+  ]  
+}  
