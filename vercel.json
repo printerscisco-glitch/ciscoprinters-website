@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/resources", "destination": "/resources.html" },
     { "source": "/computer-class", "destination": "/computer-class.html" },
     { "source": "/partners", "destination": "/partners.html" },
     { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" },
@@ -10,6 +11,7 @@
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/resources.html", "destination": "/resources", "permanent": true },
     { "source": "/computer-class.html", "destination": "/computer-class", "permanent": true },
     { "source": "/partners.html", "destination": "/partners", "permanent": true },
     { "source": "/naomi-kioko-designs.html", "destination": "/naomi-kioko-designs", "permanent": true },
