@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/computer-class", "destination": "/computer-class.html" },
     { "source": "/partners", "destination": "/partners.html" },
     { "source": "/naomi-kioko-designs", "destination": "/naomi-kioko-designs.html" },
     { "source": "/clock", "destination": "/clock.html" },
@@ -9,6 +10,7 @@
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/computer-class.html", "destination": "/computer-class", "permanent": true },
     { "source": "/partners.html", "destination": "/partners", "permanent": true },
     { "source": "/naomi-kioko-designs.html", "destination": "/naomi-kioko-designs", "permanent": true },
     { "source": "/clock.html", "destination": "/clock", "permanent": true },
