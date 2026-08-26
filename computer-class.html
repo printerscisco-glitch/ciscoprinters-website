@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Computer Class - Cisco Printers</title>
+    <title>Computer Short Courses - Cisco Printers</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        /* ===== TEMPORARY LANDING PAGE ===== */
-        .class-landing {
+        .coming-page {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f2847, #1a3c6e);
             display: flex;
@@ -18,9 +17,9 @@
             padding: 40px 20px;
         }
 
-        .class-container {
+        .coming-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             background: #fff;
             border-radius: 20px;
             padding: 48px 40px;
@@ -29,259 +28,86 @@
             text-align: center;
         }
 
-        .class-logo .logo-icon {
-            font-size: 3.5rem;
+        .coming-icon {
+            font-size: 4rem;
             color: #f47b20;
-            display: block;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 
-        .class-logo h1 {
+        .coming-container h1 {
             font-size: 2rem;
             font-weight: 800;
             color: #1a3c6e;
+            margin-bottom: 8px;
         }
 
-        .class-logo h1 .highlight {
+        .coming-container h1 .highlight {
             color: #f47b20;
         }
 
-        .class-logo p {
+        .coming-container p {
             color: #666;
-            font-size: 0.95rem;
-            margin-top: 4px;
+            font-size: 1rem;
+            margin-bottom: 8px;
         }
 
-        .coming-soon-badge {
+        .coming-badge {
             display: inline-block;
-            background: var(--orange-light);
+            background: #fde8d6;
             color: #f47b20;
-            padding: 6px 24px;
+            padding: 8px 32px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin: 16px 0 24px;
+            margin: 16px 0 8px;
             border: 2px solid #f47b20;
-            letter-spacing: 1px;
-        }
-
-        .class-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin: 24px 0;
-            text-align: left;
-        }
-
-        .class-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: #f8faff;
-            border-radius: 12px;
-            border-left: 3px solid #f47b20;
-        }
-
-        .class-feature i {
-            color: #f47b20;
-            font-size: 1.2rem;
-            min-width: 24px;
-        }
-
-        .class-feature span {
-            font-size: 0.85rem;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .class-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .class-btn {
-            padding: 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 1.05rem;
-            font-weight: 700;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .class-btn.primary {
-            background: #f47b20;
-            color: #fff;
-            box-shadow: 0 8px 30px rgba(244,123,32,0.35);
-        }
-
-        .class-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(244,123,32,0.5);
-        }
-
-        .class-btn.secondary {
-            background: #1a3c6e;
-            color: #fff;
-            box-shadow: 0 8px 30px rgba(26,60,110,0.35);
-        }
-
-        .class-btn.secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(26,60,110,0.5);
-        }
-
-        .class-btn.guest {
-            background: transparent;
-            color: #666;
-            border: 2px solid #e5e7eb;
-        }
-
-        .class-btn.guest:hover {
-            background: #f5f5f5;
-        }
-
-        .class-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        .construction-notice {
-            margin-top: 20px;
-            padding: 16px 20px;
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .construction-notice i {
-            color: #f59e0b;
-            font-size: 1.5rem;
-        }
-
-        .construction-notice p {
-            color: #92400e;
-            font-size: 0.9rem;
-            text-align: left;
-            margin: 0;
+            letter-spacing: 2px;
         }
 
         .back-home {
-            margin-top: 20px;
+            margin-top: 24px;
         }
 
         .back-home a {
             color: #666;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            transition: 0.3s;
         }
 
         .back-home a:hover {
             color: #f47b20;
         }
 
-        .demo-note {
-            margin-top: 16px;
-            padding: 12px 16px;
-            background: #e8f0fe;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: #1a3c6e;
-        }
-
-        .demo-note strong {
-            color: #f47b20;
-        }
-
         @media (max-width: 480px) {
-            .class-container { padding: 32px 24px; }
-            .class-features { grid-template-columns: 1fr; }
-            .class-logo h1 { font-size: 1.6rem; }
+            .coming-container { padding: 32px 24px; }
+            .coming-container h1 { font-size: 1.6rem; }
+            .coming-icon { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="class-landing">
-        <div class="class-container">
-            <!-- ===== LOGO ===== -->
-            <div class="class-logo">
-                <span class="logo-icon"><i class="fas fa-print"></i></span>
-                <h1>Online <span class="highlight">Computer Class</span></h1>
-                <p>Learn computer skills online — Get Certified!</p>
+    <div class="coming-page">
+        <div class="coming-container">
+            <div class="coming-icon">
+                <i class="fas fa-graduation-cap"></i>
             </div>
 
-            <!-- ===== COMING SOON BADGE ===== -->
-            <div class="coming-soon-badge">
-                <i class="fas fa-code"></i> UNDER CONSTRUCTION
+            <h1>Computer <span class="highlight">Short Courses</span></h1>
+            <p>Learn computer skills online — Get Certified!</p>
+
+            <div class="coming-badge">
+                <i class="fas fa-clock"></i> Coming Soon
             </div>
 
-            <!-- ===== FEATURES ===== -->
-            <div class="class-features">
-                <div class="class-feature">
-                    <i class="fas fa-video"></i>
-                    <span>Live &amp; Recorded Classes</span>
-                </div>
-                <div class="class-feature">
-                    <i class="fas fa-certificate"></i>
-                    <span>Certificate Included</span>
-                </div>
-                <div class="class-feature">
-                    <i class="fas fa-user-graduate"></i>
-                    <span>Expert Trainers</span>
-                </div>
-                <div class="class-feature">
-                    <i class="fas fa-clock"></i>
-                    <span>Flexible Schedule</span>
-                </div>
-            </div>
+            <p style="margin-top: 16px; font-size: 0.9rem; color: #888;">
+                We're building an amazing online learning platform.
+            </p>
 
-            <!-- ===== BUTTONS ===== -->
-            <div class="class-buttons">
-                <button class="class-btn primary" onclick="showComingSoon()">
-                    <i class="fas fa-sign-in-alt"></i> Sign In
-                </button>
-                <button class="class-btn secondary" onclick="showComingSoon()">
-                    <i class="fas fa-user-plus"></i> Create Account
-                </button>
-                <a href="index.html" class="class-btn guest">
-                    <i class="fas fa-arrow-left"></i> Continue as Guest
-                </a>
-            </div>
-
-            <!-- ===== CONSTRUCTION NOTICE ===== -->
-            <div class="construction-notice">
-                <i class="fas fa-tools"></i>
-                <p>
-                    <strong>🚧 We're building something amazing!</strong><br>
-                    The Computer Class portal is currently under development. 
-                    Check back soon for live classes, course materials, and interactive learning!
-                </p>
-            </div>
-
-            <!-- ===== DEMO NOTE ===== -->
-            <div class="demo-note">
-                <i class="fas fa-info-circle"></i>
-                <strong>Demo Credentials Coming Soon!</strong><br>
-                Trainers and students will be able to log in and access courses.
-            </div>
-
-            <!-- ===== BACK TO HOME ===== -->
             <div class="back-home">
                 <a href="index.html">
                     <i class="fas fa-arrow-left"></i> Back to Home
@@ -289,28 +115,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // =============================================
-        // COMING SOON ALERT
-        // =============================================
-        function showComingSoon() {
-            alert('🚧 The Computer Class portal is currently under construction!\n\nWe\'re working hard to bring you:\n• Live & recorded classes\n• Course materials\n• Assignments & submissions\n• Certificates\n\nCheck back soon!');
-        }
-
-        // =============================================
-        // DISABLE BUTTONS (Alternative Approach)
-        // =============================================
-        // Uncomment this to disable buttons visually
-        /*
-        document.querySelectorAll('.class-btn.primary, .class-btn.secondary').forEach(btn => {
-            btn.disabled = true;
-            btn.style.opacity = '0.6';
-            btn.style.cursor = 'not-allowed';
-            btn.title = 'Coming Soon!';
-        });
-        */
-    </script>
 
 </body>
 </html>
