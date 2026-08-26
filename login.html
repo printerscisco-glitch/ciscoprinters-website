@@ -3,549 +3,203 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Member Login - Cisco Printers Cybercafe</title>
-
-    <!-- ===== SEO ===== -->
-    <meta name="description" content="Member login for Cisco Printers Cybercafe. Access your account, view orders, and manage services." />
-    <meta name="robots" content="noindex, nofollow" />
-
+    <title>Login - Cisco Printers</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
     <style>
-        /* =============================================
-           LOGIN PAGE STYLES (Blue/Orange Theme)
-           ============================================= */
+        /* ===== LOGIN PAGE ===== */
         .login-page {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            background: linear-gradient(135deg, #0f2847, #1a3c6e);
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 40px 20px;
         }
-
         .login-container {
             width: 100%;
             max-width: 420px;
-            background: var(--white);
+            background: #fff;
             border-radius: 20px;
             padding: 48px 40px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-            border-top: 5px solid var(--primary-orange);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+            border-top: 5px solid #f47b20;
         }
-
-        .login-logo {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .login-logo .logo-icon {
-            font-size: 3rem;
-            color: var(--primary-orange);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .login-logo h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-        }
-
-        .login-logo h1 .highlight {
-            color: var(--primary-orange);
-        }
-
-        .login-logo p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-top: 4px;
-        }
-
-        .login-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .login-form label {
-            display: block;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-        }
-
-        .login-form .input-wrapper {
-            position: relative;
-        }
-
-        .login-form .input-wrapper i {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .login-form input {
-            width: 100%;
-            padding: 14px 16px 14px 48px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            background: #fafafa;
-            color: var(--text-dark);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .login-form input::placeholder {
-            color: var(--text-light);
-        }
-
-        .login-form input:focus {
-            outline: none;
-            border-color: var(--primary-orange);
-            background: var(--white);
-            box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-light);
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: var(--transition);
-        }
-
-        .password-toggle:hover {
-            color: var(--primary-orange);
-        }
-
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .form-options label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .form-options input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-orange);
-            cursor: pointer;
-        }
-
-        .form-options a {
-            color: var(--primary-orange);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .form-options a:hover {
-            color: #d96a1a;
-            text-decoration: underline;
-        }
-
-        .btn-login {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            background: var(--primary-orange);
-            color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.35);
-        }
-
-        .btn-login:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(244, 123, 32, 0.5);
-        }
-
-        .btn-login:active {
-            transform: translateY(0);
-        }
-
-        .login-error {
-            display: none;
-            background: #fee2e2;
-            border: 1px solid #fca5a5;
-            color: #991b1b;
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .login-error.show {
-            display: block;
-        }
-
-        .login-success {
-            display: none;
-            background: #d1fae5;
-            border: 1px solid #a7f3d0;
-            color: #065f46;
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .login-success.show {
-            display: block;
-        }
-
-        .signup-link {
-            text-align: center;
-            margin-top: 24px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .signup-link a {
-            color: var(--primary-orange);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .signup-link a:hover {
-            color: #d96a1a;
-            text-decoration: underline;
-        }
-
-        .back-home {
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .back-home a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .back-home a:hover {
-            color: var(--primary-orange);
-        }
-
-        /* Demo Credentials Box */
-        .demo-box {
-            background: var(--light-blue);
-            border: 1px solid var(--primary-orange);
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .demo-box p {
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .demo-box .demo-cred {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        .demo-box .demo-cred span {
-            background: var(--white);
-            padding: 2px 12px;
-            border-radius: 4px;
-            border: 1px solid #e5e7eb;
-            font-family: monospace;
-            font-size: 0.75rem;
-        }
-
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 32px 24px;
-            }
-
-            .login-logo h1 {
-                font-size: 1.5rem;
-            }
-
-            .login-logo .logo-icon {
-                font-size: 2.5rem;
-            }
-
-            .form-options {
-                flex-direction: column;
-                gap: 12px;
-                align-items: flex-start;
-            }
-
-            .login-form input {
-                padding: 12px 16px 12px 42px;
-                font-size: 0.95rem;
-            }
-
-            .demo-box .demo-cred {
-                flex-direction: column;
-                gap: 4px;
-            }
-        }
+        .login-logo { text-align: center; margin-bottom: 32px; }
+        .login-logo .logo-icon { font-size: 3rem; color: #f47b20; display: block; margin-bottom: 8px; }
+        .login-logo h1 { font-size: 1.8rem; font-weight: 800; color: #1a3c6e; }
+        .login-logo h1 .highlight { color: #f47b20; }
+        .login-logo p { color: #666; font-size: 0.95rem; margin-top: 4px; }
+        .login-form .form-group { margin-bottom: 20px; }
+        .login-form label { display: block; color: #222; font-weight: 600; font-size: 0.85rem; margin-bottom: 6px; }
+        .login-form .input-wrapper { position: relative; }
+        .login-form .input-wrapper i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #666; font-size: 1.1rem; }
+        .login-form input { width: 100%; padding: 14px 16px 14px 48px; border: 2px solid #e5e7eb; border-radius: 12px; background: #fafafa; color: #222; font-family: 'Poppins', sans-serif; font-size: 1rem; transition: 0.3s; }
+        .login-form input:focus { outline: none; border-color: #f47b20; background: #fff; box-shadow: 0 0 0 4px rgba(244,123,32,0.08); }
+        .password-toggle { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 1.1rem; }
+        .password-toggle:hover { color: #f47b20; }
+        .form-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .form-options label { display: flex; align-items: center; gap: 8px; color: #666; font-size: 0.9rem; cursor: pointer; }
+        .form-options input[type="checkbox"] { width: 18px; height: 18px; accent-color: #f47b20; cursor: pointer; }
+        .form-options a { color: #f47b20; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .form-options a:hover { text-decoration: underline; }
+        .btn-login { width: 100%; padding: 16px; border: none; border-radius: 12px; background: #f47b20; color: #fff; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 8px 30px rgba(244,123,32,0.35); }
+        .btn-login:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(244,123,32,0.5); }
+        .login-error { display: none; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; padding: 12px 16px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9rem; text-align: center; }
+        .login-error.show { display: block; }
+        .login-success { display: none; background: #d1fae5; border: 1px solid #a7f3d0; color: #065f46; padding: 12px 16px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9rem; text-align: center; }
+        .login-success.show { display: block; }
+        .signup-link { text-align: center; margin-top: 24px; color: #666; font-size: 0.95rem; }
+        .signup-link a { color: #f47b20; text-decoration: none; font-weight: 600; }
+        .signup-link a:hover { text-decoration: underline; }
+        .back-home { text-align: center; margin-top: 16px; }
+        .back-home a { color: #666; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
+        .back-home a:hover { color: #f47b20; }
+        .demo-box { background: #e8f0fe; border: 1px solid #f47b20; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; text-align: center; }
+        .demo-box p { font-size: 0.85rem; color: #222; margin-bottom: 6px; font-weight: 600; }
+        .demo-box .demo-cred { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 0.8rem; color: #666; }
+        .demo-box .demo-cred span { background: #fff; padding: 2px 12px; border-radius: 4px; border: 1px solid #e5e7eb; font-family: monospace; font-size: 0.75rem; }
+        .role-badge { display: inline-block; padding: 2px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; }
+        .role-badge.trainer { background: #dbeafe; color: #1a3c6e; }
+        .role-badge.student { background: #d1fae5; color: #065f46; }
+        @media (max-width: 480px) { .login-container { padding: 32px 24px; } .login-logo h1 { font-size: 1.5rem; } .form-options { flex-direction: column; gap: 12px; align-items: flex-start; } .demo-box .demo-cred { flex-direction: column; gap: 4px; } }
     </style>
 </head>
 <body>
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-logo">
+            <span class="logo-icon"><i class="fas fa-print"></i></span>
+            <h1>Cisco <span class="highlight">Printers</span></h1>
+            <p>Login to Your Account</p>
+        </div>
 
-    <div class="login-page">
-        <div class="login-container">
-            <!-- ===== LOGO ===== -->
-            <div class="login-logo">
-                <span class="logo-icon"><i class="fas fa-print"></i></span>
-                <h1>Cisco <span class="highlight">Printers</span></h1>
-                <p>Member Login</p>
+        <div class="demo-box">
+            <p>🔑 Demo Credentials</p>
+            <div class="demo-cred">
+                <span>trainer@ciscoprinters.co.ke</span>
+                <span>password123</span>
+                <span class="role-badge trainer">Trainer</span>
             </div>
-
-            <!-- ===== DEMO CREDENTIALS ===== -->
-            <div class="demo-box">
-                <p>🔑 Demo Credentials</p>
-                <div class="demo-cred">
-                    <span>demo@ciscoprinters.co.ke</span>
-                    <span>password123</span>
-                </div>
-            </div>
-
-            <!-- ===== ERROR MESSAGE ===== -->
-            <div class="login-error" id="loginError">
-                <i class="fas fa-exclamation-circle"></i>
-                Invalid email or password. Please try again.
-            </div>
-
-            <!-- ===== SUCCESS MESSAGE ===== -->
-            <div class="login-success" id="loginSuccess">
-                <i class="fas fa-check-circle"></i>
-                Login successful! Redirecting...
-            </div>
-
-            <!-- ===== LOGIN FORM ===== -->
-            <form class="login-form" id="loginForm">
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="loginEmail">Email Address</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-envelope"></i>
-                        <input
-                            type="email"
-                            id="loginEmail"
-                            placeholder="Enter your email"
-                            required
-                            autocomplete="email"
-                            value="demo@ciscoprinters.co.ke"
-                        />
-                    </div>
-                </div>
-
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-lock"></i>
-                        <input
-                            type="password"
-                            id="loginPassword"
-                            placeholder="Enter your password"
-                            required
-                            autocomplete="current-password"
-                            value="password123"
-                        />
-                        <button
-                            type="button"
-                            class="password-toggle"
-                            id="passwordToggle"
-                            aria-label="Toggle password visibility"
-                        >
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Options -->
-                <div class="form-options">
-                    <label>
-                        <input type="checkbox" id="rememberMe" />
-                        Remember me
-                    </label>
-                    <a href="#">Forgot password?</a>
-                </div>
-
-                <!-- Submit -->
-                <button type="submit" class="btn-login">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Sign In
-                </button>
-            </form>
-
-            <!-- ===== SIGN UP LINK ===== -->
-            <div class="signup-link">
-                Don't have an account? <a href="signup.html">Sign Up</a>
-            </div>
-
-            <!-- ===== BACK TO HOME ===== -->
-            <div class="back-home">
-                <a href="index.html">
-                    <i class="fas fa-arrow-left"></i> Back to Home
-                </a>
+            <div class="demo-cred" style="margin-top:4px;">
+                <span>student@ciscoprinters.co.ke</span>
+                <span>password123</span>
+                <span class="role-badge student">Student</span>
             </div>
         </div>
+
+        <div class="login-error" id="loginError"><i class="fas fa-exclamation-circle"></i> Invalid email or password.</div>
+        <div class="login-success" id="loginSuccess"><i class="fas fa-check-circle"></i> Login successful! Redirecting...</div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required value="trainer@ciscoprinters.co.ke" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required value="password123" />
+                    <button type="button" class="password-toggle" id="passwordToggle"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+            <div class="form-options">
+                <label><input type="checkbox" id="rememberMe" /> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+        </form>
+
+        <div class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></div>
+        <div class="back-home"><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a></div>
     </div>
+</div>
 
-    <script>
-        // =============================================
-        // PASSWORD TOGGLE
-        // =============================================
-        const passwordToggle = document.getElementById('passwordToggle');
-        const passwordInput = document.getElementById('loginPassword');
+<script>
+const passwordToggle = document.getElementById('passwordToggle');
+const passwordInput = document.getElementById('loginPassword');
+passwordToggle.addEventListener('click', function() {
+    const icon = this.querySelector('i');
+    if (passwordInput.type === 'password') { passwordInput.type = 'text'; icon.classList.replace('fa-eye', 'fa-eye-slash'); }
+    else { passwordInput.type = 'password'; icon.classList.replace('fa-eye-slash', 'fa-eye'); }
+});
 
-        passwordToggle.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        });
+const loginForm = document.getElementById('loginForm');
+const loginError = document.getElementById('loginError');
+const loginSuccess = document.getElementById('loginSuccess');
 
-        // =============================================
-        // DEMO CREDENTIALS
-        // =============================================
-        const DEMO_USERS = [
-            { email: 'demo@ciscoprinters.co.ke', password: 'password123', role: 'member' },
-            { email: 'admin@ciscoprinters.co.ke', password: 'admin123', role: 'admin' },
-            { email: 'user@ciscoprinters.co.ke', password: 'user123', role: 'user' },
-            { email: 'info@ciscoprinters.co.ke', password: 'info123', role: 'staff' }
-        ];
+// Demo Users
+const DEMO_USERS = [
+    { email: 'trainer@ciscoprinters.co.ke', password: 'password123', role: 'trainer', name: 'Trainer User' },
+    { email: 'student@ciscoprinters.co.ke', password: 'password123', role: 'student', name: 'Student User' }
+];
 
-        // =============================================
-        // LOGIN FORM SUBMISSION
-        // =============================================
-        const loginForm = document.getElementById('loginForm');
-        const loginError = document.getElementById('loginError');
-        const loginSuccess = document.getElementById('loginSuccess');
+loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    loginError.classList.remove('show');
+    loginSuccess.classList.remove('show');
 
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+    const rememberMe = document.getElementById('rememberMe').checked;
 
-            loginError.classList.remove('show');
-            loginSuccess.classList.remove('show');
+    if (!email || !password) {
+        loginError.textContent = '⚠️ Please fill in all fields.';
+        loginError.classList.add('show');
+        return;
+    }
 
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value.trim();
-            const rememberMe = document.getElementById('rememberMe').checked;
+    // Check demo users
+    const user = DEMO_USERS.find(u => u.email === email && u.password === password);
 
-            if (!email || !password) {
-                loginError.textContent = '⚠️ Please fill in all fields.';
-                loginError.classList.add('show');
-                return;
-            }
+    // Also check localStorage for signup users
+    let localUser = null;
+    if (localStorage.getItem('ciscoUserEmail') === email) {
+        const userData = JSON.parse(localStorage.getItem('ciscoUserData') || '{}');
+        if (userData && userData.email === email) {
+            localUser = { email, password: 'signup_user', role: userData.role || 'student', name: userData.name };
+        }
+    }
 
-            // Check against demo users
-            const user = DEMO_USERS.find(u => u.email === email && u.password === password);
+    if (user || localUser) {
+        const userInfo = user || localUser;
+        loginSuccess.textContent = `✅ Welcome ${userInfo.name}! (${userInfo.role}) Redirecting...`;
+        loginSuccess.classList.add('show');
 
-            // Also check localStorage for signup users
-            let localUser = null;
-            if (localStorage.getItem('ciscoUserEmail') === email) {
-                const userData = JSON.parse(localStorage.getItem('ciscoUserData') || '{}');
-                if (userData && userData.email === email) {
-                    localUser = { email: email, password: 'signup_user', role: userData.role || 'member' };
-                }
-            }
-
-            if (user || localUser) {
-                const userInfo = user || localUser;
-                loginSuccess.textContent = `✅ Welcome ${userInfo.role}! Redirecting...`;
-                loginSuccess.classList.add('show');
-
-                if (rememberMe) {
-                    localStorage.setItem('ciscoLoggedIn', 'true');
-                    localStorage.setItem('ciscoUser', email);
-                    localStorage.setItem('ciscoRole', userInfo.role);
-                }
-
-                setTimeout(function() {
-                    window.location.href = 'index.html';
-                }, 1500);
-            } else {
-                loginError.textContent = '❌ Invalid email or password. Please try again.';
-                loginError.classList.add('show');
-
-                document.querySelector('.login-container').style.animation = 'shake 0.5s ease';
-                setTimeout(function() {
-                    document.querySelector('.login-container').style.animation = '';
-                }, 500);
-            }
-        });
-
-        // =============================================
-        // SHAKE ANIMATION
-        // =============================================
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                20% { transform: translateX(-10px); }
-                40% { transform: translateX(10px); }
-                60% { transform: translateX(-10px); }
-                80% { transform: translateX(10px); }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // =============================================
-        // CHECK IF ALREADY LOGGED IN
-        // =============================================
-        if (localStorage.getItem('ciscoLoggedIn') === 'true') {
-            console.log('👋 Welcome back, ' + localStorage.getItem('ciscoUser'));
+        if (rememberMe) {
+            localStorage.setItem('ciscoLoggedIn', 'true');
+            localStorage.setItem('ciscoUser', email);
+            localStorage.setItem('ciscoRole', userInfo.role);
         }
 
-        console.log('🔐 Login page ready!');
-    </script>
+        // Store in session for redirect
+        sessionStorage.setItem('ciscoUser', JSON.stringify(userInfo));
 
+        setTimeout(function() {
+            // Redirect based on role
+            if (userInfo.role === 'trainer' || userInfo.role === 'admin') {
+                window.location.href = 'dashboard-trainer.html';
+            } else {
+                window.location.href = 'dashboard-student.html';
+            }
+        }, 1500);
+    } else {
+        loginError.textContent = '❌ Invalid email or password. Please try again.';
+        loginError.classList.add('show');
+        document.querySelector('.login-container').style.animation = 'shake 0.5s ease';
+        setTimeout(() => { document.querySelector('.login-container').style.animation = ''; }, 500);
+    }
+});
+
+// Shake animation
+const style = document.createElement('style');
+style.textContent = `@keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-10px); } 80% { transform: translateX(10px); } }`;
+document.head.appendChild(style);
+</script>
 </body>
 </html>

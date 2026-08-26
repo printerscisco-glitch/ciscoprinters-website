@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Computer Class - Cisco Printers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        .class-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2847, #1a3c6e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .class-container {
+            width: 100%;
+            max-width: 480px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+            border-top: 5px solid #f47b20;
+            text-align: center;
+        }
+        .class-logo .logo-icon { font-size: 3rem; color: #f47b20; display: block; margin-bottom: 8px; }
+        .class-logo h1 { font-size: 1.8rem; font-weight: 800; color: #1a3c6e; }
+        .class-logo h1 .highlight { color: #f47b20; }
+        .class-logo p { color: #666; font-size: 0.95rem; margin-top: 4px; }
+        .class-buttons { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+        .class-btn { padding: 16px; border-radius: 12px; text-decoration: none; font-size: 1.1rem; font-weight: 700; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .class-btn.login { background: #f47b20; color: #fff; box-shadow: 0 8px 30px rgba(244,123,32,0.35); }
+        .class-btn.login:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(244,123,32,0.5); }
+        .class-btn.signup { background: #1a3c6e; color: #fff; box-shadow: 0 8px 30px rgba(26,60,110,0.35); }
+        .class-btn.signup:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,60,110,0.5); }
+        .class-btn.guest { background: transparent; color: #666; border: 2px solid #e5e7eb; }
+        .class-btn.guest:hover { background: #f5f5f5; }
+        .back-home { margin-top: 24px; }
+        .back-home a { color: #666; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
+        .back-home a:hover { color: #f47b20; }
+        .class-info { margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e7eb; }
+        .class-info p { color: #666; font-size: 0.9rem; }
+        .class-info i { color: #f47b20; }
+        @media (max-width: 480px) { .class-container { padding: 32px 24px; } }
+    </style>
+</head>
+<body>
+<div class="class-page">
+    <div class="class-container">
+        <div class="class-logo">
+            <span class="logo-icon"><i class="fas fa-print"></i></span>
+            <h1>Online <span class="highlight">Computer Class</span></h1>
+            <p>Learn computer skills online — Get Certified!</p>
+        </div>
+
+        <div class="class-buttons">
+            <a href="login.html" class="class-btn login">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </a>
+            <a href="signup.html" class="class-btn signup">
+                <i class="fas fa-user-plus"></i> Create Account
+            </a>
+            <a href="index.html" class="class-btn guest">
+                <i class="fas fa-arrow-left"></i> Continue as Guest
+            </a>
+        </div>
+
+        <div class="class-info">
+            <p><i class="fas fa-graduation-cap"></i> Trainers: Manage courses &amp; review submissions</p>
+            <p><i class="fas fa-user-graduate"></i> Students: Access materials &amp; submit tasks</p>
+            <p><i class="fas fa-certificate"></i> Certificate upon completion</p>
+        </div>
+
+        <div class="back-home">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
