@@ -517,6 +517,38 @@
     <!-- ===== FLOATING BUTTONS ===== -->
     <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- ========================================== -->
+    <!-- ===== SITE PROTECTION ===== -->
+    <!-- ========================================== -->
+    <script>
+        // ===== DISABLE RIGHT-CLICK =====
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Right-click is disabled on this site.');
+        });
+
+        // ===== DISABLE KEYBOARD SHORTCUTS =====
+        document.addEventListener('keydown', function(e) {
+            // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                alert('This action is disabled for security.');
+            }
+        });
+
+        // ===== DETECT DEVELOPER TOOLS =====
+        setInterval(function() {
+            if (window.outerHeight - window.innerHeight > 200) {
+                document.body.innerHTML = '<h1 style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;font-size:2rem;text-align:center;">Developer tools detected. Please close them.</h1>';
+                document.body.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;';
+            }
+        }, 1000);
+
+        console.log('Cisco Printers Cybercafe - Protected');
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
