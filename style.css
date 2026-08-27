@@ -1,5 +1,25 @@
 /* =============================================
-   IMPORTS & RESET
+   TABLE OF CONTENTS
+   =============================================
+   1. IMPORTS & RESET
+   2. VARIABLES
+   3. BASE & UTILITY
+   4. BUTTONS
+   5. NAVIGATION
+   6. HERO SECTION
+   7. SERVICES
+   8. TRAINING SECTION
+   9. PRICING
+   10. PAPER TYPES
+   11. ABOUT
+   12. CONTACT
+   13. FOOTER
+   14. FLOATING BUTTONS
+   15. RESPONSIVE
+   ============================================= */
+
+/* =============================================
+   1. IMPORTS & RESET
    ============================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -10,7 +30,11 @@
     scroll-behavior: smooth;
 }
 
+/* =============================================
+   2. VARIABLES
+   ============================================= */
 :root {
+    /* Colors */
     --primary-blue: #1a3c6e;
     --primary-orange: #f47b20;
     --dark-blue: #0f2847;
@@ -19,12 +43,17 @@
     --text-dark: #1a1a2e;
     --text-light: #6b7280;
     --white: #ffffff;
+    
+    /* Effects */
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.15);
     --radius: 20px;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* =============================================
+   3. BASE & UTILITY
+   ============================================= */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-dark);
@@ -39,9 +68,7 @@ body {
     padding: 0 24px;
 }
 
-/* =============================================
-   SECTION HEADERS
-   ============================================= */
+/* --- Section Headers --- */
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -85,7 +112,7 @@ body {
 }
 
 /* =============================================
-   BUTTONS
+   4. BUTTONS
    ============================================= */
 .btn {
     display: inline-flex;
@@ -106,7 +133,6 @@ body {
     color: var(--white);
     box-shadow: 0 8px 30px rgba(244, 123, 32, 0.35);
 }
-
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 12px 40px rgba(244, 123, 32, 0.5);
@@ -117,7 +143,6 @@ body {
     color: var(--white);
     box-shadow: 0 8px 30px rgba(26, 60, 110, 0.35);
 }
-
 .btn-secondary:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(26, 60, 110, 0.5);
@@ -139,14 +164,13 @@ body {
     color: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .btn-glass:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
 }
 
 /* =============================================
-   NAVIGATION
+   5. NAVIGATION
    ============================================= */
 .navbar {
     background: rgba(255, 255, 255, 0.95);
@@ -162,7 +186,6 @@ body {
     align-items: center;
     transition: var(--transition);
 }
-
 .navbar.scrolled {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
 }
@@ -176,16 +199,13 @@ body {
     color: var(--primary-blue);
     text-decoration: none;
 }
-
 .logo i {
     color: var(--primary-orange);
     font-size: 1.8rem;
 }
-
 .logo .highlight {
     color: var(--primary-orange);
 }
-
 .logo:hover {
     transform: scale(1.02);
 }
@@ -196,7 +216,6 @@ body {
     gap: 6px;
     align-items: center;
 }
-
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
@@ -206,44 +225,34 @@ body {
     border-radius: 50px;
     transition: var(--transition);
 }
-
 .nav-links a:hover,
 .nav-links a.active {
     background: var(--primary-orange);
     color: var(--white);
 }
 
+/* --- Nav Link Variants --- */
 .nav-links a.clock-link {
     background: linear-gradient(135deg, #2563eb, #f97316);
     color: var(--white) !important;
 }
-
 .nav-links a.clock-link:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
 }
-
-.nav-links a.clock-link::after {
-    display: none;
-}
+.nav-links a.clock-link::after { display: none; }
 
 .nav-links a.partner-link {
     background: var(--primary-blue);
     color: var(--white) !important;
 }
-
-.nav-links a.partner-link::after {
-    display: none;
-}
+.nav-links a.partner-link::after { display: none; }
 
 .nav-links a.naomi-link {
     background: linear-gradient(135deg, #6a1b4d, #c4458a);
     color: var(--white) !important;
 }
-
-.nav-links a.naomi-link::after {
-    display: none;
-}
+.nav-links a.naomi-link::after { display: none; }
 
 .nav-links a.class-link {
     background: linear-gradient(135deg, #1a3c6e, #f47b20);
@@ -252,33 +261,23 @@ body {
     border-radius: 50px;
     font-weight: 600;
 }
-
 .nav-links a.class-link:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 30px rgba(26, 60, 110, 0.3);
 }
-
-.nav-links a.class-link::after {
-    display: none;
-}
+.nav-links a.class-link::after { display: none; }
 
 .nav-links a.login-link {
     background: var(--primary-orange);
     color: var(--white) !important;
 }
-
-.nav-links a.login-link::after {
-    display: none;
-}
+.nav-links a.login-link::after { display: none; }
 
 .nav-links a.signup-link-nav {
     background: var(--primary-blue);
     color: var(--white) !important;
 }
-
-.nav-links a.signup-link-nav::after {
-    display: none;
-}
+.nav-links a.signup-link-nav::after { display: none; }
 
 .hamburger {
     display: none;
@@ -287,16 +286,15 @@ body {
     cursor: pointer;
     transition: var(--transition);
 }
-
 .hamburger:hover {
     color: var(--primary-orange);
 }
 
 /* =============================================
-   HERO SECTION
+   6. HERO SECTION
    ============================================= */
 .hero-header {
-    background: linear-gradient(135deg, rgba(26, 60, 110, 0.92), rgba(15, 40, 71, 0.95)), 
+    background: linear-gradient(135deg, rgba(26, 60, 110, 0.92), rgba(15, 40, 71, 0.95)),
                 url('assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -311,19 +309,18 @@ body {
     overflow: hidden;
 }
 
+/* --- Hero Background Shapes --- */
 .hero-shapes {
     position: absolute;
     inset: 0;
     pointer-events: none;
 }
-
 .shape {
     position: absolute;
     border-radius: 50%;
     opacity: 0.1;
     animation: floatShape 20s ease-in-out infinite;
 }
-
 .shape-1 {
     width: 500px;
     height: 500px;
@@ -332,7 +329,6 @@ body {
     right: -100px;
     animation-delay: 0s;
 }
-
 .shape-2 {
     width: 300px;
     height: 300px;
@@ -341,7 +337,6 @@ body {
     left: -100px;
     animation-delay: -5s;
 }
-
 .shape-3 {
     width: 200px;
     height: 200px;
@@ -357,6 +352,7 @@ body {
     66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
+/* --- Hero Content --- */
 .hero-body {
     display: flex;
     align-items: center;
@@ -372,7 +368,6 @@ body {
 .hero-text {
     max-width: 550px;
 }
-
 .hero-text h1 {
     font-size: 3.8rem;
     font-weight: 900;
@@ -381,11 +376,9 @@ body {
     letter-spacing: -1px;
     margin-bottom: 16px;
 }
-
 .hero-text h1 .highlight {
     color: var(--primary-orange);
 }
-
 .hero-text p {
     font-size: 1.15rem;
     color: rgba(255, 255, 255, 0.85);
@@ -404,18 +397,15 @@ body {
     display: flex;
     gap: 50px;
 }
-
 .hero-stats .stat-item {
     text-align: center;
 }
-
 .hero-stats .stat-number {
     display: block;
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--primary-orange);
 }
-
 .hero-stats .stat-label {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
@@ -426,7 +416,6 @@ body {
     flex: 1;
     max-width: 550px;
 }
-
 .hero-image img {
     width: 100%;
     border-radius: var(--radius);
@@ -440,6 +429,7 @@ body {
     50% { transform: translateY(-18px); }
 }
 
+/* --- Floating Badges --- */
 .floating-badge {
     position: absolute;
     background: rgba(255, 255, 255, 0.15);
@@ -455,11 +445,9 @@ body {
     gap: 8px;
     animation: floatBadge 4s ease-in-out infinite;
 }
-
 .floating-badge i {
     color: var(--primary-orange);
 }
-
 .badge-1 { top: 20px; right: -20px; animation-delay: 0s; }
 .badge-2 { bottom: 20px; left: -20px; animation-delay: -2s; }
 .badge-3 { bottom: 80px; right: -10px; animation-delay: -4s; }
@@ -470,15 +458,47 @@ body {
 }
 
 /* =============================================
-   SERVICES (DETAILED)
+   7. SERVICES
    ============================================= */
 .services {
     padding: 80px 0;
     background: var(--white);
 }
 
+/* --- Category Tabs --- */
+.service-category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.cat-tab {
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 2px solid #e5e7eb;
+    background: transparent;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+.cat-tab:hover,
+.cat-tab.active {
+    background: var(--primary-orange);
+    color: var(--white);
+    border-color: var(--primary-orange);
+    box-shadow: 0 8px 30px rgba(244, 123, 32, 0.2);
+}
+
+/* --- Service Categories (Toggle) --- */
 .service-category {
-    margin-bottom: 50px;
+    display: none;
+}
+.service-category.active {
+    display: block;
 }
 
 .category-title {
@@ -492,39 +512,11 @@ body {
     border-bottom: 3px solid var(--primary-orange);
     padding-bottom: 10px;
 }
-
 .category-title i {
     color: var(--primary-orange);
 }
 
-.service-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.tab-btn {
-    padding: 10px 24px;
-    border-radius: 50px;
-    border: 2px solid #e5e7eb;
-    background: transparent;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: 'Poppins', sans-serif;
-}
-
-.tab-btn:hover,
-.tab-btn.active {
-    background: var(--primary-orange);
-    color: var(--white);
-    border-color: var(--primary-orange);
-    box-shadow: 0 8px 30px rgba(244, 123, 32, 0.2);
-}
-
+/* --- Service Cards Grid --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -540,13 +532,11 @@ body {
     border: 1px solid #e8f0fe;
     cursor: default;
 }
-
 .service-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-orange);
 }
-
 .service-card .service-icon {
     width: 56px;
     height: 56px;
@@ -560,55 +550,78 @@ body {
     color: var(--primary-orange);
     transition: var(--transition);
 }
-
 .service-card:hover .service-icon {
     background: var(--primary-orange);
     color: var(--white);
     transform: rotate(5deg) scale(1.1);
 }
-
 .service-card h4 {
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: 4px;
 }
-
 .service-card p {
     font-size: 0.85rem;
     color: var(--text-light);
     margin-bottom: 10px;
 }
 
-/* ===== SUB-SERVICES ===== */
+/* --- Sub Services --- */
 .sub-services {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 6px;
     justify-content: center;
     margin: 10px 0 14px;
+    padding: 10px;
+    background: #f8faff;
+    border-radius: 10px;
+    border: 1px solid #e8f0fe;
 }
-
 .sub-services span {
     background: #e8f0fe;
     color: #1a3c6e;
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: 50px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    transition: var(--transition);
 }
-
 .service-card:hover .sub-services span {
     background: var(--primary-orange);
     color: var(--white);
 }
 
+/* --- Toggle Button --- */
+.btn-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 2px solid var(--primary-blue);
+    background: transparent;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    margin: 8px 0 12px;
+}
+.btn-toggle:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+.btn-toggle i {
+    font-size: 0.7rem;
+}
+
+/* --- Featured Service --- */
 .featured-service {
     border: 2px solid var(--primary-orange);
     background: var(--orange-light);
 }
-
 .service-card .training-badge {
     display: inline-block;
     background: var(--primary-orange);
@@ -619,14 +632,13 @@ body {
     font-weight: 700;
     margin: 8px 0 12px;
 }
-
 .service-card .btn {
     font-size: 0.85rem;
     padding: 10px 20px;
 }
 
 /* =============================================
-   TRAINING SECTION
+   8. TRAINING SECTION
    ============================================= */
 .training-section {
     padding: 80px 0;
@@ -644,7 +656,6 @@ body {
     transition: var(--transition);
     border: 1px solid rgba(244, 123, 32, 0.1);
 }
-
 .training-card:hover {
     box-shadow: var(--shadow-lg);
 }
@@ -657,7 +668,6 @@ body {
     background: var(--orange-light);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 .training-card-icon {
     width: 56px;
     height: 56px;
@@ -670,29 +680,24 @@ body {
     color: var(--white);
     flex-shrink: 0;
 }
-
 .training-card-info {
     flex: 1;
 }
-
 .training-card-info h3 {
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: 2px;
 }
-
 .training-card-info p {
     font-size: 0.95rem;
     color: var(--text-light);
 }
-
 .training-card-toggle {
     font-size: 1.2rem;
     color: var(--primary-orange);
     transition: var(--transition);
 }
-
 .training-card-toggle i {
     transition: transform 0.4s ease;
 }
@@ -708,7 +713,6 @@ body {
     gap: 16px;
     margin-bottom: 24px;
 }
-
 .training-feature {
     display: flex;
     gap: 14px;
@@ -718,26 +722,22 @@ body {
     border-left: 3px solid var(--primary-orange);
     transition: var(--transition);
 }
-
 .training-feature:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
-
 .training-feature i {
     font-size: 1.3rem;
     color: var(--primary-orange);
     min-width: 32px;
     margin-top: 2px;
 }
-
 .training-feature h4 {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: 1px;
 }
-
 .training-feature p {
     font-size: 0.85rem;
     color: var(--text-light);
@@ -751,21 +751,18 @@ body {
     color: var(--white);
     margin-bottom: 24px;
 }
-
 .training-price .price-label {
     display: block;
     font-size: 0.8rem;
     font-weight: 500;
     opacity: 0.9;
 }
-
 .training-price .price-amount {
     display: block;
     font-size: 2.4rem;
     font-weight: 800;
     line-height: 1.2;
 }
-
 .training-price .price-period {
     font-size: 1rem;
     font-weight: 400;
@@ -776,26 +773,23 @@ body {
     display: flex;
     justify-content: center;
 }
-
 .training-actions .btn {
     min-width: 200px;
     justify-content: center;
 }
 
 /* =============================================
-   PRICING
+   9. PRICING
    ============================================= */
 .pricing {
     padding: 80px 0;
     background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
     color: var(--white);
 }
-
 .pricing .section-tag {
     background: var(--primary-orange);
     color: var(--white);
 }
-
 .pricing .section-subtitle {
     color: rgba(255, 255, 255, 0.8);
 }
@@ -815,22 +809,18 @@ body {
     transition: var(--transition);
     position: relative;
 }
-
 .pricing-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
-
 .pricing-card.featured {
     border: 3px solid var(--primary-orange);
     transform: scale(1.05);
     box-shadow: 0 20px 60px rgba(244, 123, 32, 0.25);
 }
-
 .pricing-card.featured:hover {
     transform: scale(1.05) translateY(-8px);
 }
-
 .pricing-card .badge {
     position: absolute;
     top: -12px;
@@ -849,18 +839,15 @@ body {
     margin-bottom: 4px;
     color: var(--primary-blue);
 }
-
 .pricing-header .price {
     font-size: 3rem;
     font-weight: 800;
     color: var(--primary-orange);
 }
-
 .pricing-header .price span {
     font-size: 1.2rem;
     font-weight: 400;
 }
-
 .pricing-header p {
     color: var(--text-light);
 }
@@ -870,7 +857,6 @@ body {
     margin: 24px 0 28px;
     text-align: left;
 }
-
 .pricing-card ul li {
     padding: 8px 0;
     border-bottom: 1px solid #f1f1f1;
@@ -879,18 +865,16 @@ body {
     gap: 10px;
     font-size: 0.9rem;
 }
-
 .pricing-card ul li i {
     color: var(--primary-orange);
 }
-
 .pricing-card .btn {
     width: 100%;
     justify-content: center;
 }
 
 /* =============================================
-   PAPER TYPES
+   10. PAPER TYPES
    ============================================= */
 .paper-section {
     margin-top: 50px;
@@ -907,7 +891,6 @@ body {
     align-items: center;
     gap: 10px;
 }
-
 .paper-title i {
     color: var(--primary-orange);
 }
@@ -928,7 +911,6 @@ body {
     color: rgba(255, 255, 255, 0.8);
     transition: var(--transition);
 }
-
 .paper-chip:hover {
     background: var(--primary-orange);
     color: var(--white);
@@ -936,7 +918,7 @@ body {
 }
 
 /* =============================================
-   ABOUT
+   11. ABOUT
    ============================================= */
 .about {
     padding: 80px 0;
@@ -953,7 +935,6 @@ body {
 .about-text .section-title {
     text-align: left;
 }
-
 .about-text p {
     color: var(--text-light);
     margin-bottom: 16px;
@@ -965,7 +946,6 @@ body {
     gap: 16px;
     margin: 24px 0 32px;
 }
-
 .feature {
     display: flex;
     align-items: center;
@@ -973,7 +953,6 @@ body {
     font-weight: 600;
     color: var(--primary-blue);
 }
-
 .feature i {
     color: var(--primary-orange);
 }
@@ -984,14 +963,13 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
-
 .about-image img:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
 /* =============================================
-   CONTACT
+   12. CONTACT
    ============================================= */
 .contact {
     padding: 80px 0;
@@ -1004,6 +982,7 @@ body {
     gap: 50px;
 }
 
+/* --- Contact Info --- */
 .contact-info .info-item {
     display: flex;
     gap: 16px;
@@ -1014,12 +993,10 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
-
 .contact-info .info-item:hover {
     transform: translateX(8px);
     box-shadow: var(--shadow-lg);
 }
-
 .contact-info .info-item i {
     font-size: 1.6rem;
     color: var(--primary-orange);
@@ -1027,34 +1004,30 @@ body {
     text-align: center;
     margin-top: 4px;
 }
-
 .contact-info .info-item h4 {
     color: var(--primary-blue);
     font-weight: 600;
     margin-bottom: 2px;
 }
-
 .contact-info .info-item p {
     color: var(--text-light);
     font-size: 0.9rem;
 }
-
 .contact-info .info-item small {
     color: var(--primary-orange);
     font-weight: 600;
 }
 
+/* --- Contact Form --- */
 .contact-form {
     background: var(--white);
     padding: 36px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
-
 .contact-form .form-group {
     margin-bottom: 14px;
 }
-
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -1066,7 +1039,6 @@ body {
     transition: var(--transition);
     background: #fafafa;
 }
-
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: var(--primary-orange);
@@ -1074,26 +1046,24 @@ body {
     box-shadow: 0 0 0 4px rgba(244, 123, 32, 0.08);
     background: var(--white);
 }
-
 .contact-form .btn {
     width: 100%;
     justify-content: center;
 }
 
+/* --- Form Messages --- */
 .form-message {
     margin-top: 16px;
     padding: 12px;
     border-radius: 12px;
     display: none;
 }
-
 .form-message.success {
     display: block;
     background: #d1fae5;
     color: #065f46;
     border: 1px solid #a7f3d0;
 }
-
 .form-message.error {
     display: block;
     background: #fee2e2;
@@ -1102,7 +1072,7 @@ body {
 }
 
 /* =============================================
-   FOOTER
+   13. FOOTER
    ============================================= */
 .footer {
     background: var(--dark-blue);
@@ -1122,11 +1092,9 @@ body {
     color: var(--white);
     font-size: 1.2rem;
 }
-
 .footer-brand .logo .highlight {
     color: var(--primary-orange);
 }
-
 .footer-brand p {
     margin: 16px 0 20px;
     color: rgba(255, 255, 255, 0.6);
@@ -1137,7 +1105,6 @@ body {
     display: flex;
     gap: 12px;
 }
-
 .social-links a {
     color: var(--white);
     background: rgba(255, 255, 255, 0.08);
@@ -1150,7 +1117,6 @@ body {
     transition: var(--transition);
     text-decoration: none;
 }
-
 .social-links a:hover {
     background: var(--primary-orange);
     transform: translateY(-3px);
@@ -1161,7 +1127,6 @@ body {
     margin-bottom: 16px;
     font-size: 1rem;
 }
-
 .footer-links a {
     display: block;
     color: rgba(255, 255, 255, 0.6);
@@ -1170,7 +1135,6 @@ body {
     transition: var(--transition);
     font-size: 0.9rem;
 }
-
 .footer-links a:hover {
     color: var(--primary-orange);
     padding-left: 6px;
@@ -1186,7 +1150,6 @@ body {
     display: flex;
     gap: 8px;
 }
-
 .newsletter-form input {
     flex: 1;
     padding: 12px 16px;
@@ -1197,15 +1160,12 @@ body {
     color: var(--white);
     font-size: 0.9rem;
 }
-
 .newsletter-form input::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
-
 .newsletter-form input:focus {
     outline: 2px solid var(--primary-orange);
 }
-
 .newsletter-form button {
     background: var(--primary-orange);
     color: var(--white);
@@ -1215,7 +1175,6 @@ body {
     cursor: pointer;
     transition: var(--transition);
 }
-
 .newsletter-form button:hover {
     transform: scale(1.05);
 }
@@ -1228,7 +1187,7 @@ body {
 }
 
 /* =============================================
-   FLOATING BUTTONS
+   14. FLOATING BUTTONS
    ============================================= */
 .whatsapp-float {
     position: fixed;
@@ -1248,7 +1207,6 @@ body {
     z-index: 999;
     transition: var(--transition);
 }
-
 .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 40px rgba(37, 211, 102, 0.6);
@@ -1260,7 +1218,6 @@ body {
     left: 100px;
     z-index: 999;
 }
-
 #tidio-chat,
 #tidio-chat iframe {
     left: 100px !important;
@@ -1268,7 +1225,7 @@ body {
 }
 
 /* =============================================
-   RESPONSIVE
+   15. RESPONSIVE
    ============================================= */
 @media (max-width: 992px) {
     .hero-body {
@@ -1276,27 +1233,21 @@ body {
         text-align: center;
         gap: 40px;
     }
-
     .hero-text {
         max-width: 100%;
     }
-
     .hero-text h1 {
         font-size: 3rem;
     }
-
     .hero-buttons {
         justify-content: center;
     }
-
     .hero-stats {
         justify-content: center;
     }
-
     .hero-image {
         max-width: 100%;
     }
-
     .floating-badge {
         display: none;
     }
@@ -1315,13 +1266,13 @@ body {
     .pricing-card.featured {
         transform: scale(1);
     }
-
     .pricing-card.featured:hover {
         transform: translateY(-8px);
     }
 }
 
 @media (max-width: 768px) {
+    /* --- Navigation --- */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -1335,31 +1286,17 @@ body {
         gap: 4px;
         border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
-
     .nav-links.active {
         display: flex;
     }
-
     .nav-links a {
         width: 100%;
         padding: 12px 16px;
         font-size: 1rem;
         text-align: center;
     }
-
-    .nav-links a.class-link {
-        width: 100%;
-        text-align: center;
-        padding: 12px !important;
-    }
-
-    .nav-links a.clock-link {
-        width: 100%;
-        text-align: center;
-        padding: 12px !important;
-        justify-content: center;
-    }
-
+    .nav-links a.class-link,
+    .nav-links a.clock-link,
     .nav-links a.partner-link,
     .nav-links a.naomi-link,
     .nav-links a.login-link,
@@ -1367,83 +1304,80 @@ body {
         width: 100%;
         text-align: center;
         padding: 12px !important;
+        justify-content: center;
     }
-
     .hamburger {
         display: block;
     }
 
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
+    /* --- Hero --- */
     .hero-header {
         padding: 80px 5% 40px;
     }
-
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
     .hero-stats {
         gap: 20px;
         flex-wrap: wrap;
     }
-
     .hero-stats .stat-number {
         font-size: 1.4rem;
     }
 
+    /* --- Sections --- */
     .section-title {
         font-size: 2rem;
     }
-
     .services-grid {
         grid-template-columns: 1fr 1fr;
     }
-
     .service-card {
         padding: 20px 16px;
     }
-
     .sub-services span {
         font-size: 0.55rem;
         padding: 2px 8px;
     }
-
     .category-title {
         font-size: 1.2rem;
     }
 
+    /* --- Footer --- */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
 
+    /* --- Contact --- */
     .contact-form {
         padding: 24px;
     }
 
+    /* --- Training --- */
     .training-features {
         grid-template-columns: 1fr;
     }
-
     .training-card-header {
         padding: 18px 20px;
         gap: 14px;
     }
-
     .training-card-icon {
         width: 44px;
         height: 44px;
         font-size: 1.2rem;
     }
-
     .training-card-body {
         padding: 20px;
     }
 
+    /* --- About --- */
     .about-features {
         grid-template-columns: 1fr;
         gap: 12px;
     }
 
+    /* --- Floating Buttons --- */
     .whatsapp-float {
         width: 50px;
         height: 50px;
@@ -1451,12 +1385,10 @@ body {
         bottom: 20px;
         left: 20px;
     }
-
     #tidio-chat-container {
         bottom: 20px;
         left: 80px;
     }
-
     #tidio-chat,
     #tidio-chat iframe {
         left: 80px !important;
@@ -1467,12 +1399,10 @@ body {
     .hero-text h1 {
         font-size: 2rem;
     }
-
     .hero-buttons {
         flex-direction: column;
         align-items: stretch;
     }
-
     .hero-buttons .btn {
         justify-content: center;
     }
@@ -1480,7 +1410,6 @@ body {
     .services-grid {
         grid-template-columns: 1fr;
     }
-
     .pricing-grid {
         grid-template-columns: 1fr;
     }
@@ -1494,17 +1423,14 @@ body {
         gap: 10px;
         flex-wrap: wrap;
     }
-
     .training-card-icon {
         width: 38px;
         height: 38px;
         font-size: 1rem;
     }
-
     .training-card-body {
         padding: 16px;
     }
-
     .training-price .price-amount {
         font-size: 1.8rem;
     }
@@ -1516,12 +1442,10 @@ body {
         bottom: 15px;
         left: 15px;
     }
-
     #tidio-chat-container {
         bottom: 15px;
         left: 70px;
     }
-
     #tidio-chat,
     #tidio-chat iframe {
         left: 70px !important;
