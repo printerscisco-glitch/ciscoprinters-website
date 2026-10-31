@@ -144,6 +144,29 @@
                     <h2>Everything you need,<br /><span class="dim">nothing you don't.</span></h2>
                 </div>
 
+                <div class="view-bar reveal">
+                    <div class="seg" role="group" aria-label="Choose how to browse services">
+                        <button type="button" class="seg-btn active" data-view="wheel" aria-pressed="true"><i class="fas fa-circle-notch"></i> Wheel</button>
+                        <button type="button" class="seg-btn" data-view="list" aria-pressed="false"><i class="fas fa-list"></i> List</button>
+                    </div>
+                    <div class="wheel-tools">
+                        <button type="button" class="tool" id="wheelPlay" aria-pressed="false"><i class="fas fa-pause"></i> <span>Pause</span></button>
+                        <button type="button" class="tool" id="wheelReplay"><i class="fas fa-rotate-right"></i> Replay intro</button>
+                        <button type="button" class="tool" id="wheelReset"><i class="fas fa-arrows-rotate"></i> Reset view</button>
+                    </div>
+                </div>
+
+                <div class="wheel-view" id="wheelView">
+                    <div class="wheel-stage">
+                        <div class="wheel-box">
+                            <svg id="wheelSvg" class="wheel-svg" viewBox="-500 -500 1000 1000" role="group" aria-label="Interactive wheel of our services. Switch to the List view for a plain text version."></svg>
+                        </div>
+                        <div class="wheel-legend" id="wheelLegend"></div>
+                    </div>
+                    <aside class="wheel-detail" id="wheelDetail" aria-live="polite"></aside>
+                </div>
+
+                <div class="list-view" id="listView">
                 <div class="tabs reveal" role="tablist" aria-label="Service categories">
                     <button class="tab active" role="tab" id="tab-cyber" aria-selected="true" aria-controls="panel-cyber" data-target="cyber">Cyber</button>
                     <button class="tab" role="tab" id="tab-print" aria-selected="false" aria-controls="panel-print" data-target="print" tabindex="-1">Printing</button>
@@ -349,6 +372,7 @@
                         </article>
                     </div>
                 </div>
+                </div><!-- /list-view -->
             </div>
         </section>
 
@@ -574,5 +598,6 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="wheel.js"></script>
 </body>
 </html>
