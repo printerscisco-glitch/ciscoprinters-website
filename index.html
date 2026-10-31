@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cisco Printers Cybercafe - Baraton, Kenya</title>
+    <title>Cisco Printers Cybercafe - Kenya</title>
 
     <!-- ===== SEO ===== -->
-    <meta name="description" content="Cisco Printers Cybercafe in Baraton Center, Kenya offers high-speed internet, professional printing, computer training, passport photos and IT support."[cite: 2] />
-    <meta name="keywords" content="cybercafe Kenya, internet cafe Kenya, printing services, computer training, passport photos" />
+    <meta name="description" content="Cisco Printers Cybercafe in Kenya offers high-speed internet, professional printing, passport photos and IT support." />
+    <meta name="keywords" content="cybercafe Kenya, internet cafe Kenya, printing services, passport photos" />
     <meta name="author" content="Cisco Printers Cybercafe" />
     <meta name="robots" content="index, follow" />
 
@@ -29,28 +29,30 @@
     <!-- ===== NAVIGATION ===== -->
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">
+            <a href="/" class="logo" style="text-decoration:none;">
                 <i class="fas fa-print"></i>
-                <span>CISCO <span style="color:var(--primary-orange);">PRINTERS</span></span>
+                <span>Cisco <span class="highlight">Printers</span></span>
             </a>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="/" class="active">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#training">Training</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="partners.html" class="partner-link">Partners</a></li>
-            <li><a href="naomi-kioko-designs.html" class="naomi-link">Naomi Art</a></li>
-            <li><a href="clock.html" target="_blank" class="clock-link"><i class="fas fa-clock"></i></a></li>
+            <li><a href="/partners" class="partner-link">Partners</a></li>
+            <li><a href="/naomi-kioko-designs" class="naomi-link">Naomi Art</a></li>
+            <li><a href="/clock" target="_blank" class="clock-link">
+                <i class="fas fa-clock"></i>
+            </a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO SECTION (MODERN DESIGN) ===== -->
     <header class="hero-section" id="home">
         <div class="hero-container">
             <h1 class="hero-main-title">Best Digital Hub</h1>
@@ -107,11 +109,11 @@
     <!-- ========================================== -->
     <!-- ===== SERVICES SECTION (DETAILED) ===== -->
     <!-- ========================================== -->
-    <section id="services" class="section-standard">
+    <section id="services" class="services section-standard">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Services</span>
-                <h2 class="section-title">Everything You <span class="highlight" style="color:var(--primary-orange);">Need</span></h2>
+                <h2 class="section-title">Everything You <span class="highlight">Need</span></h2>
                 <p class="section-subtitle">Comprehensive digital services for the community and beyond, serving Kenya nationwide</p>
             </div>
 
@@ -132,41 +134,78 @@
                         <div class="service-icon"><i class="fas fa-wifi"></i></div>
                         <h4>Internet Browsing</h4>
                         <p>High-speed broadband internet for research, streaming, and browsing.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>100 Mbps speed</span><span>Unlimited browsing</span><span>Secure connection</span>
+                            <span>100 Mbps speed</span>
+                            <span>Unlimited browsing</span>
+                            <span>Secure connection</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Book Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
                     </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-signature"></i></div>
                         <h4>Online Applications</h4>
-                        <p>Professional assistance with online government and academic forms.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional assistance with online applications.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>KRA services</span><span>HELB applications</span><span>KUCCPS services</span>
+                            <span>KRA services</span>
+                            <span>HELB applications</span>
+                            <span>KUCCPS services</span>
+                            <span>Government services</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Learn More</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Learn More</a>
                     </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-keyboard"></i></div>
                         <h4>Typing and Editing</h4>
-                        <p>Professional document processing and CV preparation services.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional document processing and editing services.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Typing services</span><span>Document editing</span><span>CV preparation</span>
+                            <span>Typing services</span>
+                            <span>Document editing</span>
+                            <span>CV preparation</span>
+                            <span>Formatting</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Get Quote</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
                     </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Email Services</h4>
+                        <p>Professional email creation and management assistance.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Email setup</span>
+                            <span>Email management</span>
+                            <span>Professional signatures</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Learn More</a>
+                    </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-tools"></i></div>
                         <h4>IT Support</h4>
-                        <p>Professional computer repairs, software installation, and troubleshooting.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional computer and IT assistance.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Computer repairs</span><span>Software installation</span><span>Virus removal</span>
+                            <span>Computer repairs</span>
+                            <span>Software installation</span>
+                            <span>Technical assistance</span>
+                            <span>Virus removal</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Book Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -177,43 +216,129 @@
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file"></i></div>
-                        <h4>Black & White Printing</h4>
-                        <p>High-quality monochrome printing for reports and assignments.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <h4>Black and White Printing</h4>
+                        <p>High-quality black and white printing for all your documents.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>KES 5 per page</span><span>Fast turnaround</span>
+                            <span>KES 5 per page</span>
+                            <span>Fast service</span>
+                            <span>Multiple copies</span>
+                            <span>High-quality print</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Order Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
                     </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                         <h4>Colour Printing</h4>
-                        <p>Vibrant full-color printing for presentations and flyers.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Vibrant colour printing for professional and personal projects.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>KES 10 per page</span><span>Vibrant colors</span>
+                            <span>KES 10 per page</span>
+                            <span>Vibrant colours</span>
+                            <span>Premium quality</span>
+                            <span>Fast turnaround</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Order Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
                     </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-copy"></i></div>
+                        <h4>Photocopying</h4>
+                        <p>High-quality photocopying for all your document needs.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>KES 5 per page</span>
+                            <span>Bulk copies</span>
+                            <span>Fast service</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-layer-group"></i></div>
-                        <h4>Lamination & Binding</h4>
-                        <p>Secure document preservation and professional report binding.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <h4>Lamination</h4>
+                        <p>Protect and preserve your important documents.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>A4/A3 lamination</span><span>Thesis binding</span><span>Spiral binding</span>
+                            <span>A4 lamination</span>
+                            <span>A3 lamination</span>
+                            <span>ID card lamination</span>
+                            <span>Photo lamination</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Order Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
                     </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-book"></i></div>
+                        <h4>Binding</h4>
+                        <p>Professional document binding for reports and projects.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Thesis binding</span>
+                            <span>Report binding</span>
+                            <span>Wire binding</span>
+                            <span>Perfect binding</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-id-card"></i></div>
                         <h4>Passport Photos</h4>
-                        <p>Instant passport and ID photo shooting with background touchup.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Instant passport and ID photos with professional editing.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Instant prints</span><span>Professional touchup</span>
+                            <span>Passport photos</span>
+                            <span>ID photos</span>
+                            <span>Professional editing</span>
+                            <span>Fast printing</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Book Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-poster"></i></div>
+                        <h4>Poster and Flyer Printing</h4>
+                        <p>High-quality poster and flyer printing for events and promotions.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>A3 posters</span>
+                            <span>A4 flyers</span>
+                            <span>Banner printing</span>
+                            <span>Event posters</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-image"></i></div>
+                        <h4>Large Format Printing</h4>
+                        <p>Professional large format printing for various needs.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Banners</span>
+                            <span>Wallpaper</span>
+                            <span>Signage</span>
+                            <span>Billboards</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
                     </div>
                 </div>
             </div>
@@ -225,22 +350,97 @@
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
                         <h4>Graphic Design</h4>
-                        <p>Custom logos, posters, flyers, and professional brand assets.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional graphic design for your brand and projects.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Logo design</span><span>Flyers</span><span>Business cards</span>
+                            <span>Logo design</span>
+                            <span>Poster design</span>
+                            <span>Flyer design</span>
+                            <span>Business cards</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Get Quote</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
                     </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-crop-alt"></i></div>
                         <h4>Photo Editing</h4>
-                        <p>Advanced photo retouching, color correction, and background removal.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional photo editing and enhancement services.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Retouching</span><span>Background removal</span>
+                            <span>Retouching</span>
+                            <span>Color correction</span>
+                            <span>Background removal</span>
+                            <span>Image enhancement</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Book Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-ad"></i></div>
+                        <h4>Digital Adverts</h4>
+                        <p>Eye-catching digital advertisements for your business.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Social media ads</span>
+                            <span>Web banners</span>
+                            <span>RGB scrolling ads</span>
+                            <span>Display ads</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-trademark"></i></div>
+                        <h4>Logo Design</h4>
+                        <p>Professional logo design for your brand identity.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Modern logos</span>
+                            <span>Classic logos</span>
+                            <span>Brand identity</span>
+                            <span>Business branding</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Invitation Design</h4>
+                        <p>Beautiful custom invitations for all occasions.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Wedding invitations</span>
+                            <span>Birthday invitations</span>
+                            <span>Corporate invitations</span>
+                            <span>Event invitations</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-certificate"></i></div>
+                        <h4>Certificate Design</h4>
+                        <p>Professional certificate design and printing.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Course certificates</span>
+                            <span>Event certificates</span>
+                            <span>Awards</span>
+                            <span>Diplomas</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -252,22 +452,97 @@
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                         <h4>Research Formatting</h4>
-                        <p>Professional thesis and research paper formatting in APA, MLA, or Harvard style.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional formatting for your academic research.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>APA style</span><span>MLA style</span><span>Thesis layout</span>
+                            <span>APA formatting</span>
+                            <span>MLA formatting</span>
+                            <span>Thesis formatting</span>
+                            <span>Research papers</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Get Quote</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
                     </div>
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
                         <h4>Data Analysis</h4>
-                        <p>Quantitative and qualitative data analysis using SPSS and Excel.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Professional data analysis for your academic projects.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>SPSS analysis</span><span>Excel formulas</span><span>Charts & graphs</span>
+                            <span>SPSS analysis</span>
+                            <span>Excel analysis</span>
+                            <span>Statistical analysis</span>
+                            <span>Data visualization</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Book Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-check-square"></i></div>
+                        <h4>Questionnaire Preparation</h4>
+                        <p>Professional questionnaire design and preparation.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Research surveys</span>
+                            <span>Customer surveys</span>
+                            <span>Market research</span>
+                            <span>Data collection</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-edit"></i></div>
+                        <h4>Academic Writing</h4>
+                        <p>Professional academic writing and editing assistance.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Essay writing</span>
+                            <span>Research papers</span>
+                            <span>Literature reviews</span>
+                            <span>Academic editing</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-table"></i></div>
+                        <h4>Tables and Charts</h4>
+                        <p>Professional creation of tables and charts.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Statistical tables</span>
+                            <span>Graphs</span>
+                            <span>Data visualization</span>
+                            <span>Charts</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-quote-right"></i></div>
+                        <h4>Academic Document Formatting</h4>
+                        <p>Professional document formatting for academic submissions.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>APA style</span>
+                            <span>MLA style</span>
+                            <span>Chicago style</span>
+                            <span>Harvard style</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
                     </div>
                 </div>
             </div>
@@ -277,14 +552,33 @@
                 <h3 class="category-title"><i class="fas fa-thumbs-up"></i> Other Services</h3>
                 <div class="services-grid">
                     <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-camera"></i></div>
+                        <h4>Passport Photography</h4>
+                        <p>Professional passport photography services.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Passport photos</span>
+                            <span>ID photos</span>
+                            <span>Professional editing</span>
+                            <span>Fast printing</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-store"></i></div>
                         <h4>Stationery Sales</h4>
-                        <p>Quality notebooks, pens, envelopes, and office supplies.</p>
-                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <p>Quality stationery and office supplies.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
                         <div class="sub-services" style="display:none;">
-                            <span>Office supplies</span><span>Exercise books</span>
+                            <span>Paper types</span>
+                            <span>Envelopes</span>
                         </div>
-                        <a href="#contact" class="btn btn-orange" style="padding:8px 20px; font-size:0.85rem; margin-top:10px;">Order Now</a>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -294,11 +588,11 @@
     <!-- ========================================== -->
     <!-- ===== TRAINING SECTION ===== -->
     <!-- ========================================== -->
-    <section id="training" class="section-standard alt-bg" style="background: #f1ede4;">
+    <section id="training" class="training-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Computer Training</span>
-                <h2 class="section-title">Master Digital <span class="highlight" style="color:var(--primary-orange);">Skills</span></h2>
+                <h2 class="section-title">Master Digital <span class="highlight">Skills</span></h2>
                 <p class="section-subtitle">Comprehensive hands-on computer packages tailored for students, job seekers, and professionals</p>
             </div>
 
@@ -362,12 +656,12 @@
     <!-- ========================================== -->
     <!-- ===== PRICING SECTION ===== -->
     <!-- ========================================== -->
-    <section id="pricing" class="section-standard" style="background: var(--primary-blue); color: var(--white);">
+    <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Affordable Rates</span>
-                <h2 class="section-title" style="color: var(--white);">Transparent <span class="highlight" style="color:var(--primary-orange);">Pricing</span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Get top-quality digital and printing services at pocket-friendly rates</p>
+                <h2 class="section-title">Transparent <span class="highlight">Pricing</span></h2>
+                <p class="section-subtitle">Get top-quality digital and printing services at pocket-friendly rates</p>
             </div>
 
             <div class="pricing-grid">
@@ -383,11 +677,11 @@
                         <li><i class="fas fa-check"></i> Photocopying: KES 5</li>
                         <li><i class="fas fa-check"></i> Bulk Discount Available</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="border-color:var(--primary-blue); color:var(--primary-blue); width:100%; justify-content:center;">Order Now</a>
+                    <a href="#contact" class="btn btn-secondary">Order Now</a>
                 </div>
 
-                <div class="pricing-card featured" style="border: 3px solid var(--primary-orange); transform: translateY(-5px);">
-                    <div class="badge" style="position:absolute; top:-12px; right:20px; background:var(--primary-orange); color:#fff; padding:4px 15px; border-radius:50px; font-size:0.7rem; font-weight:700;">Popular</div>
+                <div class="pricing-card featured">
+                    <div class="badge">Popular</div>
                     <div class="pricing-header">
                         <h3>Internet Browsing</h3>
                         <div class="price">KES 20<span>/hr</span></div>
@@ -399,7 +693,7 @@
                         <li><i class="fas fa-check"></i> Research & Streaming Ready</li>
                         <li><i class="fas fa-check"></i> Printing Directly from PC</li>
                     </ul>
-                    <a href="#contact" class="btn btn-orange" style="width:100%; justify-content:center;">Book Station</a>
+                    <a href="#contact" class="btn btn-orange">Book Station</a>
                 </div>
 
                 <div class="pricing-card">
@@ -414,12 +708,12 @@
                         <li><i class="fas fa-check"></i> Spiral Binding: KES 100</li>
                         <li><i class="fas fa-check"></i> Thesis Hard Binding Available</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="border-color:var(--primary-blue); color:var(--primary-blue); width:100%; justify-content:center;">Get Quote</a>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
                 </div>
             </div>
 
             <!-- Paper Types Sub-section -->
-            <div class="paper-section" style="margin-top:60px; border-top:1px solid rgba(255,255,255,0.1); padding-top:40px;">
+            <div class="paper-section">
                 <h3 class="paper-title"><i class="fas fa-layer-group"></i> Available Paper Types & Sizes</h3>
                 <div class="paper-grid">
                     <span class="paper-chip">A4 Plain Paper</span>
@@ -438,24 +732,24 @@
     <!-- ========================================== -->
     <!-- ===== ABOUT SECTION ===== -->
     <!-- ========================================== -->
-    <section id="about" class="section-standard">
+    <section id="about" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <span class="section-tag">About Us</span>
-                    <h2 class="section-title">Your Trusted Digital Partner in <span class="highlight" style="color:var(--primary-orange);">Baraton</span></h2>
+                    <h2 class="section-title">Your Trusted Digital Partner in <span class="highlight">Baraton</span></h2>
                     <p>Located at Baraton Center opposite Royal Pool, Cisco Printers Cybercafe is committed to delivering fast, reliable, and professional digital services to students, lecturers, researchers, and local residents across Nandi County and Kenya[cite: 2].</p>
                     <p>Equipped with high-speed internet, modern printers, and professional document designers, we turn your tasks into effortless experiences.</p>
-                    <div class="about-features" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0;">
-                        <div class="feature"><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> 100 Mbps Fiber</div>
-                        <div class="feature"><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Pro Designers</div>
-                        <div class="feature"><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Instant Print</div>
-                        <div class="feature"><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Community Hub</div>
+                    <div class="about-features">
+                        <div class="feature"><i class="fas fa-check-circle"></i> 100 Mbps Fiber Internet</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Professional Designers</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Instant Printing</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Trusted Community Hub</div>
                     </div>
                     <a href="#contact" class="btn btn-orange">Visit Our Shop</a>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe Shop" loading="lazy" style="width:100%; border-radius:var(--radius); box-shadow:var(--shadow);" />
+                    <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe Shop" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -464,62 +758,62 @@
     <!-- ========================================== -->
     <!-- ===== CONTACT SECTION ===== -->
     <!-- ========================================== -->
-    <section id="contact" class="section-standard alt-bg" style="background: #f1ede4;">
+    <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Contact <span class="highlight" style="color:var(--primary-orange);">Us</span></h2>
+                <h2 class="section-title">Contact <span class="highlight">Us</span></h2>
                 <p class="section-subtitle">Reach out to us for inquiries, orders, or technical support</p>
             </div>
 
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="info-item" style="background:#fff; padding:20px; border-radius:16px; margin-bottom:16px; display:flex; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
-                        <i class="fas fa-map-marker-alt" style="font-size:1.5rem; color:var(--primary-orange);"></i>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4 style="color:var(--primary-blue);">Location</h4>
-                            <p style="color:var(--text-muted); font-size:0.9rem;">Baraton Center, Opposite Royal Pool<br />Nandi County, Kenya[cite: 2]</p>
+                            <h4>Location</h4>
+                            <p>Baraton Center, Opposite Royal Pool<br />Nandi County, Kenya[</p>
                         </div>
                     </div>
-                    <div class="info-item" style="background:#fff; padding:20px; border-radius:16px; margin-bottom:16px; display:flex; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
-                        <i class="fas fa-phone-alt" style="font-size:1.5rem; color:var(--primary-orange);"></i>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
                         <div>
-                            <h4 style="color:var(--primary-blue);">Phone & M-PESA</h4>
-                            <p style="color:var(--text-muted); font-size:0.9rem;">Call / WhatsApp: 0700 000 000<br /><small style="color:var(--primary-orange); font-weight:600;">PayBill: 542542 (A/C: CIS4876)</small>[cite: 2]</p>
+                            <h4>Phone & M-PESA</h4>
+                            <p>Call / WhatsApp: 0769357320<br /><small>PayBill: 542542 (A/C: 86214)</small></p>
                         </div>
                     </div>
-                    <div class="info-item" style="background:#fff; padding:20px; border-radius:16px; margin-bottom:16px; display:flex; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
-                        <i class="fas fa-envelope" style="font-size:1.5rem; color:var(--primary-orange);"></i>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4 style="color:var(--primary-blue);">Email Address</h4>
-                            <p style="color:var(--text-muted); font-size:0.9rem;">info@ciscoprinters.co.ke</p>
+                            <h4>Email Address</h4>
+                            <p>info@ciscoprinters.co.ke<br />support@ciscoprinters.co.ke</p>
                         </div>
                     </div>
-                    <div class="info-item" style="background:#fff; padding:20px; border-radius:16px; display:flex; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
-                        <i class="fas fa-clock" style="font-size:1.5rem; color:var(--primary-orange);"></i>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
                         <div>
-                            <h4 style="color:var(--primary-blue);">Working Hours</h4>
-                            <p style="color:var(--text-muted); font-size:0.9rem;">Mon – Sat: 7:30 AM – 9:00 PM<br />Sun: 1:00 PM – 9:00 PM</p>
+                            <h4>Working Hours</h4>
+                            <p>Monday – Saturday: 7:30 AM – 9:00 PM<br />Sunday: 1:00 PM – 9:00 PM</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form" style="background:#fff; padding:35px; border-radius:var(--radius); box-shadow:0 15px 40px rgba(0,0,0,0.05);">
+                <div class="contact-form">
                     <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                        <div style="margin-bottom:16px;">
-                            <input type="text" id="name" placeholder="Your Full Name" required style="width:100%; padding:14px; border:1px solid #ddd; border-radius:12px; font-family:'Poppins';" />
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Full Name" required />
                         </div>
-                        <div style="margin-bottom:16px;">
-                            <input type="email" id="email" placeholder="Your Email Address" required style="width:100%; padding:14px; border:1px solid #ddd; border-radius:12px; font-family:'Poppins';" />
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email Address" required />
                         </div>
-                        <div style="margin-bottom:16px;">
-                            <input type="text" id="subject" placeholder="Subject / Service Needed" required style="width:100%; padding:14px; border:1px solid #ddd; border-radius:12px; font-family:'Poppins';" />
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject / Service Needed" required />
                         </div>
-                        <div style="margin-bottom:16px;">
-                            <textarea id="message" rows="4" placeholder="Write your message or order details here..." required style="width:100%; padding:14px; border:1px solid #ddd; border-radius:12px; font-family:'Poppins';"></textarea>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Write your message or order details here..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-orange" style="width:100%; justify-content:center;">Send Message</button>
-                        <div id="formMessage" style="margin-top:16px; display:none; padding:12px; border-radius:8px;"></div>
+                        <div id="formMessage" class="form-message"></div>
                     </form>
                 </div>
             </div>
@@ -531,12 +825,14 @@
     <!-- ========================================== -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Cisco Printers Cybercafe &amp; Cyber. Baraton Center, Kenya[cite: 2]. All rights reserved.</p>
+            <p>&copy; 2026 Cisco Printers Cybercafe &amp; Cyber. All rights reserved, Kenya.</p>
         </div>
     </footer>
 
-    <!-- ===== FLOATING WHATSAPP ===== -->
-    <a href="https://wa.me/254700000000" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp" style="position:fixed; bottom:30px; left:30px; background:#25d366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:999; box-shadow:0 8px 30px rgba(37,211,102,0.4);">
+    <!-- ========================================== -->
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <!-- ========================================== -->
+    <a href="https://wa.me/254769357320" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -588,12 +884,12 @@
         function handleFormSubmit(event) {
             event.preventDefault();
             const msgDiv = document.getElementById("formMessage");
-            msgDiv.style.display = "block";
-            msgDiv.style.background = "#d1fae5";
-            msgDiv.style.color = "#065f46";
+            msgDiv.className = "form-message success";
             msgDiv.innerText = "Thank you! Your message has been sent successfully. We will get back to you shortly.";
             document.getElementById("contactForm").reset();
-            setTimeout(() => { msgDiv.style.display = "none"; }, 5000);
+            setTimeout(() => {
+                msgDiv.style.display = "none";
+            }, 5000);
         }
     </script>
 </body>
