@@ -254,19 +254,6 @@ body {
 }
 .nav-links a.naomi-link::after { display: none; }
 
-.nav-links a.class-link {
-    background: linear-gradient(135deg, #1a3c6e, #f47b20);
-    color: var(--white) !important;
-    padding: 8px 18px;
-    border-radius: 50px;
-    font-weight: 600;
-}
-.nav-links a.class-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 30px rgba(26, 60, 110, 0.3);
-}
-.nav-links a.class-link::after { display: none; }
-
 .nav-links a.login-link {
     background: var(--primary-orange);
     color: var(--white) !important;
