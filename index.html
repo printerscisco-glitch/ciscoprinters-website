@@ -6,8 +6,19 @@
     <title>Cisco Printers Cybercafe - Kenya</title>
 
     <!-- ===== SEO ===== -->
-    <meta name="description" content="Cisco Printers Cybercafe in Baraton Center, Kenya offers high-speed internet, professional printing, and digital services." />
+    <meta name="description" content="Cisco Printers Cybercafe in Baraton Center, Kenya offers high-speed internet, professional printing, computer training, passport photos and IT support."[cite: 2] />
+    <meta name="keywords" content="cybercafe Kenya, internet cafe Kenya, printing services, computer training, passport photos" />
+    <meta name="author" content="Cisco Printers Cybercafe" />
     <meta name="robots" content="index, follow" />
+
+    <!-- ===== GOOGLE ANALYTICS ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXM02MZ560"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NXM02MZ560');
+    </script>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -17,10 +28,12 @@
 
     <!-- ===== NAVIGATION ===== -->
     <nav class="navbar">
-        <a href="index.html" class="logo">
-            <i class="fas fa-print"></i>
-            <span>CISCO PRINTERS</span>
-        </a>
+        <div class="logo">
+            <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">
+                <i class="fas fa-print"></i>
+                <span>CISCO <span style="color:var(--primary-orange);">PRINTERS</span></span>
+            </a>
+        </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -28,14 +41,17 @@
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="partners.html" class="partner-link">Partners</a></li>
+            <li><a href="naomi-kioko-designs.html" class="naomi-link">Naomi Art</a></li>
+            <li><a href="clock.html" target="_blank" class="clock-link"><i class="fas fa-clock"></i></a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION (MATCHING REFERENCE AESTHETIC) ===== -->
-    <header class="hero-section">
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero-section" id="home">
         <div class="hero-container">
             <h1 class="hero-main-title">Best Digital Hub</h1>
             <p class="hero-subtitle">
@@ -48,7 +64,7 @@
             </div>
 
             <div class="hero-visual-grid">
-                <!-- Left Side Floating Badges & Rotating Circle -->
+                <!-- Left Side Badges & Rotator -->
                 <div class="hero-left-elements">
                     <div class="dark-pill-badge badge-trend">#TREND</div>
                     <div class="dark-pill-badge badge-cool">#COOL</div>
@@ -63,7 +79,7 @@
                     </div>
                 </div>
 
-                <!-- Right Side Arch Box with Tags -->
+                <!-- Right Side Arch Container with Tags -->
                 <div class="hero-right-arch">
                     <div class="sparkle-decor"><i class="fas fa-sparkles"></i></div>
                     <div class="tags-cloud">
@@ -88,46 +104,427 @@
         </div>
     </header>
 
-    <!-- ===== SERVICES SECTION ===== -->
-    <section id="services" class="section-standard">
+    <!-- ========================================== -->
+    <!-- ===== SERVICES SECTION (DETAILED) ===== -->
+    <!-- ========================================== -->
+    <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Offerings</span>
-                <h2 class="section-title">Everything You Need</h2>
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Everything You <span class="highlight">Need</span></h2>
+                <p class="section-subtitle">Comprehensive digital services for the community and beyond, serving Kenya nationwide</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-wifi"></i></div>
-                    <h4>100 Mbps Internet</h4>
-                    <p>High-speed reliable fiber broadband for fast browsing, research, and remote tasks.</p>
+
+            <!-- ===== CATEGORY BUTTONS ===== -->
+            <div class="service-category-tabs">
+                <button class="cat-tab active" data-category="cyber">Cyber Services</button>
+                <button class="cat-tab" data-category="print">Printing Services</button>
+                <button class="cat-tab" data-category="design">Design Services</button>
+                <button class="cat-tab" data-category="academic">Academic Services</button>
+                <button class="cat-tab" data-category="other">Other Services</button>
+            </div>
+
+            <!-- ===== CATEGORY 1: CYBER SERVICES ===== -->
+            <div class="service-category active" data-category="cyber">
+                <h3 class="category-title"><i class="fas fa-laptop"></i> Cyber and Computer Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-wifi"></i></div>
+                        <h4>Internet Browsing</h4>
+                        <p>High-speed broadband internet for research, streaming, and browsing.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>100 Mbps speed</span><span>Unlimited browsing</span><span>Secure connection</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+                        <h4>Online Applications</h4>
+                        <p>Professional assistance with online government and academic forms.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>KRA services</span><span>HELB applications</span><span>KUCCPS services</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-keyboard"></i></div>
+                        <h4>Typing and Editing</h4>
+                        <p>Professional document processing and CV preparation services.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Typing services</span><span>Document editing</span><span>CV preparation</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h4>IT Support</h4>
+                        <p>Professional computer repairs, software installation, and troubleshooting.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Computer repairs</span><span>Software installation</span><span>Virus removal</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-print"></i></div>
-                    <h4>Document Printing</h4>
-                    <p>Instant high-quality black & white and vibrant color document prints and photocopies.</p>
+            </div>
+
+            <!-- ===== CATEGORY 2: PRINTING SERVICES ===== -->
+            <div class="service-category" data-category="print">
+                <h3 class="category-title"><i class="fas fa-print"></i> Printing and Document Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file"></i></div>
+                        <h4>Black & White Printing</h4>
+                        <p>High-quality monochrome printing for reports and assignments.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>KES 5 per page</span><span>Fast turnaround</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                        <h4>Colour Printing</h4>
+                        <p>Vibrant full-color printing for presentations and flyers.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>KES 10 per page</span><span>Vibrant colors</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+                        <h4>Lamination & Binding</h4>
+                        <p>Secure document preservation and professional report binding.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>A4/A3 lamination</span><span>Thesis binding</span><span>Spiral binding</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                        <h4>Passport Photos</h4>
+                        <p>Instant passport and ID photo shooting with background touchup.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Instant prints</span><span>Professional touchup</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h4>Academic & Research</h4>
-                    <p>Professional formatting, questionnaire design, SPSS data analysis, and binding.</p>
+            </div>
+
+            <!-- ===== CATEGORY 3: DESIGN SERVICES ===== -->
+            <div class="service-category" data-category="design">
+                <h3 class="category-title"><i class="fas fa-palette"></i> Design and Digital Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h4>Graphic Design</h4>
+                        <p>Custom logos, posters, flyers, and professional brand assets.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Logo design</span><span>Flyers</span><span>Business cards</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-crop-alt"></i></div>
+                        <h4>Photo Editing</h4>
+                        <p>Advanced photo retouching, color correction, and background removal.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Retouching</span><span>Background removal</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CATEGORY 4: ACADEMIC SERVICES ===== -->
+            <div class="service-category" data-category="academic">
+                <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Academic and Research Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                        <h4>Research Formatting</h4>
+                        <p>Professional thesis and research paper formatting in APA, MLA, or Harvard style.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>APA style</span><span>MLA style</span><span>Thesis layout</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h4>Data Analysis</h4>
+                        <p>Quantitative and qualitative data analysis using SPSS and Excel.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>SPSS analysis</span><span>Excel formulas</span><span>Charts & graphs</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CATEGORY 5: OTHER SERVICES ===== -->
+            <div class="service-category" data-category="other">
+                <h3 class="category-title"><i class="fas fa-thumbs-up"></i> Other Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-store"></i></div>
+                        <h4>Stationery Sales</h4>
+                        <p>Quality notebooks, pens, envelopes, and office supplies.</p>
+                        <button class="btn-toggle" onclick="toggleSubServices(this)"><i class="fas fa-chevron-down"></i> View Details</button>
+                        <div class="sub-services" style="display:none;">
+                            <span>Office supplies</span><span>Exercise books</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary btn-sm">Order Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- ===== TRAINING SECTION ===== -->
+    <!-- ========================================== -->
+    <section id="training" class="training-section" style="padding: 80px 0; background: var(--light-blue, #e8f0fe);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Computer Training</span>
+                <h2 class="section-title">Master Digital <span class="highlight">Skills</span></h2>
+                <p class="section-subtitle">Comprehensive hands-on computer packages tailored for students, job seekers, and professionals</p>
+            </div>
+
+            <div class="training-card" onclick="toggleTrainingDetails()" style="max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); overflow: hidden; cursor: pointer;">
+                <div class="training-card-header" style="display: flex; align-items: center; gap: 20px; padding: 24px 30px; background: #fde8d6;">
+                    <div class="training-card-icon" style="width: 56px; height: 56px; border-radius: 50%; background: var(--primary-orange); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #fff;"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="training-card-info" style="flex: 1;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary-blue); font-weight: 700;">Comprehensive Computer Packages</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">From absolute beginner to proficient office professional</p>
+                    </div>
+                    <div class="training-card-toggle"><i class="fas fa-chevron-down" id="trainingChevron"></i></div>
+                </div>
+                <div class="training-card-body" id="trainingBody" style="display:none; padding: 30px;">
+                    <div class="training-features" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+                        <div style="background:#e8f0fe; padding:14px; border-radius:10px;"><h4>Computer Basics & OS</h4><p style="font-size:0.85rem;">Windows, file management, typing.</p></div>
+                        <div style="background:#e8f0fe; padding:14px; border-radius:10px;"><h4>Microsoft Word</h4><p style="font-size:0.85rem;">Reports, formatting, document layout.</p></div>
+                        <div style="background:#e8f0fe; padding:14px; border-radius:10px;"><h4>Microsoft Excel</h4><p style="font-size:0.85rem;">Spreadsheets, formulas, data sheets.</p></div>
+                        <div style="background:#e8f0fe; padding:14px; border-radius:10px;"><h4>PowerPoint & Internet</h4><p style="font-size:0.85rem;">Presentations and web tools.</p></div>
+                    </div>
+                    <div style="background:var(--primary-orange); color:#fff; padding:16px; border-radius:12px; text-align:center; margin-bottom:20px;">
+                        <strong>Complete Package Training Fee: KES 3,500</strong> (Certificate Included)
+                    </div>
+                    <div style="text-align: center;"><a href="#contact" class="btn btn-primary">Enroll Now</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ===== PRICING SECTION ===== -->
+    <!-- ========================================== -->
+    <section id="pricing" class="pricing" style="padding: 80px 0; background: linear-gradient(135deg, #0f2847, #1a3c6e); color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Affordable Rates</span>
+                <h2 class="section-title" style="color:#fff;">Transparent <span class="highlight">Pricing</span></h2>
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.8);">Top-quality digital services at pocket-friendly rates</p>
+            </div>
+
+            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <div class="pricing-card" style="background:#fff; color:#111; padding:30px; border-radius:20px;">
+                    <h3>Printing & Copies</h3>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--primary-orange); margin:15px 0;">KES 5<span>/page</span></div>
+                    <ul style="list-style:none; margin-bottom:20px;">
+                        <li><i class="fas fa-check"></i> Black & White (A4): KES 5</li>
+                        <li><i class="fas fa-check"></i> Colour Printing: KES 10</li>
+                        <li><i class="fas fa-check"></i> Bulk Copy Discounts</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width:100%; justify-content:center;">Order Now</a>
+                </div>
+
+                <div class="pricing-card" style="background:#fff; color:#111; padding:30px; border-radius:20px; border:3px solid var(--primary-orange);">
+                    <h3>Internet Browsing</h3>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--primary-orange); margin:15px 0;">KES 20<span>/hr</span></div>
+                    <ul style="list-style:none; margin-bottom:20px;">
+                        <li><i class="fas fa-check"></i> 100 Mbps Fiber Speed</li>
+                        <li><i class="fas fa-check"></i> Secure Workstations</li>
+                        <li><i class="fas fa-check"></i> Research & Streaming</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center;">Book Station</a>
+                </div>
+
+                <div class="pricing-card" style="background:#fff; color:#111; padding:30px; border-radius:20px;">
+                    <h3>Lamination & Binding</h3>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--primary-orange); margin:15px 0;">KES 50<span>+</span></div>
+                    <ul style="list-style:none; margin-bottom:20px;">
+                        <li><i class="fas fa-check"></i> A4 Lamination: KES 50</li>
+                        <li><i class="fas fa-check"></i> Spiral Binding: KES 100</li>
+                        <li><i class="fas fa-check"></i> Thesis Hard Binding</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width:100%; justify-content:center;">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- Paper Types Sub-section -->
+            <div class="paper-section" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top:30px;">
+                <h3 class="paper-title" style="color:#fff; margin-bottom:15px;"><i class="fas fa-layer-group"></i> Available Paper Types & Sizes</h3>
+                <div class="paper-grid" style="display:flex; flex-wrap:wrap; gap:10px;">
+                    <span class="paper-chip" style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:50px; font-size:0.8rem;">A4 Plain Paper</span>
+                    <span class="paper-chip" style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:50px; font-size:0.8rem;">A3 Poster Paper</span>
+                    <span class="paper-chip" style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:50px; font-size:0.8rem;">Photo Glossy Paper</span>
+                    <span class="paper-chip" style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:50px; font-size:0.8rem;">Colored Papers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ===== ABOUT SECTION ===== -->
+    <!-- ========================================== -->
+    <section id="about" class="about" style="padding: 80px 0; background: #fff;">
+        <div class="container">
+            <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                <div class="about-text">
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-title">Your Trusted Digital Partner in <span class="highlight">Baraton</span></h2>
+                    <p style="color:var(--text-muted); margin: 15px 0;">Located at Baraton Center opposite Royal Pool, Cisco Printers Cybercafe delivers fast, reliable, and professional digital services to students and residents across Nandi County and Kenya[cite: 2].</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0;">
+                        <div><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> 100 Mbps Fiber</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Expert Designers</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Instant Printing</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--primary-orange);"></i> Trusted Hub</div>
+                    </div>
+                    <a href="#contact" class="btn btn-orange">Visit Our Shop</a>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/cybercafe-hero.jpg" alt="Cisco Printers Cybercafe Shop" style="width:100%; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.1);" loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ===== CONTACT SECTION ===== -->
+    <!-- ========================================== -->
+    <section id="contact" class="contact" style="padding: 80px 0; background: #fbf9f4;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact <span class="highlight">Us</span></h2>
+                <p class="section-subtitle">Reach out for inquiries, orders, or technical support</p>
+            </div>
+
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div class="contact-info">
+                    <div style="background:#fff; padding:20px; border-radius:16px; margin-bottom:15px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
+                        <h4><i class="fas fa-map-marker-alt" style="color:var(--primary-orange);"></i> Location</h4>
+                        <p style="color:var(--text-muted);">Baraton Center, Opposite Royal Pool, Nandi County, Kenya[cite: 2]</p>
+                    </div>
+                    <div style="background:#fff; padding:20px; border-radius:16px; margin-bottom:15px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
+                        <h4><i class="fas fa-phone-alt" style="color:var(--primary-orange);"></i> Phone & M-PESA</h4>
+                        <p style="color:var(--text-muted);">Call / WhatsApp: 0700 000 000<br /><small style="color:var(--primary-orange); font-weight:600;">PayBill: 542542 (A/C: CIS4876)</small>[cite: 2]</p>
+                    </div>
+                    <div style="background:#fff; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.04);">
+                        <h4><i class="fas fa-envelope" style="color:var(--primary-orange);"></i> Email</h4>
+                        <p style="color:var(--text-muted);">info@ciscoprinters.co.ke</p>
+                    </div>
+                </div>
+
+                <div class="contact-form" style="background:#fff; padding:35px; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.05);">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div style="margin-bottom:15px;"><input type="text" id="name" placeholder="Your Full Name" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;" /></div>
+                        <div style="margin-bottom:15px;"><input type="email" id="email" placeholder="Your Email Address" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;" /></div>
+                        <div style="margin-bottom:15px;"><input type="text" id="subject" placeholder="Subject / Service Needed" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;" /></div>
+                        <div style="margin-bottom:15px;"><textarea id="message" rows="4" placeholder="Write your message here..." required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;"></textarea></div>
+                        <button type="submit" class="btn btn-orange" style="width:100%; justify-content:center;">Send Message</button>
+                        <div id="formMessage" style="margin-top:15px; display:none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
     <!-- ===== FOOTER ===== -->
+    <!-- ========================================== -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Cisco Printers Cybercafe. Baraton Center, Nandi County, Kenya[cite: 2]. All rights reserved.</p>
+            <p>&copy; 2026 Cisco Printers Cybercafe &amp; Cyber. Baraton Center, Kenya[cite: 2]. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+    <!-- ========================================== -->
+    <a href="https://wa.me/254700000000" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp" style="position:fixed; bottom:30px; left:30px; background:#25d366; color:#fff; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; z-index:999; box-shadow:0 8px 25px rgba(37,211,102,0.4);">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
+        function toggleSubServices(button) {
+            const subServices = button.nextElementSibling;
+            if (subServices.style.display === "none" || subServices.style.display === "") {
+                subServices.style.display = "flex";
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+            } else {
+                subServices.style.display = "none";
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+            }
+        }
+
+        function toggleTrainingDetails() {
+            const body = document.getElementById("trainingBody");
+            const chevron = document.getElementById("trainingChevron");
+            if (body.style.display === "none" || body.style.display === "") {
+                body.style.display = "block";
+                chevron.style.transform = "rotate(180deg)";
+            } else {
+                body.style.display = "none";
+                chevron.style.transform = "rotate(0deg)";
+            }
+        }
+
+        const tabs = document.querySelectorAll(".cat-tab");
+        const categories = document.querySelectorAll(".service-category");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                categories.forEach(c => c.classList.remove("active"));
+
+                tab.classList.add("active");
+                const targetCategory = tab.getAttribute("data-category");
+                document.querySelector(`.service-category[data-category="${targetCategory}"]`).classList.add("active");
+            });
+        });
+
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
         hamburger.addEventListener("click", () => {
             navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
         });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const msgDiv = document.getElementById("formMessage");
+            msgDiv.style.display = "block";
+            msgDiv.style.background = "#d1fae5";
+            msgDiv.style.color = "#065f46";
+            msgDiv.style.padding = "10px";
+            msgDiv.style.borderRadius = "8px";
+            msgDiv.innerText = "Thank you! Your message has been sent successfully.";
+            document.getElementById("contactForm").reset();
+            setTimeout(() => { msgDiv.style.display = "none"; }, 5000);
+        }
     </script>
 </body>
 </html>
