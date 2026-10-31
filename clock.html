@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Printers Math Clock</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+    }
+
+    /* Wooden Board Frame */
+    .board {
+      position: relative;
+      width: 1000px;
+      height: 650px;
+      background: #0d0e12;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(255, 255, 255, 0.03);
+      border: 4px solid #1a1c23;
+      overflow: hidden;
+    }
+
+    /* Canvas for String Art & Clock */
+    #artCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Branding Text */
+    .brand-container {
+      position: absolute;
+      bottom: 50px;
+      left: 40px;
+      z-index: 2;
+    }
+
+    .brand-title {
+      font-family: Tahoma, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .brand-title .cisco {
+      color: #2563eb;
+    }
+
+    .brand-title .printers {
+      color: #facc15;
+      margin-left: 15px;
+    }
+
+    .brand-tagline {
+      font-family: Tahoma, sans-serif;
+      color: #ffffff;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 500;
+      margin-top: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Watermark */
+    .watermark {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      z-index: 2;
+      color: #a1a1aa;
+      text-align: center;
+      font-family: Tahoma, sans-serif;
+    }
+
+    .watermark .nk-logo {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      border-bottom: 2px solid #a1a1aa;
+      padding-bottom: 2px;
+    }
+
+    .watermark .nk-text {
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="board">
+    <canvas id="artCanvas" width="1000" height="650"></canvas>
+
+    <div class="brand-container">
+      <div class="brand-title">
+        <span class="cisco">Cisco</span>
+        <span class="printers">Printers</span>
+      </div>
+      <div class="brand-tagline">Your designing and printing partner</div>
+    </div>
+
+    <div class="watermark">
+      <div class="nk-logo">NK</div>
+      <div class="nk-text">CREATIVES</div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('artCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const BLUE_COLOR = '#2563eb';
+    const ORANGE_COLOR = '#f97316';
+    const YELLOW_COLOR = '#facc15';
+
+    const CRESCENT_CENTER_X = 260;
+    const CRESCENT_CENTER_Y = 200;
+
+    // String Art Drawing Helper
+    function drawStringArt(curveA, curveB, steps, color, opacity = 0.85, lineWidth = 1) {
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = opacity;
+      ctx.lineWidth = lineWidth;
+
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const pA = curveA(t);
+        const pB = curveB(t);
+
+        ctx.beginPath();
+        ctx.moveTo(pA.x, pA.y);
+        ctx.lineTo(pB.x, pB.y);
+        ctx.stroke();
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(pA.x - 1, pA.y - 1, 2, 2);
+        ctx.fillRect(pB.x - 1, pB.y - 1, 2, 2);
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Corner String-Art Accents
+    function drawCorners() {
+      // Bottom-Left (Blue)
+      drawStringArt(
+        (t) => ({ x: 0, y: 650 - t * 80 }),
+        (t) => ({ x: t * 80, y: 650 }),
+        30,
+        BLUE_COLOR,
+        0.9,
+        1.2
+      );
+
+      // Top-Right (Yellow & Blue)
+      drawStringArt(
+        (t) => ({ x: 1000 - t * 110, y: 0 }),
+        (t) => ({ x: 1000, y: t * 110 }),
+        35,
+        YELLOW_COLOR,
+        0.9,
+        1.2
+      );
+      drawStringArt(
+        (t) => ({ x: 1000 - t * 60, y: 0 }),
+        (t) => ({ x: 1000, y: t * 60 }),
+        20,
+        BLUE_COLOR,
+        0.9,
+        1.2
+      );
+    }
+
+    // Outer Crescents
+    function drawOuterCrescents() {
+      const radius = 170;
+      const lines = 90;
+
+      // Left Crescent (Blue String Art)
+      drawStringArt(
+        (t) => {
+          const angle = Math.PI * 0.55 + t * (Math.PI * 0.95);
+          return { x: CRESCENT_CENTER_X + radius * Math.cos(angle), y: CRESCENT_CENTER_Y + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = Math.PI * 0.75 + t * (Math.PI * 0.55);
+          return { x: CRESCENT_CENTER_X + (radius * 0.5) * Math.cos(angle) - 15, y: CRESCENT_CENTER_Y + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        BLUE_COLOR
+      );
+
+      // Right Crescent (Orange String Art)
+      drawStringArt(
+        (t) => {
+          const angle = -Math.PI * 0.45 + t * (Math.PI * 0.95);
+          return { x: CRESCENT_CENTER_X + radius * Math.cos(angle), y: CRESCENT_CENTER_Y + radius * Math.sin(angle) };
+        },
+        (t) => {
+          const angle = -Math.PI * 0.25 + t * (Math.PI * 0.55);
+          return { x: CRESCENT_CENTER_X + (radius * 0.5) * Math.cos(angle) + 15, y: CRESCENT_CENTER_Y + (radius * 0.5) * Math.sin(angle) };
+        },
+        lines,
+        ORANGE_COLOR
+      );
+    }
+
+    // Solid Plain Font "CP" Centered Inside Logo
+    function drawCP() {
+      ctx.save();
+      const fontSize = 135;
+      ctx.font = `bold ${fontSize}px Tahoma, sans-serif`;
+      ctx.textBaseline = 'middle';
+
+      // Width calculation for centering
+      const cWidth = ctx.measureText('C').width;
+      const pWidth = ctx.measureText('P').width;
+      const gap = 4;
+      const totalWidth = cWidth + pWidth + gap;
+
+      const startX = CRESCENT_CENTER_X - (totalWidth / 2);
+      const startY = CRESCENT_CENTER_Y + 10;
+
+      // Draw Solid Blue "C"
+      ctx.fillStyle = BLUE_COLOR;
+      ctx.fillText('C', startX, startY);
+
+      // Draw Solid Orange "P"
+      ctx.fillStyle = ORANGE_COLOR;
+      ctx.fillText('P', startX + cWidth + gap, startY);
+
+      ctx.restore();
+    }
+
+    // Woven Yellow Outer Border Around Clock
+    function drawClockWovenBorder(cx, cy, innerR, outerR) {
+      const pins = 180;
+      const skip = 42;
+      ctx.strokeStyle = YELLOW_COLOR;
+      ctx.globalAlpha = 0.45;
+      ctx.lineWidth = 0.8;
+
+      for (let i = 0; i < pins; i++) {
+        const a1 = (i / pins) * Math.PI * 2;
+        const a2 = ((i + skip) / pins) * Math.PI * 2;
+
+        const x1 = cx + innerR * Math.cos(a1);
+        const y1 = cy + innerR * Math.sin(a1);
+        const x2 = cx + outerR * Math.cos(a2);
+        const y2 = cy + outerR * Math.sin(a2);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Clock Face & Math Radian Labels
+    function drawClock(cx, cy, radius) {
+      ctx.save();
+
+      // Clock Background Face
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      // Radian Labels
+      const labels = [
+        { angle: -Math.PI / 3, num: 'π', den: '3' },
+        { angle: -Math.PI / 6, num: 'π', den: '6' },
+        { angle: 0, text: '2π' },
+        { angle: Math.PI / 6, num: '11π', den: '6' },
+        { angle: Math.PI / 3, num: '5π', den: '3' },
+        { angle: Math.PI / 2, num: '3π', den: '2' },
+        { angle: (2 * Math.PI) / 3, num: '4π', den: '3' },
+        { angle: (5 * Math.PI) / 6, num: '7π', den: '6' },
+        { angle: Math.PI, text: 'π' },
+        { angle: (-5 * Math.PI) / 6, num: '5π', den: '6' },
+        { angle: (-2 * Math.PI) / 3, num: '2π', den: '3' },
+        { angle: -Math.PI / 2, num: 'π', den: '2' }
+      ];
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      labels.forEach(item => {
+        const tickInner = radius - 25;
+        const tickOuter = radius - 12;
+        const tx1 = cx + tickInner * Math.cos(item.angle);
+        const ty1 = cy + tickInner * Math.sin(item.angle);
+        const tx2 = cx + tickOuter * Math.cos(item.angle);
+        const ty2 = cy + tickOuter * Math.sin(item.angle);
+
+        ctx.beginPath();
+        ctx.moveTo(tx1, ty1);
+        ctx.lineTo(tx2, ty2);
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const labelR = radius - 52;
+        const lx = cx + labelR * Math.cos(item.angle);
+        const ly = cy + labelR * Math.sin(item.angle);
+
+        if (item.text) {
+          ctx.font = 'bold 20px Tahoma, sans-serif';
+          ctx.fillText(item.text, lx, ly);
+        } else {
+          ctx.font = 'bold 15px Tahoma, sans-serif';
+          ctx.fillText(item.num, lx, ly - 8);
+
+          const barWidth = Math.max(ctx.measureText(item.num).width, ctx.measureText(item.den).width) + 4;
+          ctx.beginPath();
+          ctx.moveTo(lx - barWidth / 2, ly);
+          ctx.lineTo(lx + barWidth / 2, ly);
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          ctx.fillText(item.den, lx, ly + 10);
+        }
+      });
+
+      // Center Pi Symbol
+      ctx.font = 'bold 44px "Times New Roman", serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('π', cx, cy + 40);
+
+      // Live Clock Hands
+      const now = new Date();
+      const hrs = now.getHours() % 12;
+      const mins = now.getMinutes();
+      const secs = now.getSeconds();
+
+      const hAngle = ((hrs + mins / 60) * 30 - 90) * (Math.PI / 180);
+      const mAngle = ((mins + secs / 60) * 6 - 90) * (Math.PI / 180);
+      const sAngle = ((secs) * 6 - 90) * (Math.PI / 180);
+
+      // Hour Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(hAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-10, -4);
+      ctx.lineTo(radius * 0.45, -2);
+      ctx.lineTo(radius * 0.55, 0);
+      ctx.lineTo(radius * 0.45, 2);
+      ctx.lineTo(-10, 4);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      // Minute Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(mAngle);
+      ctx.fillStyle = YELLOW_COLOR;
+      ctx.beginPath();
+      ctx.moveTo(-15, -3);
+      ctx.lineTo(radius * 0.7, -1.5);
+      ctx.lineTo(radius * 0.8, 0);
+      ctx.lineTo(radius * 0.7, 1.5);
+      ctx.lineTo(-15, 3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      // Second Hand
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(sAngle);
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-20, 0);
+      ctx.lineTo(radius * 0.82, 0);
+      ctx.stroke();
+
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(0, 0, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    // Main Render Loop
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawCorners();
+      drawOuterCrescents();
+      drawCP();
+
+      const clockCX = 740;
+      const clockCY = 320;
+      const clockRadius = 180;
+
+      drawClockWovenBorder(clockCX, clockCY, clockRadius, clockRadius + 45);
+      drawClock(clockCX, clockCY, clockRadius);
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+
+    // =============================================
+    // ===== SITE PROTECTION =====
+    // =============================================
+    
+    // 1. Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('Right-click is disabled on this site.');
+    });
+
+    // 2. Disable keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+            (e.ctrlKey && e.key === 'U')) {
+            e.preventDefault();
+            alert('This action is disabled for security.');
+        }
+    });
+
+    // 3. Detect Developer Tools
+    setInterval(function() {
+        if (window.outerHeight - window.innerHeight > 200) {
+            document.body.innerHTML = '<h1 style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;font-size:2rem;text-align:center;">🔒 Developer tools detected. Please close them.</h1>';
+            document.body.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#1a1a2e;color:white;';
+        }
+    }, 1000);
+
+    console.log('🔒 Cisco Printers Clock - Protected');
+  </script>
+
+</body>
+</html>

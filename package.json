@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.112.3",
+    "postgres": "^3.4.9"
+  },
+  "name": "ciscoprinters-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/printerscisco-glitch/ciscoprinters-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/printerscisco-glitch/ciscoprinters-website/issues"
+  },
+  "homepage": "https://github.com/printerscisco-glitch/ciscoprinters-website#readme"
+}
