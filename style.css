@@ -404,7 +404,7 @@ nav[aria-label="Main"] { margin-left: auto; }
 @media (max-width: 640px) {
     .view-bar { justify-content: center; }
     .wheel-svg .catlabel text { font-size: 17px; }
-    .wheel-svg .glyph { font-size: 27px; }
+    .wheel-svg .glyph { font-size: 31px; }
 }
 @media (prefers-reduced-motion: reduce) {
     .wheel-svg .pop { transition-duration: 0.01ms !important; }

@@ -14,7 +14,7 @@
     var COLORS = ['#2c8cff', '#ff2e93', '#8f63ff', '#5ee7ff', '#e56bff']; // site palette
     var SECTOR = 72;            // 360 / 5 categories
     var R_IN = 165, R_OUT = 450, R_LABEL = 436, R_RING = 118;
-    var BUB_R = 33;
+    var BUB_R = 33, narrow = false;
     var SPEED = 5;              // degrees per second (one turn = 72 s)
     var WA = 'https://wa.me/254769357320';
 
@@ -77,6 +77,8 @@
 
     /* ---------- build the SVG ---------- */
     function build() {
+        narrow = window.innerWidth < 700;
+        BUB_R = narrow ? 40 : 33;      // bigger tap targets on phones
         cats = readData();
         if (!cats.length) return;
         svg.textContent = '';
@@ -299,15 +301,23 @@
         tween = { from: A, to: to, t0: performance.now(), d: 900 };
         ensureLoop();
     }
+    function revealDetail() {
+        // on stacked (tablet/phone) layouts the panel sits below the wheel, so bring it into view
+        if (window.innerWidth <= 1000 && detail.scrollIntoView) {
+            detail.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+        }
+    }
     function selectService(ci, j) {
         sel = { c: ci, s: j }; selCat = ci;
         refresh(); renderDetail();
         rotateTo(-ci * SECTOR);
+        revealDetail();
     }
     function chooseCategory(ci) {
         sel = null; selCat = ci;
         refresh(); renderDetail();
         rotateTo(-ci * SECTOR);
+        revealDetail();
     }
     function resetView() {
         sel = null; selCat = null; userPaused = reduce; hover = false;
@@ -414,9 +424,24 @@
 
     /* ---------- init ---------- */
     function init() {
-        build();
-        syncPlay();
-        setView(window.innerWidth >= 760 ? 'wheel' : 'list');
+        try {
+            build();
+            syncPlay();
+            setView('wheel');          // wheel is the default on every screen size
+        } catch (err) {
+            // if anything goes wrong, leave the plain List view in place
+            if (window.console) console.error('Services wheel failed to start:', err);
+            sheet.classList.remove('wheel-mode');
+        }
     }
+    // rebuild when crossing the phone breakpoint so bubble sizes stay tappable
+    var wasNarrow = window.innerWidth < 700, resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            var n = window.innerWidth < 700;
+            if (n !== wasNarrow) { wasNarrow = n; if (built) { build(); } }
+        }, 200);
+    });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(init); else init();
 })();
