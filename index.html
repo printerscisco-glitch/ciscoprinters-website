@@ -10,9 +10,9 @@
     <meta name="keywords" content="cybercafe Baraton, internet cafe Kenya, printing services Nandi, computer training, passport photos" />
     <meta name="author" content="Cisco Printers Cybercafe" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0a0b0f" />
+    <meta name="theme-color" content="#fbeb55" />
     <link rel="canonical" href="https://ciscoprinters.co.ke/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0b0f'/%3E%3Ctext x='50' y='68' font-size='56' font-weight='800' text-anchor='middle' fill='%23ff7a1a' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23fbeb55'/%3E%3Ctext x='50' y='68' font-size='56' font-weight='800' text-anchor='middle' fill='%23111111' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Cisco Printers Cybercafe | Baraton, Kenya" />
@@ -54,14 +54,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-glow" aria-hidden="true"></div>
 
     <!-- ===== NAV ===== -->
     <header class="nav" id="nav">
@@ -84,7 +82,8 @@
                 </ul>
             </nav>
 
-            <a href="#contact" class="btn btn-primary nav-cta">Contact us</a>
+            <a href="tel:+254769357320" class="nav-phone"><i class="fas fa-phone"></i> 0769 357 320</a>
+            <a href="#contact" class="btn nav-cta">Contact us</a>
 
             <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
                 <span></span><span></span>
@@ -95,45 +94,58 @@
     <main id="main">
 
         <!-- ===== HERO ===== -->
-        <section class="hero" id="home">
-            <div class="wrap hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow reveal"><span class="dot"></span> Open today · Baraton Center, Nandi County</p>
-                    <h1 class="reveal">
-                        Print it. Browse it.<br />
-                        <span class="grad">Learn it.</span>
-                    </h1>
-                    <p class="lead reveal">
-                        The digital hub for students, professionals and the whole of Kenya. 100&nbsp;Mbps internet, instant printing, design, and hands-on computer training under one roof, with online orders from anywhere.
-                    </p>
-                    <div class="hero-actions reveal">
-                        <a href="#services" class="btn btn-primary">Explore services <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/254769357320" class="btn btn-ghost" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
-                    </div>
-
-                    <dl class="hero-stats reveal">
-                        <div><dt>100 Mbps</dt><dd>Fiber internet</dd></div>
-                        <div><dt>KES 5</dt><dd>Per printed page</dd></div>
-                        <div><dt>7 days</dt><dd>A week</dd></div>
-                    </dl>
-                </div>
-
-                <div class="hero-visual reveal" aria-hidden="true">
-                    <div class="terminal">
-                        <div class="terminal-bar">
-                            <span></span><span></span><span></span>
-                            <em>print-queue.sh</em>
+        <section class="frame" id="home">
+            <div class="hero-card">
+                <span class="ring" aria-hidden="true"></span>
+                <div class="wrap hero-grid">
+                    <div class="hero-copy">
+                        <p class="eyebrow reveal"><i class="fas fa-location-dot"></i> Baraton Center, Nandi County</p>
+                        <h1 class="reveal">Get anything<br />printed</h1>
+                        <p class="hero-sub reveal">and online too — we serve all of Kenya</p>
+                        <div class="hero-actions reveal">
+                            <a href="#services" class="btn btn-primary btn-lg">More info <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/254769357320" class="btn btn-white btn-lg" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
                         </div>
-                        <pre class="terminal-body"><span class="muted">$</span> cisco print --pages 12 --colour
-<span class="ok">✓</span> File received
-<span class="ok">✓</span> Colour, A4 · KES 120
-<span class="ok">✓</span> Ready in ~2 min
-<span class="muted">$</span> cisco pay --mpesa 542542
-<span class="ok">✓</span> Paid · see you at the counter<span class="cursor">▍</span></pre>
+                        <dl class="hero-stats reveal">
+                            <div><dt>100 Mbps</dt><dd>Fiber internet</dd></div>
+                            <div><dt>KES 5</dt><dd>Per printed page</dd></div>
+                            <div><dt>7 days</dt><dd>A week</dd></div>
+                        </dl>
                     </div>
-                    <div class="chip chip-1"><i class="fas fa-wifi"></i> 100 Mbps</div>
-                    <div class="chip chip-2"><i class="fas fa-bolt"></i> Instant print</div>
-                    <div class="chip chip-3"><i class="fas fa-graduation-cap"></i> Certified training</div>
+
+                    <div class="hero-visual reveal" aria-hidden="true">
+                        <svg class="scene" viewBox="0 0 560 580" role="presentation" focusable="false">
+                            <defs>
+                                <linearGradient id="sun" x1="0.2" y1="0" x2="0.8" y2="1">
+                                    <stop offset="0" stop-color="#ffa23d" />
+                                    <stop offset="1" stop-color="#f26a0d" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="300" cy="310" r="225" fill="url(#sun)" />
+                            <g fill="#fff">
+                                <ellipse cx="450" cy="105" rx="80" ry="26" /><circle cx="410" cy="88" r="34" /><circle cx="466" cy="82" r="26" />
+                                <ellipse cx="86" cy="470" rx="72" ry="22" /><circle cx="56" cy="454" r="26" /><circle cx="112" cy="450" r="22" />
+                            </g>
+                            <path d="M10 360 C 80 320, 130 390, 200 345" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="2 11" stroke-linecap="round" />
+                            <g class="plane">
+                                <path d="M130 215 L470 120 L290 300 Z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round" />
+                                <path d="M290 300 L470 120 L335 372 Z" fill="#e8e6dc" stroke="#111" stroke-width="5" stroke-linejoin="round" />
+                                <path d="M130 215 L290 300" stroke="#111" stroke-width="5" stroke-linecap="round" />
+                                <path d="M305 338 L318 410" stroke="#111" stroke-width="3" stroke-dasharray="4 6" stroke-linecap="round" />
+                                <g transform="rotate(7 320 470)">
+                                    <rect x="266" y="410" width="108" height="136" rx="12" fill="#fff" stroke="#111" stroke-width="5" />
+                                    <rect x="284" y="432" width="72" height="8" rx="4" fill="#111" />
+                                    <rect x="284" y="452" width="56" height="8" rx="4" fill="#d6d3c0" />
+                                    <rect x="284" y="472" width="64" height="8" rx="4" fill="#d6d3c0" />
+                                    <circle cx="320" cy="512" r="14" fill="#f26a0d" />
+                                    <path d="M313 512 l5 6 l10 -12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="chip chip-1"><i class="fas fa-wifi"></i> 100 Mbps</div>
+                        <div class="chip chip-2"><i class="fas fa-bolt"></i> Instant print</div>
+                        <div class="chip chip-3"><i class="fas fa-graduation-cap"></i> Certified training</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -147,7 +159,7 @@
         </div>
 
         <!-- ===== SERVICES ===== -->
-        <section class="section" id="services">
+        <section class="sheet" id="services">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="label">01 / Services</p>
@@ -363,7 +375,7 @@
         </section>
 
         <!-- ===== TRAINING ===== -->
-        <section class="section" id="training">
+        <section class="sheet sheet-orange" id="training">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="label">02 / Training</p>
@@ -391,7 +403,7 @@
         </section>
 
         <!-- ===== PRICING ===== -->
-        <section class="section" id="pricing">
+        <section class="sheet sheet-dark" id="pricing">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="label">03 / Pricing</p>
@@ -448,7 +460,7 @@
         </section>
 
         <!-- ===== ABOUT ===== -->
-        <section class="section" id="about">
+        <section class="sheet" id="about">
             <div class="wrap about-grid">
                 <div class="reveal">
                     <p class="label">04 / About</p>
@@ -467,7 +479,7 @@
         </section>
 
         <!-- ===== CONTACT ===== -->
-        <section class="section" id="contact">
+        <section class="sheet" id="contact">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="label">05 / Contact</p>
