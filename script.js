@@ -148,7 +148,7 @@
 (function () {
     'use strict';
 
-    var sheet = document.getElementById('services');
+    var sheet = document.getElementById('home');   // the hero hosts the wheel
     var svg = document.getElementById('wheelSvg');
     var detail = document.getElementById('wheelDetail');
     var legend = document.getElementById('wheelLegend');
@@ -190,6 +190,29 @@
     function norm(d) { return ((d + 540) % 360) - 180; }
     function trunc(s, n) { return s.length > n ? s.slice(0, n - 1) + '…' : s; }
 
+    /* Read an icon's character from the Font Awesome stylesheet. The cards sit in
+       hidden tabs, so measure a fresh copy in a visible, off-screen box instead. */
+    var probe;
+    function glyphFor(iconEl) {
+        if (!probe) {
+            probe = document.createElement('div');
+            probe.setAttribute('aria-hidden', 'true');
+            probe.style.cssText = 'position:absolute;left:-9999px;top:0;width:0;height:0;overflow:hidden';
+            document.body.appendChild(probe);
+        }
+        var names = [].filter.call(iconEl.classList, function (c) { return /^fa-/.test(c); }).join(' ');
+        var i = document.createElement('i');
+        i.className = 'fas ' + names;
+        probe.appendChild(i);
+        var raw = window.getComputedStyle(i, '::before').content || '';
+        probe.removeChild(i);
+        // take the first quoted string (newer Font Awesome adds alt text after a slash)
+        var m = /^"((?:[^"\\]|\\.)*)"/.exec(raw) || /^'((?:[^'\\]|\\.)*)'/.exec(raw);
+        var c = m ? m[1] : '';
+        if (/^\\[0-9a-f]{3,6}$/i.test(c)) c = String.fromCodePoint(parseInt(c.slice(1), 16));
+        return c;
+    }
+
     /* ---------- read the service data out of the list view ---------- */
     function readData() {
         var tabEls = document.querySelectorAll('#listView .tab');
@@ -198,8 +221,7 @@
             var services = [];
             p.querySelectorAll('.card').forEach(function (c) {
                 var icon = c.querySelector('.card-icon');
-                var glyph = icon ? window.getComputedStyle(icon, '::before').content : '';
-                glyph = glyph && glyph !== 'none' && glyph !== 'normal' ? glyph.replace(/^["']|["']$/g, '') : '';
+                var glyph = icon ? glyphFor(icon) : '';
                 var link = c.querySelector('.card-link');
                 var title = c.querySelector('h3').textContent.trim();
                 services.push({
@@ -289,7 +311,6 @@
                 var pos = pol(s.r, s.a);
                 var g = el('g', { 'class': 'bub', tabindex: 0, role: 'button', 'aria-label': s.title + ', ' + cat.name }, wheelG);
                 var pop = el('g', { 'class': 'pop' }, g);
-                pop.style.transitionDelay = (idx * 45 + 250) + 'ms';
                 el('circle', { r: BUB_R + 8, 'class': 'focusring', fill: 'none', stroke: '#fff', 'stroke-width': 2 }, pop);
                 el('circle', { r: BUB_R, 'class': 'disc', fill: cat.color, 'fill-opacity': 0.2, stroke: cat.color, 'stroke-width': 2 }, pop);
                 var t = el('text', { 'class': 'glyph' }, pop);
@@ -307,9 +328,11 @@
             var lp = pol(R_LABEL, -90 + ci * SECTOR);
             var lg = el('g', { 'class': 'catlabel' }, wheelG);
             var label = cat.name.toUpperCase();
-            var w = label.length * 12 + 30;
-            el('rect', { x: f(-w / 2), y: -13, width: w, height: 26, rx: 13, fill: 'rgba(5,6,13,.85)', stroke: cat.color, 'stroke-width': 1.5 }, lg);
+            var LF = narrow ? 26 : 20;                       // label font size, in wheel units
+            var w = label.length * LF * 0.82 + LF * 1.6, hh = LF * 1.7;
+            el('rect', { x: f(-w / 2), y: f(-hh / 2), width: f(w), height: f(hh), rx: f(hh / 2), fill: 'rgba(5,6,13,.88)', stroke: cat.color, 'stroke-width': 2 }, lg);
             var lt = el('text', {}, lg);
+            lt.style.fontSize = LF + 'px';
             lt.textContent = label;
             labels.push({ node: lg, x: lp[0], y: lp[1] });
         });
@@ -335,10 +358,10 @@
         for (var k = 0; k < 72; k++) { var q = pol(k % 2 ? 80 : 89, k * 5); pts.push(f(q[0]) + ',' + f(q[1])); }
         el('polygon', { points: pts.join(' '), fill: 'url(#hubGrad)', filter: 'url(#wglow)' }, hub);
         el('circle', { r: 68, fill: 'none', stroke: 'rgba(255,255,255,.35)', 'stroke-width': 1, 'stroke-dasharray': '2 5' }, hub);
-        var t1 = el('text', { 'class': 'hub-t1', y: -20 }, hub); t1.textContent = 'CISCO';
-        var t2 = el('text', { 'class': 'hub-t1', y: 0 }, hub); t2.textContent = 'PRINTERS';
-        hubSub = el('text', { 'class': 'hub-t2', y: 22 }, hub);
-        var t4 = el('text', { 'class': 'hub-t3', y: 40 }, hub); t4.textContent = 'BARATON · KENYA';
+        var t1 = el('text', { 'class': 'hub-t1', y: -27 }, hub); t1.textContent = 'CISCO';
+        var t2 = el('text', { 'class': 'hub-t1', y: -5 }, hub); t2.textContent = 'PRINTERS';
+        hubSub = el('text', { 'class': 'hub-t2', y: 20 }, hub);
+        var t4 = el('text', { 'class': 'hub-t3', y: 42 }, hub); t4.textContent = 'BARATON';
 
         /* legend: category buttons + notes */
         cats.forEach(function (cat, ci) {
@@ -352,8 +375,6 @@
             legend.appendChild(b);
             legBtns.push(b);
         });
-        legend.appendChild(h('span', 'leg-note', 'Inner ring: every service'));
-        legend.appendChild(h('span', 'leg-note', 'Lines: hub → category → service'));
 
         built = true;
         refresh();
@@ -372,6 +393,7 @@
     }
 
     function refresh() {
+        sheet.classList.toggle('has-detail', !!sel || selCat != null);
         svg.classList.toggle('has-sel', !!sel);
         bubs.forEach(function (b) { b.node.classList.toggle('active', !!sel && sel.c === b.c && sel.s === b.s); });
         spokes.forEach(function (s) { s.node.classList.toggle('active', !!sel && sel.c === s.c && sel.s === s.s); });
@@ -379,16 +401,30 @@
         sectors.forEach(function (s, i) { s.classList.toggle('active', selCat === i); });
         legBtns.forEach(function (b, i) { b.classList.toggle('active', selCat === i); b.setAttribute('aria-pressed', String(selCat === i)); });
         if (!hubSub) return;
-        if (sel) hubSub.textContent = trunc(cats[sel.c].services[sel.s].title, 20);
-        else if (selCat != null) hubSub.textContent = cats[selCat].name + ' · ' + cats[selCat].services.length;
-        else hubSub.textContent = bubs.length + ' services';
+        var hubTxt;
+        if (sel) hubTxt = trunc(cats[sel.c].services[sel.s].title, 22);
+        else if (selCat != null) hubTxt = cats[selCat].name + ' · ' + cats[selCat].services.length;
+        else hubTxt = bubs.length + ' services';
+        hubSub.textContent = hubTxt;
+        hubSub.style.fontSize = (hubTxt.length <= 12 ? 14 : hubTxt.length <= 17 ? 12 : 10.5) + 'px';
     }
+
+    function backButton(where, fn) {
+        var b = h('button', 'wd-back');
+        b.type = 'button';
+        b.appendChild(h('i', 'fas fa-arrow-left'));
+        b.appendChild(document.createTextNode(' Back to ' + where));
+        b.addEventListener('click', fn);
+        return b;
+    }
+    function clearSel() { sel = null; selCat = null; refresh(); renderDetail(); }
 
     /* ---------- detail panel ---------- */
     function renderDetail() {
         detail.textContent = '';
         if (sel) {
             var cat = cats[sel.c], s = cat.services[sel.s];
+            detail.appendChild(backButton(cat.name, function () { sel = null; refresh(); renderDetail(); }));
             var chip = h('span', 'wd-chip', cat.name);
             chip.style.setProperty('--c', cat.color);
             detail.appendChild(chip);
@@ -414,6 +450,7 @@
             detail.appendChild(row);
         } else if (selCat != null) {
             var c = cats[selCat];
+            detail.appendChild(backButton('all services', clearSel));
             var chip2 = h('span', 'wd-chip', c.name);
             chip2.style.setProperty('--c', c.color);
             detail.appendChild(chip2);
@@ -447,7 +484,7 @@
     }
     function revealDetail() {
         // on stacked (tablet/phone) layouts the panel sits below the wheel, so bring it into view
-        if (window.innerWidth <= 1000 && detail.scrollIntoView) {
+        if (window.innerWidth <= 1024 && detail.scrollIntoView) {
             detail.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
         }
     }
@@ -483,7 +520,7 @@
     /* ---------- animation loop ---------- */
     function frame(t) {
         raf = 0;
-        if (!visible || !sheet.classList.contains('wheel-mode') || document.hidden) { last = 0; return; }
+        if (!visible || document.hidden) { last = 0; return; }
         var dt = last ? Math.min(0.05, (t - last) / 1000) : 0;
         last = t;
         if (tween) {
@@ -528,24 +565,18 @@
     svg.addEventListener('pointerup', endDrag);
     svg.addEventListener('pointercancel', endDrag);
 
-    /* ---------- view toggle + tools ---------- */
-    var segs = [].slice.call(sheet.querySelectorAll('.seg-btn'));
-    function setView(mode) {
-        sheet.classList.toggle('wheel-mode', mode === 'wheel');
-        segs.forEach(function (b) {
-            var on = b.getAttribute('data-view') === mode;
-            b.classList.toggle('active', on);
-            b.setAttribute('aria-pressed', String(on));
-        });
-        if (mode === 'wheel') ensureLoop();
-    }
-    segs.forEach(function (b) { b.addEventListener('click', function () { setView(b.getAttribute('data-view')); }); });
+    /* ---------- keyboard + tools ---------- */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && built && (sel || selCat != null)) clearSel();
+    });
 
     var playBtn = document.getElementById('wheelPlay');
     function syncPlay() {
         if (!playBtn) return;
+        var label = userPaused ? 'Resume rotation' : 'Pause rotation';
         playBtn.setAttribute('aria-pressed', String(userPaused));
-        playBtn.querySelector('span').textContent = userPaused ? 'Play' : 'Pause';
+        playBtn.setAttribute('aria-label', label);
+        playBtn.title = label;
         playBtn.querySelector('i').className = userPaused ? 'fas fa-play' : 'fas fa-pause';
     }
     if (playBtn) playBtn.addEventListener('click', function () { userPaused = !userPaused; syncPlay(); });
@@ -558,12 +589,12 @@
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(function (entries) {
             visible = entries[0].isIntersecting;
-            if (visible) {
-                ensureLoop();
-                if (!didIntro && sheet.classList.contains('wheel-mode')) { didIntro = true; playIntro(); }
-            }
-        }, { threshold: 0.25 }).observe(svg);
+            if (visible) { ensureLoop(); maybeIntro(); }
+        }, { threshold: 0.2 }).observe(svg);
     } else { visible = true; }
+    function maybeIntro() {
+        if (!didIntro && built && visible) { didIntro = true; playIntro(); }
+    }
     document.addEventListener('visibilitychange', function () { if (!document.hidden) ensureLoop(); });
 
     /* ---------- init ---------- */
@@ -571,11 +602,14 @@
         try {
             build();
             syncPlay();
-            setView('wheel');          // wheel is the default on every screen size
+            if (!reduce) svg.classList.add('intro');   // start collapsed so the first pop-in is not a flash
+            ensureLoop();
+            maybeIntro();
+            setTimeout(function () { if (!didIntro) svg.classList.remove('intro'); }, 3000);
         } catch (err) {
-            // if anything goes wrong, leave the plain List view in place
+            // if anything goes wrong, hide the wheel; the rest of the page keeps working
             if (window.console) console.error('Services wheel failed to start:', err);
-            sheet.classList.remove('wheel-mode');
+            sheet.classList.add('wheel-failed');
         }
     }
     // rebuild when crossing the phone breakpoint so bubble sizes stay tappable

@@ -56,7 +56,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css?v=3" />
+    <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -103,7 +103,7 @@
                 <div class="hero-copy">
                     <p class="eyebrow reveal"><i class="fas fa-location-dot"></i> Baraton Center, Nandi County</p>
                     <h1 class="reveal">Get anything<br />printed</h1>
-                    <p class="hero-sub reveal">Fast internet, instant printing, design and computer training. Order online from anywhere in Kenya, or visit us in Baraton.</p>
+                    <p class="hero-sub reveal">Fast internet, instant printing, design and computer training. Spin the wheel to explore our services, order online from anywhere in Kenya, or visit us in Baraton.</p>
                     <a href="#services" class="hero-more reveal">Read more</a>
                     <div class="hero-actions reveal">
                         <a href="#contact" class="btn btn-primary btn-lg">Get started <i class="fas fa-arrow-right"></i></a>
@@ -116,13 +116,21 @@
                     </dl>
                 </div>
 
-                <div class="hero-visual reveal" aria-hidden="true">
-                    <div class="orb"></div>
-                    <p class="orb-text"><span>Print.</span><span>Browse.</span><span>Learn.</span></p>
-                    <div class="chip chip-1"><i class="fas fa-wifi"></i> 100 Mbps</div>
-                    <div class="chip chip-2"><i class="fas fa-bolt"></i> Instant print</div>
-                    <div class="chip chip-3"><i class="fas fa-graduation-cap"></i> Certified training</div>
+                <div class="hero-visual reveal">
+                    <div class="wheel-stage">
+                        <div class="wheel-box">
+                            <svg id="wheelSvg" class="wheel-svg" viewBox="-500 -500 1000 1000" role="group" aria-label="Interactive wheel of our services. Choose a service to see details. The full list is further down the page."></svg>
+                        </div>
+                    </div>
+                    <div class="wheel-legend" id="wheelLegend"></div>
+                    <div class="wheel-tools" role="group" aria-label="Wheel controls">
+                        <button type="button" class="tool" id="wheelPlay" aria-pressed="false" aria-label="Pause rotation" title="Pause rotation"><i class="fas fa-pause"></i></button>
+                        <button type="button" class="tool" id="wheelReplay" aria-label="Replay intro" title="Replay intro"><i class="fas fa-rotate-right"></i></button>
+                        <button type="button" class="tool" id="wheelReset" aria-label="Reset view" title="Reset view"><i class="fas fa-arrows-rotate"></i></button>
+                    </div>
                 </div>
+
+                <aside class="wheel-detail" id="wheelDetail" aria-live="polite"></aside>
             </div>
 
             <p class="hero-loc"><i class="fas fa-location-dot"></i> Baraton, Nandi County, Kenya</p>
@@ -142,28 +150,6 @@
                 <div class="section-head reveal">
                     <p class="label">01 / Services</p>
                     <h2>Everything you need,<br /><span class="dim">nothing you don't.</span></h2>
-                </div>
-
-                <div class="view-bar reveal">
-                    <div class="seg" role="group" aria-label="Choose how to browse services">
-                        <button type="button" class="seg-btn active" data-view="wheel" aria-pressed="true"><i class="fas fa-circle-notch"></i> Wheel</button>
-                        <button type="button" class="seg-btn" data-view="list" aria-pressed="false"><i class="fas fa-list"></i> List</button>
-                    </div>
-                    <div class="wheel-tools">
-                        <button type="button" class="tool" id="wheelPlay" aria-pressed="false"><i class="fas fa-pause"></i> <span>Pause</span></button>
-                        <button type="button" class="tool" id="wheelReplay"><i class="fas fa-rotate-right"></i> Replay intro</button>
-                        <button type="button" class="tool" id="wheelReset"><i class="fas fa-arrows-rotate"></i> Reset view</button>
-                    </div>
-                </div>
-
-                <div class="wheel-view" id="wheelView">
-                    <div class="wheel-stage">
-                        <div class="wheel-box">
-                            <svg id="wheelSvg" class="wheel-svg" viewBox="-500 -500 1000 1000" role="group" aria-label="Interactive wheel of our services. Switch to the List view for a plain text version."></svg>
-                        </div>
-                        <div class="wheel-legend" id="wheelLegend"></div>
-                    </div>
-                    <aside class="wheel-detail" id="wheelDetail" aria-live="polite"></aside>
                 </div>
 
                 <div class="list-view" id="listView">
@@ -597,6 +583,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
